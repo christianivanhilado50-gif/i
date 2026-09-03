@@ -1,6 +1,5 @@
 # i
- 
-<html lang="en">
+ <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,1102 +7,2237 @@
 <title>A Little Surprise For You 💐💗</title>
 
 <style>
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-    width: 100%;
-    min-width: 0;
-    min-height: 100vh;
-    min-height: 100dvh;
-    margin: 0;
-    padding: 20px;
+  min-height: 100vh;
+  min-height: 100dvh;
 
-    display: grid;
-    place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+  padding: 20px;
 
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background:
-        radial-gradient(circle at top left, #ffd9e7, transparent 35%),
-        radial-gradient(circle at bottom right, #ffc4d9, transparent 35%),
-        linear-gradient(135deg, #fff0f5, #ffe0eb);
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
 
-    color: #6b2945;
+  color: #8a4560;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      #ffffff 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      #ffb6d0 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      #ffd1e2 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #ffc9dd,
+      #fff0f6,
+      #ffc4da
+    );
+
+  overflow: hidden;
 }
 
-/* =========================
+
+/* =====================================================
+   BACKGROUND HEARTS
+===================================================== */
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0;
+
+  animation:
+    floatUp
+    6s
+    linear
+    forwards;
+}
+
+@keyframes floatUp {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+/* =====================================================
+   FLOATING FLOWERS
+===================================================== */
+
+.flower {
+  position: fixed;
+  bottom: -60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+
+  animation:
+    flowerUp
+    8s
+    linear
+    forwards;
+}
+
+@keyframes flowerUp {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .9;
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      rotate(300deg);
+    opacity: 0;
+  }
+}
+
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+.sparkle {
+  position: fixed;
+  color: #f08aaa;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 3;
+
+  animation:
+    sparkle
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: .3;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+
+/* =====================================================
    MAIN CARD
-========================= */
+===================================================== */
 
 .card {
-    width: 100%;
-    max-width: 450px;
-    min-width: 0;
+  width: min(100%, 450px);
 
-    max-height: 94vh;
-    max-height: 94dvh;
+  max-width: 100%;
+  min-width: 0;
 
-    margin: 0 auto;
-    padding: 30px 24px;
+  max-height: 94vh;
+  max-height: 94dvh;
 
-    position: relative;
-    z-index: 10;
+  padding: 30px 24px;
 
-    text-align: center;
+  position: relative;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+  z-index: 10;
 
-    scrollbar-width: none;
+  text-align: center;
 
-    background: rgba(255, 255, 255, 0.94);
+  overflow-y: auto;
+  overflow-x: hidden;
 
-    border: 2px solid rgba(255, 182, 208, 0.75);
-    border-radius: 32px;
+  scrollbar-width: none;
 
-    box-shadow:
-        0 20px 50px rgba(214, 83, 122, 0.25),
-        0 5px 15px rgba(214, 83, 122, 0.1);
+  background:
+    rgba(255, 255, 255, .94);
 
-    backdrop-filter: blur(12px);
+  border:
+    2px solid
+    rgba(255, 182, 208, .75);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(214, 83, 122, .25),
+
+    0 5px 15px
+    rgba(214, 83, 122, .1);
+
+  backdrop-filter:
+    blur(12px);
 }
 
 .card::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-/* =========================
-   PAGES
-========================= */
+
+/* =====================================================
+   BOWS
+===================================================== */
+
+.corner-bow {
+  position: absolute;
+  font-size: 30px;
+
+  animation:
+    bowWiggle
+    2s
+    ease-in-out
+    infinite;
+}
+
+.bow-left {
+  top: 12px;
+  left: 15px;
+}
+
+.bow-right {
+  top: 12px;
+  right: 15px;
+  animation-delay: .5s;
+}
+
+@keyframes bowWiggle {
+
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+
+  50% {
+    transform:
+      rotate(8deg)
+      scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   PAGE TRANSITIONS
+===================================================== */
 
 .page {
-    width: 100%;
-    min-width: 0;
+  width: 100%;
+  min-width: 0;
 
-    display: none;
-
-    animation: pageIn 0.6s ease forwards;
-}
-
-.page.active {
-    display: block;
+  animation:
+    pageIn
+    .7s
+    ease;
 }
 
 @keyframes pageIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* =========================
-   TEXT
-========================= */
-
-h1 {
-    margin: 10px 0;
-    color: #d94d7a;
-    font-size: clamp(28px, 8vw, 42px);
+.hidden {
+  display: none !important;
 }
 
-h2 {
-    margin: 10px 0;
-    color: #d94d7a;
-    font-size: clamp(24px, 7vw, 34px);
+
+/* =====================================================
+   INTRODUCTION
+===================================================== */
+
+.intro {
+  padding:
+    20px
+    5px
+    10px;
 }
 
-p {
-    line-height: 1.7;
-    font-size: 16px;
+.intro-small {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #c27a94;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
-button {
-    border: none;
-    cursor: pointer;
-
-    font-family: inherit;
-    font-weight: bold;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+.intro-title {
+  margin-top: 15px;
+  font-size: 28px;
+  color: #df507d;
 }
 
-.main-btn {
-    margin-top: 20px;
-
-    padding: 14px 25px;
-
-    border-radius: 30px;
-
-    background: linear-gradient(
-        135deg,
-        #ff72a5,
-        #e94d7d
-    );
-
-    color: white;
-
-    font-size: 16px;
-
-    box-shadow:
-        0 8px 20px rgba(221, 74, 119, 0.3);
+.intro-text {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #98506a;
 }
 
-.main-btn:hover {
-    transform: translateY(-3px) scale(1.03);
 
-    box-shadow:
-        0 12px 25px rgba(221, 74, 119, 0.4);
-}
+/* =====================================================
+   BIG SINGLE VIRTUAL BOUQUET
+===================================================== */
 
-.main-btn:active {
-    transform: scale(0.97);
-}
+.bouquet {
+  width: 100%;
 
-/* =========================
-   BOUQUET
-========================= */
+  min-height: 300px;
 
-.big-bouquet {
-    font-size: clamp(70px, 22vw, 110px);
+  margin:
+    5px
+    auto
+    5px;
 
-    margin: 10px auto 5px;
+  display: flex;
 
-    line-height: 1;
+  justify-content: center;
+  align-items: center;
 
-    animation: bouquetFloat 3s ease-in-out infinite;
+  position: relative;
+
+  overflow: visible;
+
+  animation:
+    bouquetFloat
+    3s
+    ease-in-out
+    infinite;
 }
 
 @keyframes bouquetFloat {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
 
-    50% {
-        transform: translateY(-10px);
-    }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-.subtitle {
-    font-size: 15px;
-    color: #a4516d;
+
+/*
+  ONE BIG BOUQUET
+
+  The emoji itself is intentionally large.
+*/
+
+.big-bouquet {
+  display: block;
+
+  font-size: 190px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  filter:
+    drop-shadow(
+      0 12px 10px
+      rgba(214, 83, 122, .20)
+    );
+
+  transform-origin: center center;
+
+  user-select: none;
 }
 
-/* =========================
-   ENVELOPE
-========================= */
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
+.open-button {
+  margin-top: 15px;
+
+  padding:
+    14px
+    27px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f06f9a,
+      #df4f7d
+    );
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(214, 83, 122, .25);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.open-button:hover {
+  transform:
+    translateY(-3px)
+    scale(1.03);
+
+  box-shadow:
+    0 10px 25px
+    rgba(214, 83, 122, .35);
+}
+
+.open-button:active {
+  transform: scale(.96);
+}
+
+
+/* =====================================================
+   ENVELOPE PAGE
+===================================================== */
 
 .envelope-area {
-    padding: 25px 0;
+  padding:
+    15px
+    5px
+    10px;
+}
+
+.envelope-title {
+  margin-top: 10px;
+  font-size: 25px;
+  color: #df507d;
+}
+
+.envelope-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #b86e88;
 }
 
 .envelope {
-    position: relative;
+  width: 290px;
+  max-width: 100%;
+  height: 190px;
 
-    width: min(260px, 75vw);
-    height: 170px;
+  margin:
+    35px
+    auto
+    25px;
 
-    margin: 30px auto;
+  position: relative;
 
-    background: #ffc3d7;
+  cursor: pointer;
 
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 15px 30px rgba(210, 76, 120, 0.2);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+  perspective: 700px;
 }
 
-.envelope:hover {
-    transform: translateY(-5px);
+.envelope-body {
+  position: absolute;
+  inset: 0;
 
-    box-shadow:
-        0 20px 35px rgba(210, 76, 120, 0.3);
+  background:
+    linear-gradient(
+      135deg,
+      #fff4f8,
+      #ffd5e3
+    );
+
+  border:
+    2px solid
+    #f2b5ca;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 12px 25px
+    rgba(214, 83, 122, .18);
+
+  overflow: hidden;
 }
 
-.envelope::before {
-    content: "";
+.envelope-body::before {
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    left: 0;
-    top: 0;
+  bottom: 0;
+  left: 0;
 
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 
-    border-left: 130px solid transparent;
-    border-right: 130px solid transparent;
-    border-top: 95px solid #ff9fbd;
+  border-left:
+    143px solid transparent;
+
+  border-right:
+    143px solid transparent;
+
+  border-bottom:
+    105px solid
+    #ffc5d8;
 }
 
-.envelope::after {
-    content: "";
+.envelope-body::after {
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    left: 0;
-    bottom: 0;
+  top: 0;
+  left: 0;
 
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 
-    border-left: 130px solid transparent;
-    border-right: 130px solid transparent;
-    border-bottom: 90px solid #ffabc6;
+  border-left:
+    143px solid transparent;
+
+  border-right:
+    143px solid transparent;
+
+  border-top:
+    100px solid
+    #ffe6ef;
 }
 
-.heart-seal {
-    position: absolute;
+.seal {
+  position: absolute;
 
-    left: 50%;
-    top: 50%;
+  left: 50%;
+  top: 47%;
 
-    transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
-    z-index: 3;
+  z-index: 10;
 
-    font-size: 40px;
+  font-size: 40px;
+
+  filter:
+    drop-shadow(
+      0 4px 4px
+      rgba(214, 83, 122, .15)
+    );
+
+  animation:
+    sealBeat
+    1.5s
+    ease-in-out
+    infinite;
 }
 
-/* =========================
+@keyframes sealBeat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.12);
+  }
+}
+
+.click-envelope {
+  font-size: 14px;
+  color: #c06f8a;
+
+  animation:
+    blink
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: .6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =====================================================
    LETTER
-========================= */
+===================================================== */
 
 .letter {
-    margin-top: 15px;
+  margin:
+    15px
+    5px
+    5px;
 
-    padding: 22px;
+  padding:
+    25px
+    20px;
 
-    border-radius: 20px;
+  background:
+    linear-gradient(
+      135deg,
+      #fffafa,
+      #fff0f6
+    );
 
-    background: #fff7fa;
+  border:
+    2px solid
+    #f4bfd1;
 
-    border: 1px solid #ffd0df;
+  border-radius: 22px;
 
-    text-align: left;
-
-    box-shadow:
-        inset 0 0 20px rgba(255, 175, 200, 0.1);
+  box-shadow:
+    0 10px 25px
+    rgba(214, 83, 122, .12);
 }
 
-.letter h2 {
-    text-align: center;
+.letter-top {
+  font-size: 35px;
+}
+
+.letter h1 {
+  margin:
+    12px
+    0;
+
+  font-size: 27px;
+  color: #df507d;
 }
 
 .letter p {
-    margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #98506a;
 }
 
-.signature {
-    margin-top: 20px;
-
-    text-align: right;
-
-    font-style: italic;
-
-    color: #d94d7a;
+.letter-name {
+  margin-top: 15px;
+  color: #df507d;
+  font-weight: bold;
 }
 
-/* =========================
-   TEDDY
-========================= */
 
-.teddy {
-    font-size: clamp(75px, 22vw, 110px);
-
-    margin: 10px 0;
-
-    animation:
-        teddyBounce 2s ease-in-out infinite;
-}
-
-@keyframes teddyBounce {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* =========================
+/* =====================================================
    DATE QUESTION
-========================= */
+===================================================== */
 
-.date-question {
-    margin-top: 10px;
+.character {
+  position: relative;
+
+  display: inline-block;
+
+  margin-top: 5px;
+
+  font-size: 72px;
+
+  line-height: 1;
+
+  animation:
+    characterBounce
+    2s
+    ease-in-out
+    infinite;
+
+  filter:
+    drop-shadow(
+      0 7px 8px
+      rgba(214, 83, 122, .15)
+    );
 }
 
-.date-question h1 {
-    margin-bottom: 5px;
+.character-bow {
+  position: absolute;
+
+  top: -18px;
+  right: -15px;
+
+  font-size: 34px;
+
+  animation:
+    bowFloat
+    1.8s
+    ease-in-out
+    infinite;
 }
 
-.date-question p {
-    color: #92506a;
+@keyframes characterBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
 }
 
-/* =========================
-   YES / NO BUTTONS
-========================= */
+@keyframes bowFloat {
+
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      rotate(10deg)
+      scale(1.1);
+  }
+}
+
+.decorations {
+  margin:
+    8px
+    0
+    15px;
+
+  font-size: 21px;
+
+  letter-spacing: 5px;
+
+  animation:
+    sparkleText
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sparkleText {
+
+  0%,
+  100% {
+    opacity: .7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.question-title {
+  margin:
+    15px
+    0
+    10px;
+
+  font-size: 30px;
+  color: #e05280;
+}
+
+.question {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .buttons {
+  min-height: 120px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  position: relative;
+
+  overflow: visible;
+}
+
+.date-button {
+  border: none;
+
+  border-radius: 50px;
+
+  padding:
+    14px
+    28px;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+#yesBtn {
+  position: relative;
+
+  z-index: 3;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f06f9a,
+      #df4f7d
+    );
+
+  color: white;
+
+  box-shadow:
+    0 7px 18px
+    rgba(214, 83, 122, .3);
+
+  transform-origin: center;
+}
+
+#yesBtn:hover {
+  box-shadow:
+    0 9px 23px
+    rgba(214, 83, 122, .38);
+}
+
+#noBtn {
+  position: relative;
+
+  z-index: 2;
+
+  background: #ffe3ed;
+
+  color: #9a7180;
+
+  border:
+    1px solid
+    #f8bfd2;
+}
+
+#noBtn:hover {
+  background: #ffd5e4;
+}
+
+#message {
+  min-height: 28px;
+  margin-top: 10px;
+
+  font-weight: bold;
+  color: #dc507d;
+}
+
+.tiny {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #c27a94;
+}
+
+
+/* =====================================================
+   SUCCESS PAGE
+===================================================== */
+
+.success h1 {
+  margin:
+    15px
+    0
+    10px;
+
+  font-size: 35px;
+  color: #e05280;
+}
+
+.thank-you {
+  margin-top: 20px;
+
+  padding:
+    23px
+    18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f6,
+      #ffdce9
+    );
+
+  border:
+    2px solid
+    #f6bfd2;
+
+  border-radius: 25px;
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(255,255,255,.7),
+
+    0 8px 20px
+    rgba(214,83,122,.12);
+}
+
+.thank-you p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.important {
+  color: #df4f7d;
+  font-weight: bold;
+}
+
+.chat-bubble {
+  position: relative;
+
+  margin:
+    22px
+    auto
+    5px;
+
+  max-width: 330px;
+
+  padding:
+    15px
+    18px;
+
+  background: white;
+
+  border:
+    2px solid
+    #f5bfd2;
+
+  border-radius: 20px;
+
+  color: #98506a;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  box-shadow:
+    0 5px 15px
+    rgba(214,83,122,.1);
+}
+
+.chat-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -10px;
+  left: 50%;
+
+  width: 18px;
+  height: 18px;
+
+  background: white;
+
+  border-right:
+    2px solid
+    #f5bfd2;
+
+  border-bottom:
+    2px solid
+    #f5bfd2;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+.final-note {
+  margin-top: 25px;
+
+  color: #bd718b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   MOVING CAT
+===================================================== */
+
+.moving-cat {
+  position: fixed;
+
+  bottom: 15px;
+
+  /*
+    Keep the actual left position fixed at 0.
+    The animation uses transform instead of left,
+    so the page width cannot change while the cat moves.
+  */
+  left: 0;
+
+  font-size: 55px;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  animation:
+    catWalk
+    14s
+    linear
+    infinite,
+
+    catBounce
+    .6s
+    ease-in-out
+    infinite;
+}
+
+.cat-bow {
+  position: absolute;
+
+  top: -8px;
+  right: -5px;
+
+  font-size: 23px;
+
+  animation:
+    catBow
+    .8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes catWalk {
+
+  0% {
+    transform:
+      translate3d(-100px, 0, 0);
+  }
+
+  48% {
+    transform:
+      translate3d(calc(100vw - 70px), 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(calc(100vw - 70px), 0, 0);
+  }
+
+  98% {
+    transform:
+      translate3d(-100px, 0, 0);
+  }
+
+  100% {
+    transform:
+      translate3d(-100px, 0, 0);
+  }
+}
+
+@keyframes catBounce {
+
+  0%,
+  100% {
+    margin-bottom: 0;
+  }
+
+  50% {
+    margin-bottom: 8px;
+  }
+}
+
+@keyframes catBow {
+
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      rotate(10deg)
+      scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   CAT MESSAGE
+===================================================== */
+
+.cat-message {
+  position: fixed;
+
+  bottom: 78px;
+  left: 20px;
+
+  padding:
+    9px
+    14px;
+
+  background: white;
+
+  border:
+    2px solid
+    #f5bfd2;
+
+  border-radius: 18px;
+
+  color: #d95780;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  z-index: 21;
+
+  animation:
+    messageFloat
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes messageFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+  body {
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .card {
+    padding:
+      28px
+      18px;
+
     width: 100%;
+    max-width: 450px;
+  }
+
+  /*
+    Keep bouquet centered on mobile.
+    No transform scaling is applied to
+    the entire bouquet container.
+  */
+
+  .bouquet {
+    width: 100%;
+    min-height: 270px;
+
+    margin:
+      0
+      auto
+      5px;
 
     display: flex;
 
     justify-content: center;
     align-items: center;
+  }
 
-    gap: 15px;
+  .big-bouquet {
+    font-size: 145px;
 
-    margin-top: 25px;
+    line-height: 1;
 
-    min-height: 80px;
+    transform:
+      translateX(0);
+  }
 
-    position: relative;
+  .intro-title {
+    font-size: 25px;
+  }
+
+  .envelope {
+    width: 270px;
+    height: 175px;
+  }
+
+  .character {
+    font-size: 63px;
+  }
+
+  .question-title {
+    font-size: 27px;
+  }
+
+  .success h1 {
+    font-size: 31px;
+  }
+
+  .moving-cat {
+    font-size: 45px;
+  }
+
+  .cat-message {
+    left: 8px;
+    bottom: 65px;
+  }
 }
 
-.yes-btn,
-.no-btn {
-    padding: 13px 25px;
 
-    border-radius: 30px;
-
-    font-size: 16px;
-}
-
-.yes-btn {
-    background: #ff6f9f;
-    color: white;
-
-    box-shadow:
-        0 7px 18px rgba(220, 70, 115, 0.25);
-}
-
-.no-btn {
-    background: #f5d9e2;
-    color: #8c5268;
-}
-
-.yes-btn:hover,
-.no-btn:hover {
-    transform: scale(1.05);
-}
-
-/* =========================
-   SUCCESS
-========================= */
-
-.success-heart {
-    font-size: clamp(70px, 20vw, 100px);
-
-    animation:
-        heartBeat 1s infinite;
-}
-
-@keyframes heartBeat {
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(1.12);
-    }
-
-    50% {
-        transform: scale(1);
-    }
-
-    75% {
-        transform: scale(1.12);
-    }
-}
-
-.success-message {
-    font-size: 18px;
-
-    color: #d94d7a;
-
-    font-weight: bold;
-}
-
-/* =========================
-   FLOATING HEARTS / FLOWERS
-========================= */
-
-.floating {
-    position: fixed;
-
-    pointer-events: none;
-
-    z-index: 1;
-
-    animation:
-        floatUp linear forwards;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(110vh) rotate(0deg);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-120px) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* =========================
-   MOVING CAT
-========================= */
-
-.moving-cat {
-    position: fixed;
-
-    bottom: 15px;
-    left: 0;
-
-    font-size: 55px;
-
-    z-index: 20;
-
-    pointer-events: none;
-
-    animation:
-        catWalk 14s linear infinite,
-        catBounce 0.6s ease-in-out infinite;
-}
-
-@keyframes catWalk {
-    0% {
-        transform: translate3d(-120px, 0, 0);
-    }
-
-    48% {
-        transform: translate3d(calc(100vw - 80px), 0, 0);
-    }
-
-    50% {
-        transform: translate3d(calc(100vw - 80px), 0, 0);
-    }
-
-    98% {
-        transform: translate3d(-120px, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(-120px, 0, 0);
-    }
-}
-
-@keyframes catBounce {
-    0%,
-    100% {
-        margin-bottom: 0;
-    }
-
-    50% {
-        margin-bottom: 8px;
-    }
-}
-
-/* =========================
-   CAT TEXT
-========================= */
-
-.cat-text {
-    position: fixed;
-
-    bottom: 70px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 19;
-
-    font-size: 13px;
-
-    color: #c84d76;
-
-    pointer-events: none;
-
-    white-space: nowrap;
-
-    animation: catTextFade 2s ease-in-out infinite;
-}
-
-@keyframes catTextFade {
-    0%,
-    100% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    body {
-        padding: 12px;
-
-        box-sizing: border-box;
-    }
-
-    .card {
-        max-width: 450px;
-
-        max-height: 96vh;
-        max-height: 96dvh;
-
-        padding: 25px 18px;
-
-        border-radius: 26px;
-    }
-
-    .letter {
-        padding: 18px;
-    }
-
-    .buttons {
-        gap: 10px;
-    }
-
-    .yes-btn,
-    .no-btn {
-        padding: 12px 20px;
-
-        font-size: 15px;
-    }
-
-    .moving-cat {
-        font-size: 45px;
-    }
-}
-
-/* =========================
+/* =====================================================
    VERY SMALL PHONES
-========================= */
+===================================================== */
 
 @media (max-width: 360px) {
 
-    body {
-        padding: 8px;
-    }
+  .big-bouquet {
+    font-size: 120px;
+  }
 
-    .card {
-        padding: 20px 14px;
-    }
-
-    .buttons {
-        gap: 7px;
-    }
-
-    .yes-btn,
-    .no-btn {
-        padding: 11px 17px;
-
-        font-size: 14px;
-    }
-
-    .letter {
-        padding: 15px;
-    }
+  .bouquet {
+    min-height: 235px;
+  }
 }
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     FLOATING DECORATIONS
-========================= -->
+
+<!-- =====================================================
+     FLOATING BACKGROUND
+===================================================== -->
+
+<div
+  class="hearts"
+  id="hearts">
+</div>
+
+
+<span
+  class="sparkle"
+  style="top:8%;left:8%;">
+  ✦
+</span>
+
+<span
+  class="sparkle"
+  style="top:20%;right:8%;animation-delay:.7s;">
+  ✧
+</span>
+
+<span
+  class="sparkle"
+  style="bottom:18%;left:9%;animation-delay:1s;">
+  ♡
+</span>
+
+<span
+  class="sparkle"
+  style="bottom:25%;right:10%;animation-delay:.4s;">
+  ✦
+</span>
+
+
+<!-- =====================================================
+     MOVING CAT
+===================================================== -->
 
 <div class="moving-cat">
-    🐈🎀
+
+  🐱
+
+  <span class="cat-bow">
+    🎀
+  </span>
+
 </div>
 
-<div class="cat-text">
-    Meowww~ 💗
+<div class="cat-message">
+  Meowww~ 💗
 </div>
 
-<!-- =========================
+
+<!-- =====================================================
      MAIN CARD
-========================= -->
+===================================================== -->
 
-<div class="card">
-
-    <!-- INTRO PAGE -->
-    <section class="page active" id="introPage">
-
-        <div class="big-bouquet">
-            💐
-        </div>
-
-        <h1>
-            For Nicolaiii 💗
-        </h1>
-
-        <p class="subtitle">
-            I made a little something for you...
-        </p>
-
-        <button
-            class="main-btn"
-            onclick="showPage('envelopePage')"
-        >
-            Open my little surprise 💌
-        </button>
-
-    </section>
+<main class="card">
 
 
-    <!-- ENVELOPE PAGE -->
-    <section class="page" id="envelopePage">
+<!-- =====================================================
+     CORNER BOWS
+===================================================== -->
 
-        <h2>
-            A little letter for you 💗
-        </h2>
-
-        <p>
-            Click the envelope to open it.
-        </p>
-
-        <div
-            class="envelope-area"
-            onclick="showPage('letterPage')"
-        >
-
-            <div class="envelope">
-
-                <div class="heart-seal">
-                    💗
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- LETTER PAGE -->
-    <section class="page" id="letterPage">
-
-        <div class="letter">
-
-            <h2>
-                Hiii Nicolaiii 💗
-            </h2>
-
-            <p>
-                I just wanted to make something a little special for you.
-            </p>
-
-            <p>
-                Sometimes, the simplest moments can become
-                the sweetest memories.
-            </p>
-
-            <p>
-                So I thought...
-                why not ask you properly? 🥺
-            </p>
-
-            <p>
-                I would really love to spend some time with you,
-                have coffee, talk about random things,
-                laugh together, and simply enjoy the moment.
-            </p>
-
-            <p>
-                So here's my little question for you...
-            </p>
-
-            <div class="signature">
-                — From Christian 💗
-            </div>
-
-        </div>
-
-        <button
-            class="main-btn"
-            onclick="showPage('questionPage')"
-        >
-            Continue 💌
-        </button>
-
-    </section>
-
-
-    <!-- QUESTION PAGE -->
-    <section class="page" id="questionPage">
-
-        <div class="teddy">
-            🧸
-        </div>
-
-        <div class="date-question">
-
-            <h1>
-                Coffee Date? ☕💗
-            </h1>
-
-            <p>
-                Would you like to go on a coffee date with me?
-            </p>
-
-        </div>
-
-        <div class="buttons">
-
-            <button
-                class="yes-btn"
-                id="yesBtn"
-                onclick="sayYes()"
-            >
-                YES 💗
-            </button>
-
-            <button
-                class="no-btn"
-                id="noBtn"
-                onclick="sayNo()"
-            >
-                NO 😭
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- SUCCESS PAGE -->
-    <section class="page" id="successPage">
-
-        <div class="success-heart">
-            💗
-        </div>
-
-        <h1>
-            YEEHEYYY!! 🥳💗
-        </h1>
-
-        <p class="success-message">
-            It's a date! ☕🌸
-        </p>
-
-        <p>
-            I can't wait to spend some time with you.
-        </p>
-
-        <p>
-            Thank you for saying yes! 🥺💗
-        </p>
-
-        <div style="
-            font-size: 45px;
-            margin-top: 15px;
-        ">
-            ☕🌷💐🧸
-        </div>
-
-    </section>
-
+<div class="corner-bow bow-left">
+  🎀
 </div>
 
+<div class="corner-bow bow-right">
+  🎀
+</div>
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section
+  id="introPage"
+  class="page">
+
+
+  <div class="intro">
+
+
+    <div class="intro-small">
+      ✨ A little surprise for you ✨
+    </div>
+
+
+    <!-- =================================================
+         ONE BIG BOUQUET
+    ================================================= -->
+
+    <div class="bouquet">
+
+      <span class="big-bouquet">
+        💐
+      </span>
+
+    </div>
+
+
+    <h1 class="intro-title">
+      For Nicolaiii 💗
+    </h1>
+
+
+    <p class="intro-text">
+
+      I prepared a little something
+      for you hehe... 🌷🫶🏻🌷
+
+      <br>
+
+      It's nothing too serious,
+      just something cute from me. 🎀
+
+    </p>
+
+
+    <button
+      class="open-button"
+      id="seeBouquetBtn"
+      type="button">
+
+      Open my little surprise 💌
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ENVELOPE
+===================================================== -->
+
+<section
+  id="envelopePage"
+  class="page hidden">
+
+
+  <div class="envelope-area">
+
+
+    <div class="decorations">
+      🌷 🎀 💗 🎀 🌷
+    </div>
+
+
+    <h1 class="envelope-title">
+      There's a little letter for you 💌
+    </h1>
+
+
+    <p class="envelope-subtitle">
+      Tap the envelope to open it
+    </p>
+
+
+    <div
+      class="envelope"
+      id="envelope"
+      role="button"
+      tabindex="0"
+      aria-label="Open the letter">
+
+      <div class="envelope-body">
+      </div>
+
+      <div class="seal">
+        💗
+      </div>
+
+    </div>
+
+
+    <p class="click-envelope">
+      💌 click meee 🎀
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+
+<section
+  id="letterPage"
+  class="page hidden">
+
+
+  <div class="letter">
+
+
+    <div class="letter-top">
+      💌
+    </div>
+
+
+    <h1>
+      Hiii Nicolaiii 💗
+    </h1>
+
+
+    <p>
+
+      Before you continue...
+
+      I just wanted to give you
+      this little virtual bouquet. 💐
+
+      <br><br>
+
+      I hope it makes you smile
+      even just a little bit. 🥹💗
+
+      <br><br>
+
+      And there's one tiny question
+      I wanted to ask you...
+
+    </p>
+
+
+    <div class="letter-name">
+      — From someone who wants
+      to take you out for coffee 🎀
+    </div>
+
+
+    <button
+      class="open-button"
+      id="questionBtn"
+      type="button">
+
+      There's one more thing... 💗
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATE QUESTION
+===================================================== -->
+
+<section
+  id="questionPage"
+  class="page hidden">
+
+
+  <div class="character">
+
+    🧸
+
+    <span class="character-bow">
+      🎀
+    </span>
+
+  </div>
+
+
+  <div class="decorations">
+    🌷 💗 ✨ 🎀 ✨ 💗 🌷
+  </div>
+
+
+  <h1 class="question-title">
+    Coffee Date?
+  </h1>
+
+
+  <p class="question">
+
+    Hi Nicolaiii heheee 💗
+
+    <br>
+
+    Would you like to go on a
+
+    <br>
+
+    <strong>
+      Coffee date
+    </strong>
+
+    with me? 🌷✨
+
+  </p>
+
+
+  <div class="buttons">
+
+
+    <button
+      id="yesBtn"
+      class="date-button"
+      type="button">
+
+      YES 💗
+
+    </button>
+
+
+    <button
+      id="noBtn"
+      class="date-button"
+      type="button">
+
+      NO 😭
+
+    </button>
+
+
+  </div>
+
+
+  <div
+    id="message"
+    aria-live="polite">
+  </div>
+
+
+  <p class="tiny">
+    Choose wisely... 👀🎀
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<section
+  id="successPage"
+  class="page hidden">
+
+
+  <div class="success">
+
+
+    <div class="character">
+
+      🧸
+
+      <span class="character-bow">
+        🎀
+      </span>
+
+    </div>
+
+
+    <div class="decorations">
+      💗 🎀 🌷 ✨ 🎀 🌷 💗
+    </div>
+
+
+    <h1>
+      YEEHEYYY!! 🥳💗
+    </h1>
+
+
+    <p class="question">
+      Thank youuu for saying yes hehehe🎀
+    </p>
+
+
+    <div class="thank-you">
+
+      <p>
+        I’m really happyyy
+        you said yes! 💐💐
+      </p>
+
+      <br>
+
+      <p>
+
+        No pressure on the date haaa.
+
+        <span class="important">
+          Chat me whenever you're freeee
+        </span>
+
+        because I respect your time
+        and I want us to enjoy it when
+        we're both available. 🌷
+
+      </p>
+
+    </div>
+
+
+    <div class="chat-bubble">
+
+      💌 Just chat me when you're free,
+      okayyy?
+
+      I'll be waiting hehe 🎀
+
+    </div>
+
+
+    <div class="final-note">
+
+      Take your timeee 🤍
+
+      <br>
+
+      No rush, no pressure —
+      just a cute little coffee date
+      when the time is right.!!!
+
+    </div>
+
+
+    <div
+      class="decorations"
+      style="margin-top:22px;">
+
+      🎀 💕 🌷 💕 🎀
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* =========================
-   PAGE NAVIGATION
-========================= */
 
-function showPage(pageId) {
+/* =====================================================
+   PAGE ELEMENTS
+===================================================== */
 
-    const pages = document.querySelectorAll(".page");
+const introPage =
+  document.getElementById("introPage");
 
-    pages.forEach(function(page) {
+const envelopePage =
+  document.getElementById("envelopePage");
 
-        page.classList.remove("active");
+const letterPage =
+  document.getElementById("letterPage");
 
-    });
+const questionPage =
+  document.getElementById("questionPage");
 
-    const target = document.getElementById(pageId);
+const successPage =
+  document.getElementById("successPage");
 
-    if (target) {
 
-        target.classList.add("active");
+const seeBouquetBtn =
+  document.getElementById("seeBouquetBtn");
 
-    }
+const envelope =
+  document.getElementById("envelope");
 
-    /*
-     * Always return the card to the top.
-     * This prevents the content from appearing
-     * shifted after clicking another page.
-     */
+const questionBtn =
+  document.getElementById("questionBtn");
 
-    const card = document.querySelector(".card");
+const yesBtn =
+  document.getElementById("yesBtn");
 
-    if (card) {
-        card.scrollTop = 0;
-    }
+const noBtn =
+  document.getElementById("noBtn");
 
-    /*
-     * Prevent horizontal movement caused by
-     * transformed/scaled elements.
-     */
+const message =
+  document.getElementById("message");
 
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant"
-    });
+const heartsContainer =
+  document.getElementById("hearts");
+
+
+/* =====================================================
+   CHANGE PAGE
+===================================================== */
+
+function showPage(page) {
+
+  const pages = [
+    introPage,
+    envelopePage,
+    letterPage,
+    questionPage,
+    successPage
+  ];
+
+  pages.forEach(currentPage => {
+    currentPage.classList.add("hidden");
+  });
+
+  page.classList.remove("hidden");
+
+  /*
+    Restart page animation.
+  */
+
+  page.classList.remove("page");
+
+  void page.offsetWidth;
+
+  page.classList.add("page");
+
+  /*
+    Always reset the card's scroll position.
+  */
+
+  const card =
+    document.querySelector(".card");
+
+  card.scrollTop = 0;
+
 }
 
 
-/* =========================
+/* =====================================================
+   INTRO → ENVELOPE
+===================================================== */
+
+seeBouquetBtn.addEventListener(
+  "click",
+  () => {
+
+    createHearts(15);
+
+    createFlowers(12);
+
+    showPage(envelopePage);
+
+  }
+);
+
+
+/* =====================================================
+   ENVELOPE → LETTER
+===================================================== */
+
+envelope.addEventListener(
+  "click",
+  openEnvelope
+);
+
+envelope.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+
+      event.preventDefault();
+
+      openEnvelope();
+
+    }
+
+  }
+);
+
+
+function openEnvelope() {
+
+  createHearts(12);
+
+  createFlowers(8);
+
+  showPage(letterPage);
+
+}
+
+
+/* =====================================================
+   LETTER → DATE QUESTION
+===================================================== */
+
+questionBtn.addEventListener(
+  "click",
+  () => {
+
+    createHearts(10);
+
+    showPage(questionPage);
+
+  }
+);
+
+
+/* =====================================================
    NO BUTTON
-========================= */
+===================================================== */
+
+const noMessages = [
+
+  "Try again 😭💗",
+
+  "Are you sure? 🥺🎀",
+
+  "Think again hehe 👀",
+
+  "Wrong button 😭",
+
+  "The YES button is waiting... 💗",
+
+  "Pleaseeee 🥹🌷",
+
+  "You can't escape the coffee date 😌💗",
+
+  "One more chance? 🥺💕"
+
+];
+
 
 let noCount = 0;
 
+
+noBtn.addEventListener(
+  "click",
+  sayNo
+);
+
+
 function sayNo() {
 
-    noCount++;
-
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-
-    /*
-     * Make YES gradually bigger.
-     * Maximum size is limited so it cannot
-     * create a huge horizontal overflow.
-     */
-
-    const yesScale = Math.min(
-        1 + noCount * 0.2,
-        2.2
-    );
-
-    yesBtn.style.transform =
-        "scale(" + yesScale + ")";
-
-    /*
-     * Make NO smaller.
-     */
-
-    const noScale = Math.max(
-        1 - noCount * 0.12,
-        0.35
-    );
-
-    noBtn.style.transform =
-        "scale(" + noScale + ")";
-
-    /*
-     * Change the text as they keep clicking NO.
-     */
-
-    const messages = [
-        "NO 😭",
-        "Are you sure? 🥺",
-        "Really? 😭",
-        "Pleaseee 🥺",
-        "Think again 💗",
-        "One coffee? ☕🥺",
-        "Pleaaaseee 😭💗"
+  const currentMessage =
+    noMessages[
+      Math.min(
+        noCount,
+        noMessages.length - 1
+      )
     ];
 
-    noBtn.innerText =
-        messages[Math.min(noCount, messages.length - 1)];
+  message.textContent =
+    currentMessage;
 
-    /*
-     * Eventually hide the NO button.
-     */
+  noCount++;
 
-    if (noCount >= 7) {
 
-        noBtn.style.opacity = "0";
-        noBtn.style.pointerEvents = "none";
+  /*
+    YES gets bigger.
 
-    }
+    Kept your original effect,
+    but capped it so it cannot
+    create horizontal overflow.
+  */
+
+  const yesSize =
+    Math.min(
+      2.2,
+      1 + noCount * .2
+    );
+
+  yesBtn.style.transform =
+    `scale(${yesSize})`;
+
+
+  /*
+    NO gets smaller.
+  */
+
+  const noSize =
+    Math.max(
+      .55,
+      1 - noCount * .08
+    );
+
+  noBtn.style.transform =
+    `scale(${noSize})`;
+
+
+  if (noCount >= 7) {
+
+    yesBtn.style.transform =
+      "scale(2.2)";
+
+    message.textContent =
+      "Okayyyy... YES na lang 😭💗🎀";
+
+  }
+
+
+  createHearts(5);
+
 }
 
 
-/* =========================
+/* =====================================================
    YES BUTTON
-========================= */
+===================================================== */
+
+yesBtn.addEventListener(
+  "click",
+  sayYes
+);
+
 
 function sayYes() {
 
-    showPage("successPage");
+  yesBtn.style.transform = "";
 
-    /*
-     * Create celebration hearts.
-     */
+  noBtn.style.transform = "";
 
-    for (let i = 0; i < 18; i++) {
+  createHearts(40);
 
-        setTimeout(function() {
+  createFlowers(25);
 
-            createFloating(
-                ["💗", "💖", "💕", "🌸", "✨", "🌷"][
-                    Math.floor(
-                        Math.random() * 6
-                    )
-                ]
-            );
+  showPage(successPage);
 
-        }, i * 120);
 
-    }
+  setTimeout(() => {
+
+    createHearts(25);
+
+    createFlowers(15);
+
+  }, 800);
+
 }
 
 
-/* =========================
-   FLOATING ELEMENTS
-========================= */
+/* =====================================================
+   CREATE HEARTS
+===================================================== */
 
-function createFloating(symbol) {
+function createHearts(count = 15) {
 
-    const element = document.createElement("div");
+  const emojis = [
 
-    element.className = "floating";
+    "💗",
+    "💕",
+    "💖",
+    "💘",
+    "🤍",
+    "♡",
+    "🎀",
+    "✨"
 
-    element.innerText = symbol;
-
-    /*
-     * Keep elements away from the extreme
-     * right edge to prevent horizontal overflow.
-     */
-
-    const randomLeft =
-        Math.min(
-            Math.random() * 96,
-            96
-        );
-
-    element.style.left =
-        randomLeft + "vw";
-
-    element.style.fontSize =
-        (16 + Math.random() * 20) + "px";
-
-    element.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
-
-    document.body.appendChild(element);
-
-    setTimeout(function() {
-
-        element.remove();
-
-    }, 8500);
-}
+  ];
 
 
-/* =========================
-   AUTOMATIC FLOATING HEARTS
-========================= */
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
 
-setInterval(function() {
+    setTimeout(() => {
 
-    const symbols = [
-        "💗",
-        "💖",
-        "💕",
-        "🌸",
-        "🌷",
-        "✨"
-    ];
+      const heart =
+        document.createElement("div");
 
-    const symbol =
-        symbols[
-            Math.floor(
-                Math.random() * symbols.length
-            )
+      heart.classList.add("heart");
+
+      heart.textContent =
+        emojis[
+          Math.floor(
+            Math.random() *
+            emojis.length
+          )
         ];
 
-    createFloating(symbol);
+      /*
+        Keep floating hearts slightly
+        inside the screen so their width
+        cannot create horizontal overflow.
+      */
 
-}, 1000);
+      heart.style.left =
+        Math.min(
+          Math.random() * 96,
+          96
+        ) +
+        "vw";
+
+      heart.style.fontSize =
+        (
+          16 +
+          Math.random() * 20
+        ) +
+        "px";
+
+      heart.style.animationDuration =
+        (
+          4 +
+          Math.random() * 4
+        ) +
+        "s";
+
+      heartsContainer.appendChild(
+        heart
+      );
 
 
-/* =========================
-   EXTRA SAFETY
-   Prevent accidental horizontal
-   scrolling on resize.
-========================= */
+      setTimeout(() => {
 
-window.addEventListener("resize", function() {
+        heart.remove();
 
-    document.documentElement.style.overflowX = "hidden";
+      }, 8500);
 
-    document.body.style.overflowX = "hidden";
+    }, i * 80);
 
-});
+  }
+
+}
 
 
-/* =========================
-   INITIAL SETUP
-========================= */
+/* =====================================================
+   CREATE FLOWERS
+===================================================== */
 
-document.addEventListener("DOMContentLoaded", function() {
+function createFlowers(count = 8) {
 
-    const card = document.querySelector(".card");
+  const flowers = [
 
-    if (card) {
-        card.scrollTop = 0;
-    }
+    "🌸",
+    "🌷",
+    "🌺",
+    "🌼",
+    "🪻",
+    "🌹",
+    "💐"
 
-});
+  ];
+
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    setTimeout(() => {
+
+      const flower =
+        document.createElement("div");
+
+      flower.classList.add("flower");
+
+      flower.textContent =
+        flowers[
+          Math.floor(
+            Math.random() *
+            flowers.length
+          )
+        ];
+
+      /*
+        Keep floating flowers slightly
+        inside the screen.
+      */
+
+      flower.style.left =
+        Math.min(
+          Math.random() * 96,
+          96
+        ) +
+        "vw";
+
+      flower.style.fontSize =
+        (
+          18 +
+          Math.random() * 25
+        ) +
+        "px";
+
+      flower.style.animationDuration =
+        (
+          5 +
+          Math.random() * 5
+        ) +
+        "s";
+
+      document.body.appendChild(
+        flower
+      );
+
+
+      setTimeout(() => {
+
+        flower.remove();
+
+      }, 11000);
+
+    }, i * 180);
+
+  }
+
+}
+
+
+/* =====================================================
+   INITIAL AMBIANCE
+===================================================== */
+
+setTimeout(() => {
+
+  createHearts(8);
+
+  createFlowers(6);
+
+}, 800);
+
+
+/* =====================================================
+   CONTINUOUS SMALL FLOWERS
+===================================================== */
+
+setInterval(() => {
+
+  createFlowers(2);
+
+}, 6000);
 
 </script>
 
