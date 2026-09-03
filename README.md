@@ -1,5 +1,6 @@
-# i
- <html lang="en">
+# ivan
+ <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +22,16 @@
        PAGE
     ========================== */
 
+    html {
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+    }
+
     body {
+      width: 100%;
       min-height: 100vh;
+      min-height: 100dvh;
       padding: 20px;
 
       display: flex;
@@ -49,6 +58,9 @@
     .card {
       width: min(100%, 430px);
       max-height: 95vh;
+      max-height: 95dvh;
+
+      margin: 0 auto;
 
       padding: 35px 25px;
 
@@ -69,6 +81,13 @@
       z-index: 10;
 
       overflow-y: auto;
+      overflow-x: hidden;
+
+      scrollbar-width: none;
+    }
+
+    .card::-webkit-scrollbar {
+      display: none;
     }
 
     /* =========================
@@ -218,6 +237,7 @@
     ========================== */
 
     .buttons {
+      width: 100%;
       min-height: 120px;
 
       display: flex;
@@ -227,6 +247,8 @@
       gap: 15px;
 
       position: relative;
+
+      overflow: visible;
     }
 
     /* =========================
@@ -258,7 +280,9 @@
       transform: scale(0.96);
     }
 
-    /* YES BUTTON */
+    /* =========================
+       YES BUTTON
+    ========================== */
 
     #yesBtn {
       position: relative;
@@ -287,7 +311,9 @@
         0 9px 23px rgba(214, 83, 122, 0.38);
     }
 
-    /* NO BUTTON */
+    /* =========================
+       NO BUTTON
+    ========================== */
 
     #noBtn {
       position: relative;
@@ -329,20 +355,22 @@
 
     /* =========================
        SUCCESS
+       IMPORTANT:
+       No transform animation here.
+       This prevents the card from
+       visually shifting sideways.
     ========================== */
 
     .success {
-      animation: pop 0.6s ease;
+      animation: fadeIn 0.6s ease;
     }
 
-    @keyframes pop {
+    @keyframes fadeIn {
       0% {
-        transform: scale(0.5);
         opacity: 0;
       }
 
       100% {
-        transform: scale(1);
         opacity: 1;
       }
     }
@@ -452,6 +480,9 @@
       position: fixed;
       inset: 0;
 
+      width: 100%;
+      height: 100%;
+
       overflow: hidden;
 
       pointer-events: none;
@@ -473,7 +504,6 @@
     }
 
     @keyframes floatUp {
-
       0% {
         transform:
           translateY(0)
@@ -516,7 +546,6 @@
     }
 
     @keyframes sparkleFloat {
-
       0%, 100% {
         opacity: .3;
         transform: scale(.8);
@@ -550,7 +579,6 @@
     }
 
     @keyframes catWalk {
-
       0% {
         left: -100px;
       }
@@ -573,7 +601,6 @@
     }
 
     @keyframes catBounce {
-
       0%, 100% {
         margin-bottom: 0;
       }
@@ -603,7 +630,6 @@
     }
 
     @keyframes catBow {
-
       0%, 100% {
         transform: rotate(-10deg);
       }
@@ -649,7 +675,6 @@
     }
 
     @keyframes messageFloat {
-
       0%, 100% {
         transform: translateY(0);
       }
@@ -682,7 +707,6 @@
     }
 
     @keyframes flowerFloat {
-
       0% {
         transform:
           translateY(0)
@@ -725,7 +749,6 @@
     }
 
     @keyframes bowDrift {
-
       0%, 100% {
         transform:
           translateY(0)
@@ -750,7 +773,11 @@
       }
 
       .card {
+        width: 100%;
+        max-width: 430px;
+
         padding: 30px 20px;
+
         border-radius: 28px;
       }
 
@@ -842,7 +869,6 @@
     ✦
   </span>
 
-
   <!-- EXTRA BOWS -->
 
   <div
@@ -863,7 +889,6 @@
     🎀
   </div>
 
-
   <!-- =========================
        MOVING CAT
   ========================== -->
@@ -882,14 +907,13 @@
     Meowww~ 💗
   </div>
 
-
   <!-- =========================
        MAIN CARD
   ========================== -->
 
   <main class="card">
 
-    <!-- Corner bows -->
+    <!-- CORNER BOWS -->
 
     <div class="corner-bow bow-left">
       🎀
@@ -898,7 +922,6 @@
     <div class="corner-bow bow-right">
       🎀
     </div>
-
 
     <!-- =========================
          QUESTION PAGE
@@ -916,16 +939,13 @@
 
       </div>
 
-
       <div class="decorations">
         🌷 💗 ✨ 🎀 ✨ 💗 🌷
       </div>
 
-
       <h1>
         Coffee Date? 🍵💗
       </h1>
-
 
       <p class="question">
 
@@ -941,7 +961,6 @@
 
       </p>
 
-
       <!-- BUTTONS -->
 
       <div class="buttons">
@@ -954,7 +973,6 @@
 
         </button>
 
-
         <button
           id="noBtn"
           type="button">
@@ -965,19 +983,16 @@
 
       </div>
 
-
       <div
         id="message"
         aria-live="polite">
       </div>
-
 
       <p class="tiny">
         Choose wisely... 👀🎀
       </p>
 
     </section>
-
 
     <!-- =========================
          SUCCESS PAGE
@@ -988,7 +1003,6 @@
       class="hidden">
 
       <div class="success">
-
 
         <!-- Cute teddy -->
 
@@ -1002,21 +1016,17 @@
 
         </div>
 
-
         <div class="decorations">
           💗 🎀 🌷 ✨ 🎀 🌷 💗
         </div>
-
 
         <h1>
           YEEHEYYY!! 🥳💗
         </h1>
 
-
         <p class="question">
           Thank youuu for saying yes hehe 🥹🎀
         </p>
-
 
         <!-- Sweet message -->
 
@@ -1043,7 +1053,6 @@
 
         </div>
 
-
         <!-- Chat bubble -->
 
         <div class="chat-bubble">
@@ -1053,7 +1062,6 @@
 
         </div>
 
-
         <div class="final-note">
 
           Take your timeee 🤍<br>
@@ -1062,7 +1070,6 @@
           little coffee date when the time is right. 🍵💗
 
         </div>
-
 
         <div
           class="decorations"
@@ -1077,7 +1084,6 @@
     </section>
 
   </main>
-
 
   <!-- =========================
        JAVASCRIPT
@@ -1106,6 +1112,9 @@
 
     const heartsContainer =
       document.getElementById("hearts");
+
+    const card =
+      document.querySelector(".card");
 
 
     /* =========================
@@ -1215,23 +1224,50 @@
 
     function sayYes() {
 
-      questionPage
-        .classList
-        .add("hidden");
+      /*
+        IMPORTANT FIX:
+        Clear the transforms created
+        by the NO button before changing
+        to the success screen.
+      */
 
-      successPage
-        .classList
-        .remove("hidden");
+      yesBtn.style.transform = "";
+      noBtn.style.transform = "";
 
+      /*
+        Hide question page.
+      */
 
-      /* Heart celebration */
+      questionPage.classList.add(
+        "hidden"
+      );
+
+      /*
+        Show success page.
+      */
+
+      successPage.classList.remove(
+        "hidden"
+      );
+
+      /*
+        Always return the card's
+        scroll position to the top.
+      */
+
+      card.scrollTop = 0;
+
+      /*
+        Heart celebration.
+      */
 
       createHearts(35);
-
       createFlowers(20);
 
 
-      /* Second celebration */
+      /*
+        Second celebration.
+      */
 
       setTimeout(() => {
 
