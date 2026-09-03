@@ -943,7 +943,7 @@
       </div>
 
       <h1>
-        Coffee Date? 🍵💗
+        Coffee Date?
       </h1>
 
       <p class="question">
