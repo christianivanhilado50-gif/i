@@ -1,2393 +1,2200 @@
 # i
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>A Little Surprise For You 💐</title>
-
-  <style>
-
-    /* =====================================================
-       RESET
-    ===================================================== */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-    }
-
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 20px;
-
-      font-family:
-        "Trebuchet MS",
-        Arial,
-        sans-serif;
-
-      color: #8a4560;
-
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          #ffffff 0%,
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 90% 90%,
-          #ffb6d0 0%,
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 50% 0%,
-          #ffd1e2 0%,
-          transparent 40%
-        ),
-        linear-gradient(
-          135deg,
-          #ffc9dd,
-          #fff0f6,
-          #ffc4da
-        );
-
-      overflow: hidden;
-    }
-
-
-    /* =====================================================
-       BACKGROUND FLOATING HEARTS
-    ===================================================== */
-
-    .hearts {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .heart {
-      position: absolute;
-      bottom: -50px;
-      opacity: 0;
-
-      animation:
-        floatUp
-        6s
-        linear
-        forwards;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform:
-          translateY(0)
-          rotate(0deg);
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translateY(-115vh)
-          rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-
-    /* =====================================================
-       FLOATING FLOWERS
-    ===================================================== */
-
-    .flower {
-      position: fixed;
-      bottom: -60px;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0;
-
-      animation:
-        flowerUp
-        8s
-        linear
-        forwards;
-    }
-
-    @keyframes flowerUp {
-      0% {
-        transform:
-          translateY(0)
-          rotate(0deg);
-        opacity: 0;
-      }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise For You 💐💗</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  color: #8a4560;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      #ffffff 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      #ffb6d0 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      #ffd1e2 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #ffc9dd,
+      #fff0f6,
+      #ffc4da
+    );
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND HEARTS
+===================================================== */
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0;
+
+  animation:
+    floatUp
+    6s
+    linear
+    forwards;
+}
+
+@keyframes floatUp {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      rotate(360deg);
+    opacity: 0;
+  }
+}
+
 
-      15% {
-        opacity: .9;
-      }
+/* =====================================================
+   FLOATING FLOWERS
+===================================================== */
 
-      100% {
-        transform:
-          translateY(-115vh)
-          rotate(300deg);
-        opacity: 0;
-      }
-    }
-
-
-    /* =====================================================
-       SPARKLES
-    ===================================================== */
-
-    .sparkle {
-      position: fixed;
-
-      color: #f08aaa;
-      font-size: 24px;
-
-      pointer-events: none;
-      z-index: 3;
-
-      animation:
-        sparkle
-        2.5s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes sparkle {
-      0%,
-      100% {
-        opacity: .3;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.3);
-      }
-    }
-
-
-    /* =====================================================
-       MAIN CARD
-    ===================================================== */
-
-    .card {
-      width: min(100%, 450px);
-
-      max-height: 94vh;
-      max-height: 94dvh;
-
-      padding: 30px 24px;
-
-      position: relative;
-      z-index: 10;
-
-      text-align: center;
-
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      scrollbar-width: none;
-
-      background:
-        rgba(255, 255, 255, .94);
-
-      border:
-        2px solid
-        rgba(255, 182, 208, .75);
-
-      border-radius: 32px;
-
-      box-shadow:
-        0 20px 50px
-        rgba(214, 83, 122, .25),
-
-        0 5px 15px
-        rgba(214, 83, 122, .1);
-
-      backdrop-filter:
-        blur(12px);
-    }
-
-    .card::-webkit-scrollbar {
-      display: none;
-    }
-
-
-    /* =====================================================
-       BOWS
-    ===================================================== */
-
-    .corner-bow {
-      position: absolute;
-      font-size: 30px;
-
-      animation:
-        bowWiggle
-        2s
-        ease-in-out
-        infinite;
-    }
-
-    .bow-left {
-      top: 12px;
-      left: 15px;
-    }
-
-    .bow-right {
-      top: 12px;
-      right: 15px;
-      animation-delay: .5s;
-    }
-
-    @keyframes bowWiggle {
-      0%,
-      100% {
-        transform: rotate(-8deg);
-      }
-
-      50% {
-        transform:
-          rotate(8deg)
-          scale(1.1);
-      }
-    }
-
-
-    /* =====================================================
-       PAGE TRANSITIONS
-    ===================================================== */
-
-    .page {
-      animation:
-        pageIn
-        .7s
-        ease;
-    }
-
-    @keyframes pageIn {
-      0% {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-
-    /* =====================================================
-       INTRODUCTION
-    ===================================================== */
-
-    .intro {
-      padding:
-        20px
-        5px
-        10px;
-    }
-
-    .intro-small {
-      margin-top: 5px;
-      font-size: 15px;
-      color: #c27a94;
-    }
-
-    .intro-title {
-      margin-top: 15px;
-      font-size: 28px;
-      color: #df507d;
-    }
-
-    .intro-text {
-      margin-top: 12px;
-
-      font-size: 16px;
-      line-height: 1.6;
-
-      color: #98506a;
-    }
-
-
-    /* =====================================================
-       BIG FLOWER BOUQUET
-    ===================================================== */
-
-    .bouquet {
-      position: relative;
-
-      width: 250px;
-      height: 230px;
-
-      margin:
-        5px
-        auto
-        10px;
-
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-
-      animation:
-        bouquetFloat
-        3s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes bouquetFloat {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-    .flower-piece {
-      position: absolute;
-
-      font-size: 53px;
-
-      filter:
-        drop-shadow(
-          0 6px 5px
-          rgba(214, 83, 122, .15)
-        );
-    }
-
-    .f1 {
-      top: 20px;
-      left: 85px;
-    }
-
-    .f2 {
-      top: 5px;
-      left: 35px;
-    }
-
-    .f3 {
-      top: 5px;
-      right: 35px;
-    }
-
-    .f4 {
-      top: 65px;
-      left: 5px;
-    }
-
-    .f5 {
-      top: 65px;
-      right: 5px;
-    }
-
-    .f6 {
-      top: 65px;
-      left: 95px;
-    }
-
-    .f7 {
-      top: 80px;
-      left: 55px;
-    }
-
-    .f8 {
-      top: 80px;
-      right: 55px;
-    }
-
-    .bouquet-paper {
-      position: absolute;
-
-      bottom: 5px;
-
-      width: 165px;
-      height: 105px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fff1f6,
-          #ffd0df
-        );
-
-      clip-path:
-        polygon(
-          15% 0,
-          85% 0,
-          100% 100%,
-          0 100%
-        );
-
-      border:
-        2px solid
-        #f2b5cb;
-
-      filter:
-        drop-shadow(
-          0 8px 8px
-          rgba(214, 83, 122, .15)
-        );
-    }
-
-    .ribbon {
-      position: absolute;
-
-      bottom: 25px;
-
-      font-size: 52px;
-
-      z-index: 5;
-
-      animation:
-        ribbonMove
-        1.8s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes ribbonMove {
-      0%,
-      100% {
-        transform: rotate(-5deg);
-      }
-
-      50% {
-        transform:
-          rotate(5deg)
-          scale(1.05);
-      }
-    }
-
-
-    /* =====================================================
-       OPEN BUTTON
-    ===================================================== */
-
-    .open-button {
-      margin-top: 15px;
-
-      padding:
-        14px
-        27px;
-
-      border: none;
-      border-radius: 50px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f06f9a,
-          #df4f7d
-        );
-
-      color: white;
-
-      font-family: inherit;
-      font-size: 17px;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 8px 20px
-        rgba(214, 83, 122, .25);
-
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-    }
-
-    .open-button:hover {
-      transform:
-        translateY(-3px)
-        scale(1.03);
-
-      box-shadow:
-        0 10px 25px
-        rgba(214, 83, 122, .35);
-    }
-
-    .open-button:active {
-      transform: scale(.96);
-    }
-
-
-    /* =====================================================
-       ENVELOPE PAGE
-    ===================================================== */
-
-    .envelope-area {
-      padding:
-        15px
-        5px
-        10px;
-    }
-
-    .envelope-title {
-      margin-top: 10px;
-
-      font-size: 25px;
-      color: #df507d;
-    }
-
-    .envelope-subtitle {
-      margin-top: 8px;
-
-      font-size: 14px;
-      color: #b86e88;
-    }
-
-    .envelope {
-      width: 290px;
-      height: 190px;
-
-      margin:
-        35px
-        auto
-        25px;
-
-      position: relative;
-
-      cursor: pointer;
-      perspective: 700px;
-    }
-
-    .envelope-body {
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fff4f8,
-          #ffd5e3
-        );
-
-      border:
-        2px solid
-        #f2b5ca;
-
-      border-radius: 10px;
-
-      box-shadow:
-        0 12px 25px
-        rgba(214, 83, 122, .18);
-
-      overflow: hidden;
-    }
-
-    .envelope-body::before {
-      content: "";
-
-      position: absolute;
-
-      bottom: 0;
-      left: 0;
-
-      width: 0;
-      height: 0;
-
-      border-left:
-        143px solid transparent;
-
-      border-right:
-        143px solid transparent;
-
-      border-bottom:
-        105px solid
-        #ffc5d8;
-    }
-
-    .envelope-body::after {
-      content: "";
-
-      position: absolute;
-
-      top: 0;
-      left: 0;
-
-      width: 0;
-      height: 0;
-
-      border-left:
-        143px solid transparent;
-
-      border-right:
-        143px solid transparent;
-
-      border-top:
-        100px solid
-        #ffe6ef;
-    }
-
-    .seal {
-      position: absolute;
-
-      left: 50%;
-      top: 47%;
-
-      transform:
-        translate(-50%, -50%);
-
-      z-index: 10;
-
-      font-size: 40px;
-
-      filter:
-        drop-shadow(
-          0 4px 4px
-          rgba(214, 83, 122, .15)
-        );
-
-      animation:
-        sealBeat
-        1.5s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes sealBeat {
-      0%,
-      100% {
-        transform:
-          translate(-50%, -50%)
-          scale(1);
-      }
-
-      50% {
-        transform:
-          translate(-50%, -50%)
-          scale(1.12);
-      }
-    }
-
-    .click-envelope {
-      font-size: 14px;
-      color: #c06f8a;
-
-      animation:
-        blink
-        2s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes blink {
-      0%,
-      100% {
-        opacity: .6;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-
-    /* =====================================================
-       LETTER
-    ===================================================== */
-
-    .letter {
-      margin:
-        15px
-        5px
-        5px;
-
-      padding:
-        25px
-        20px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fffafa,
-          #fff0f6
-        );
-
-      border:
-        2px solid
-        #f4bfd1;
-
-      border-radius: 22px;
-
-      box-shadow:
-        0 10px 25px
-        rgba(214, 83, 122, .12);
-    }
-
-
-    /* =====================================================
-       BIG SINGLE VIRTUAL BOUQUET
-    ===================================================== */
-
-    .bouquet-big {
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-
-      width: 100%;
-
-      margin:
-        5px
-        auto
-        20px;
-
-      font-size: 170px;
-
-      line-height: 1;
-
-      filter:
-        drop-shadow(
-          0 12px 12px
-          rgba(214, 83, 122, .20)
-        );
-
-      animation:
-        bigBouquetFloat
-        2.5s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes bigBouquetFloat {
-      0%,
-      100% {
-        transform:
-          translateY(0)
-          scale(1);
-      }
-
-      50% {
-        transform:
-          translateY(-10px)
-          scale(1.06);
-      }
-    }
-
-    .letter h1 {
-      margin:
-        12px
-        0;
-
-      font-size: 27px;
-      color: #df507d;
-    }
-
-    .letter p {
-      font-size: 16px;
-
-      line-height: 1.7;
-
-      color: #98506a;
-    }
-
-    .letter-name {
-      margin-top: 15px;
-
-      color: #df507d;
-
-      font-weight: bold;
-    }
-
-
-    /* =====================================================
-       DATE QUESTION
-    ===================================================== */
-
-    .character {
-      position: relative;
-
-      display: inline-block;
-
-      margin-top: 5px;
-
-      font-size: 72px;
-      line-height: 1;
-
-      animation:
-        characterBounce
-        2s
-        ease-in-out
-        infinite;
-
-      filter:
-        drop-shadow(
-          0 7px 8px
-          rgba(214, 83, 122, .15)
-        );
-    }
-
-    .character-bow {
-      position: absolute;
-
-      top: -18px;
-      right: -15px;
-
-      font-size: 34px;
-
-      animation:
-        bowFloat
-        1.8s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes characterBounce {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-9px);
-      }
-    }
-
-    @keyframes bowFloat {
-      0%,
-      100% {
-        transform: rotate(-10deg);
-      }
-
-      50% {
-        transform:
-          rotate(10deg)
-          scale(1.1);
-      }
-    }
-
-    .decorations {
-      margin:
-        8px
-        0
-        15px;
-
-      font-size: 21px;
-
-      letter-spacing: 5px;
-
-      animation:
-        sparkleText
-        2s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes sparkleText {
-      0%,
-      100% {
-        opacity: .7;
-      }
+.flower {
+  position: fixed;
+  bottom: -60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
 
-      50% {
-        opacity: 1;
-      }
-    }
-
-    .question-title {
-      margin:
-        15px
-        0
-        10px;
+  animation:
+    flowerUp
+    8s
+    linear
+    forwards;
+}
 
-      font-size: 30px;
-      color: #e05280;
-    }
+@keyframes flowerUp {
 
-    .question {
-      margin-bottom: 25px;
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+    opacity: 0;
+  }
 
-      font-size: 18px;
-      line-height: 1.6;
-    }
+  15% {
+    opacity: .9;
+  }
 
+  100% {
+    transform:
+      translateY(-115vh)
+      rotate(300deg);
+    opacity: 0;
+  }
+}
 
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
 
-    .buttons {
-      min-height: 120px;
+/* =====================================================
+   SPARKLES
+===================================================== */
 
-      display: flex;
+.sparkle {
+  position: fixed;
+  color: #f08aaa;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 3;
 
-      justify-content: center;
-      align-items: center;
+  animation:
+    sparkle
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: .3;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.card {
+  width: min(100%, 450px);
+
+  max-height: 94vh;
+  max-height: 94dvh;
+
+  padding: 30px 24px;
+
+  position: relative;
+
+  z-index: 10;
+
+  text-align: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+
+  background:
+    rgba(255, 255, 255, .94);
+
+  border:
+    2px solid
+    rgba(255, 182, 208, .75);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(214, 83, 122, .25),
+
+    0 5px 15px
+    rgba(214, 83, 122, .1);
+
+  backdrop-filter:
+    blur(12px);
+}
+
+.card::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =====================================================
+   BOWS
+===================================================== */
+
+.corner-bow {
+  position: absolute;
+  font-size: 30px;
+
+  animation:
+    bowWiggle
+    2s
+    ease-in-out
+    infinite;
+}
+
+.bow-left {
+  top: 12px;
+  left: 15px;
+}
+
+.bow-right {
+  top: 12px;
+  right: 15px;
+  animation-delay: .5s;
+}
 
-      gap: 15px;
+@keyframes bowWiggle {
+
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+
+  50% {
+    transform:
+      rotate(8deg)
+      scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   PAGE TRANSITIONS
+===================================================== */
+
+.page {
+  width: 100%;
+  animation:
+    pageIn
+    .7s
+    ease;
+}
 
-      position: relative;
+@keyframes pageIn {
 
-      overflow: visible;
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
 
-    .date-button {
-      border: none;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      border-radius: 50px;
+.hidden {
+  display: none !important;
+}
 
-      padding:
-        14px
-        28px;
 
-      font-family: inherit;
+/* =====================================================
+   INTRODUCTION
+===================================================== */
 
-      font-size: 17px;
-      font-weight: bold;
+.intro {
+  padding:
+    20px
+    5px
+    10px;
+}
 
-      cursor: pointer;
+.intro-small {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #c27a94;
+}
 
-      transition:
-        transform .35s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-    }
+.intro-title {
+  margin-top: 15px;
+  font-size: 28px;
+  color: #df507d;
+}
 
-    #yesBtn {
-      position: relative;
+.intro-text {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #98506a;
+}
 
-      z-index: 3;
 
-      background:
-        linear-gradient(
-          135deg,
-          #f06f9a,
-          #df4f7d
-        );
+/* =====================================================
+   BIG SINGLE VIRTUAL BOUQUET
+===================================================== */
 
-      color: white;
+.bouquet {
+  width: 100%;
 
-      box-shadow:
-        0 7px 18px
-        rgba(214, 83, 122, .3);
-    }
+  min-height: 300px;
 
-    #yesBtn:hover {
-      box-shadow:
-        0 9px 23px
-        rgba(214, 83, 122, .38);
-    }
+  margin:
+    5px
+    auto
+    5px;
 
-    #noBtn {
-      position: relative;
+  display: flex;
 
-      z-index: 2;
+  justify-content: center;
+  align-items: center;
 
-      background: #ffe3ed;
+  position: relative;
 
-      color: #9a7180;
+  overflow: visible;
 
-      border:
-        1px solid
-        #f8bfd2;
-    }
+  animation:
+    bouquetFloat
+    3s
+    ease-in-out
+    infinite;
+}
 
-    #noBtn:hover {
-      background: #ffd5e4;
-    }
+@keyframes bouquetFloat {
 
-    #message {
-      min-height: 28px;
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
-      margin-top: 10px;
+  50% {
+    transform: translateY(-8px);
+  }
+}
 
-      font-weight: bold;
 
-      color: #dc507d;
-    }
+/*
+  ONE BIG BOUQUET
 
-    .tiny {
-      margin-top: 18px;
+  The emoji itself is intentionally large.
+*/
 
-      font-size: 13px;
+.big-bouquet {
+  display: block;
 
-      color: #c27a94;
-    }
+  font-size: 190px;
 
+  line-height: 1;
 
-    /* =====================================================
-       SUCCESS PAGE
-    ===================================================== */
+  white-space: nowrap;
 
-    .success h1 {
-      margin:
-        15px
-        0
-        10px;
+  filter:
+    drop-shadow(
+      0 12px 10px
+      rgba(214, 83, 122, .20)
+    );
 
-      font-size: 35px;
+  transform-origin: center center;
 
-      color: #e05280;
-    }
+  user-select: none;
+}
 
-    .thank-you {
-      margin-top: 20px;
 
-      padding:
-        23px
-        18px;
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
 
-      background:
-        linear-gradient(
-          135deg,
-          #fff0f6,
-          #ffdce9
-        );
+.open-button {
+  margin-top: 15px;
 
-      border:
-        2px solid
-        #f6bfd2;
+  padding:
+    14px
+    27px;
 
-      border-radius: 25px;
+  border: none;
 
-      box-shadow:
-        inset 0 0 20px
-        rgba(255,255,255,.7),
+  border-radius: 50px;
 
-        0 8px 20px
-        rgba(214,83,122,.12);
-    }
+  background:
+    linear-gradient(
+      135deg,
+      #f06f9a,
+      #df4f7d
+    );
 
-    .thank-you p {
-      font-size: 17px;
+  color: white;
 
-      line-height: 1.7;
-    }
+  font-family: inherit;
 
-    .important {
-      color: #df4f7d;
-      font-weight: bold;
-    }
+  font-size: 17px;
 
-    .chat-bubble {
-      position: relative;
+  font-weight: bold;
 
-      margin:
-        22px
-        auto
-        5px;
+  cursor: pointer;
 
-      max-width: 330px;
+  box-shadow:
+    0 8px 20px
+    rgba(214, 83, 122, .25);
 
-      padding:
-        15px
-        18px;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
 
-      background: white;
+.open-button:hover {
+  transform:
+    translateY(-3px)
+    scale(1.03);
 
-      border:
-        2px solid
-        #f5bfd2;
+  box-shadow:
+    0 10px 25px
+    rgba(214, 83, 122, .35);
+}
 
-      border-radius: 20px;
+.open-button:active {
+  transform: scale(.96);
+}
 
-      color: #98506a;
 
-      font-size: 15px;
+/* =====================================================
+   ENVELOPE PAGE
+===================================================== */
 
-      line-height: 1.5;
+.envelope-area {
+  padding:
+    15px
+    5px
+    10px;
+}
 
-      box-shadow:
-        0 5px 15px
-        rgba(214,83,122,.1);
-    }
+.envelope-title {
+  margin-top: 10px;
+  font-size: 25px;
+  color: #df507d;
+}
 
-    .chat-bubble::after {
-      content: "";
+.envelope-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #b86e88;
+}
 
-      position: absolute;
+.envelope {
+  width: 290px;
+  height: 190px;
 
-      bottom: -10px;
-      left: 50%;
+  margin:
+    35px
+    auto
+    25px;
 
-      width: 18px;
-      height: 18px;
+  position: relative;
 
-      background: white;
+  cursor: pointer;
 
-      border-right:
-        2px solid
-        #f5bfd2;
+  perspective: 700px;
+}
 
-      border-bottom:
-        2px solid
-        #f5bfd2;
+.envelope-body {
+  position: absolute;
+  inset: 0;
 
-      transform:
-        translateX(-50%)
-        rotate(45deg);
-    }
+  background:
+    linear-gradient(
+      135deg,
+      #fff4f8,
+      #ffd5e3
+    );
 
-    .final-note {
-      margin-top: 25px;
+  border:
+    2px solid
+    #f2b5ca;
 
-      color: #bd718b;
+  border-radius: 10px;
 
-      font-size: 14px;
+  box-shadow:
+    0 12px 25px
+    rgba(214, 83, 122, .18);
 
-      line-height: 1.6;
-    }
+  overflow: hidden;
+}
 
+.envelope-body::before {
+  content: "";
 
-    /* =====================================================
-       MOVING CAT
-    ===================================================== */
+  position: absolute;
 
-    .moving-cat {
-      position: fixed;
+  bottom: 0;
+  left: 0;
 
-      bottom: 15px;
-      left: -100px;
+  width: 0;
+  height: 0;
 
-      font-size: 55px;
+  border-left:
+    143px solid transparent;
 
-      z-index: 20;
+  border-right:
+    143px solid transparent;
 
-      pointer-events: none;
+  border-bottom:
+    105px solid
+    #ffc5d8;
+}
 
-      animation:
-        catWalk
-        14s
-        linear
-        infinite,
+.envelope-body::after {
+  content: "";
 
-        catBounce
-        .6s
-        ease-in-out
-        infinite;
-    }
+  position: absolute;
 
-    .cat-bow {
-      position: absolute;
+  top: 0;
+  left: 0;
 
-      top: -8px;
-      right: -5px;
+  width: 0;
+  height: 0;
 
-      font-size: 23px;
+  border-left:
+    143px solid transparent;
 
-      animation:
-        catBow
-        .8s
-        ease-in-out
-        infinite;
-    }
+  border-right:
+    143px solid transparent;
 
-    @keyframes catWalk {
-      0% {
-        left: -100px;
-      }
+  border-top:
+    100px solid
+    #ffe6ef;
+}
 
-      48% {
-        left: calc(100vw - 70px);
-      }
+.seal {
+  position: absolute;
 
-      50% {
-        left: calc(100vw - 70px);
-      }
+  left: 50%;
+  top: 47%;
 
-      98% {
-        left: -100px;
-      }
+  transform:
+    translate(-50%, -50%);
 
-      100% {
-        left: -100px;
-      }
-    }
+  z-index: 10;
 
-    @keyframes catBounce {
-      0%,
-      100% {
-        margin-bottom: 0;
-      }
+  font-size: 40px;
 
-      50% {
-        margin-bottom: 8px;
-      }
-    }
+  filter:
+    drop-shadow(
+      0 4px 4px
+      rgba(214, 83, 122, .15)
+    );
 
-    @keyframes catBow {
-      0%,
-      100% {
-        transform: rotate(-10deg);
-      }
+  animation:
+    sealBeat
+    1.5s
+    ease-in-out
+    infinite;
+}
 
-      50% {
-        transform:
-          rotate(10deg)
-          scale(1.1);
-      }
-    }
+@keyframes sealBeat {
 
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
 
-    /* =====================================================
-       CAT MESSAGE
-    ===================================================== */
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.12);
+  }
+}
 
-    .cat-message {
-      position: fixed;
+.click-envelope {
+  font-size: 14px;
+  color: #c06f8a;
 
-      bottom: 78px;
-      left: 20px;
+  animation:
+    blink
+    2s
+    ease-in-out
+    infinite;
+}
 
-      padding:
-        9px
-        14px;
+@keyframes blink {
 
-      background: white;
+  0%,
+  100% {
+    opacity: .6;
+  }
 
-      border:
-        2px solid
-        #f5bfd2;
+  50% {
+    opacity: 1;
+  }
+}
 
-      border-radius: 18px;
 
-      color: #d95780;
+/* =====================================================
+   LETTER
+===================================================== */
 
-      font-size: 13px;
-      font-weight: bold;
+.letter {
+  margin:
+    15px
+    5px
+    5px;
 
-      z-index: 21;
+  padding:
+    25px
+    20px;
 
-      animation:
-        messageFloat
-        2s
-        ease-in-out
-        infinite;
-    }
+  background:
+    linear-gradient(
+      135deg,
+      #fffafa,
+      #fff0f6
+    );
 
-    @keyframes messageFloat {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
+  border:
+    2px solid
+    #f4bfd1;
 
-      50% {
-        transform: translateY(-5px);
-      }
-    }
+  border-radius: 22px;
 
+  box-shadow:
+    0 10px 25px
+    rgba(214, 83, 122, .12);
+}
 
-    /* =====================================================
-       MOBILE
-    ===================================================== */
+.letter-top {
+  font-size: 35px;
+}
 
-    @media (max-width: 500px) {
+.letter h1 {
+  margin:
+    12px
+    0;
 
-      body {
-        padding: 12px;
-      }
+  font-size: 27px;
+  color: #df507d;
+}
 
-      .card {
-        padding:
-          28px
-          18px;
-      }
+.letter p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #98506a;
+}
 
-      .bouquet {
-        transform: scale(.9);
+.letter-name {
+  margin-top: 15px;
+  color: #df507d;
+  font-weight: bold;
+}
 
-        margin-top: -5px;
-        margin-bottom: -5px;
-      }
 
-      .intro-title {
-        font-size: 25px;
-      }
+/* =====================================================
+   DATE QUESTION
+===================================================== */
 
-      .envelope {
-        width: 270px;
-        height: 175px;
-      }
+.character {
+  position: relative;
 
-      /* Big bouquet on mobile */
-      .bouquet-big {
-        font-size: 125px;
+  display: inline-block;
 
-        margin-top: 0;
-        margin-bottom: 18px;
-      }
+  margin-top: 5px;
 
-      .character {
-        font-size: 63px;
-      }
+  font-size: 72px;
 
-      .question-title {
-        font-size: 27px;
-      }
+  line-height: 1;
 
-      .success h1 {
-        font-size: 31px;
-      }
+  animation:
+    characterBounce
+    2s
+    ease-in-out
+    infinite;
 
-      .moving-cat {
-        font-size: 45px;
-      }
+  filter:
+    drop-shadow(
+      0 7px 8px
+      rgba(214, 83, 122, .15)
+    );
+}
 
-      .cat-message {
-        left: 8px;
-        bottom: 65px;
-      }
-    }
+.character-bow {
+  position: absolute;
 
+  top: -18px;
+  right: -15px;
 
-    /* =====================================================
-       REDUCED MOTION
-    ===================================================== */
+  font-size: 34px;
 
-    @media (prefers-reduced-motion: reduce) {
+  animation:
+    bowFloat
+    1.8s
+    ease-in-out
+    infinite;
+}
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
+@keyframes characterBounce {
 
-  </style>
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes bowFloat {
+
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      rotate(10deg)
+      scale(1.1);
+  }
+}
+
+.decorations {
+  margin:
+    8px
+    0
+    15px;
+
+  font-size: 21px;
+
+  letter-spacing: 5px;
+
+  animation:
+    sparkleText
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sparkleText {
+
+  0%,
+  100% {
+    opacity: .7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.question-title {
+  margin:
+    15px
+    0
+    10px;
+
+  font-size: 30px;
+  color: #e05280;
+}
+
+.question {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons {
+  min-height: 120px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  position: relative;
+
+  overflow: visible;
+}
+
+.date-button {
+  border: none;
+
+  border-radius: 50px;
+
+  padding:
+    14px
+    28px;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+#yesBtn {
+  position: relative;
+
+  z-index: 3;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f06f9a,
+      #df4f7d
+    );
+
+  color: white;
+
+  box-shadow:
+    0 7px 18px
+    rgba(214, 83, 122, .3);
+}
+
+#yesBtn:hover {
+  box-shadow:
+    0 9px 23px
+    rgba(214, 83, 122, .38);
+}
+
+#noBtn {
+  position: relative;
+
+  z-index: 2;
+
+  background: #ffe3ed;
+
+  color: #9a7180;
+
+  border:
+    1px solid
+    #f8bfd2;
+}
+
+#noBtn:hover {
+  background: #ffd5e4;
+}
+
+#message {
+  min-height: 28px;
+  margin-top: 10px;
+
+  font-weight: bold;
+  color: #dc507d;
+}
+
+.tiny {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #c27a94;
+}
+
+
+/* =====================================================
+   SUCCESS PAGE
+===================================================== */
+
+.success h1 {
+  margin:
+    15px
+    0
+    10px;
+
+  font-size: 35px;
+  color: #e05280;
+}
+
+.thank-you {
+  margin-top: 20px;
+
+  padding:
+    23px
+    18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f6,
+      #ffdce9
+    );
+
+  border:
+    2px solid
+    #f6bfd2;
+
+  border-radius: 25px;
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(255,255,255,.7),
+
+    0 8px 20px
+    rgba(214,83,122,.12);
+}
+
+.thank-you p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.important {
+  color: #df4f7d;
+  font-weight: bold;
+}
+
+.chat-bubble {
+  position: relative;
+
+  margin:
+    22px
+    auto
+    5px;
+
+  max-width: 330px;
+
+  padding:
+    15px
+    18px;
+
+  background: white;
+
+  border:
+    2px solid
+    #f5bfd2;
+
+  border-radius: 20px;
+
+  color: #98506a;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  box-shadow:
+    0 5px 15px
+    rgba(214,83,122,.1);
+}
+
+.chat-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -10px;
+  left: 50%;
+
+  width: 18px;
+  height: 18px;
+
+  background: white;
+
+  border-right:
+    2px solid
+    #f5bfd2;
+
+  border-bottom:
+    2px solid
+    #f5bfd2;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+.final-note {
+  margin-top: 25px;
+
+  color: #bd718b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   MOVING CAT
+===================================================== */
+
+.moving-cat {
+  position: fixed;
+
+  bottom: 15px;
+  left: -100px;
+
+  font-size: 55px;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  animation:
+    catWalk
+    14s
+    linear
+    infinite,
+
+    catBounce
+    .6s
+    ease-in-out
+    infinite;
+}
+
+.cat-bow {
+  position: absolute;
+
+  top: -8px;
+  right: -5px;
+
+  font-size: 23px;
+
+  animation:
+    catBow
+    .8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes catWalk {
+
+  0% {
+    left: -100px;
+  }
+
+  48% {
+    left: calc(100vw - 70px);
+  }
+
+  50% {
+    left: calc(100vw - 70px);
+  }
+
+  98% {
+    left: -100px;
+  }
+
+  100% {
+    left: -100px;
+  }
+}
+
+@keyframes catBounce {
+
+  0%,
+  100% {
+    margin-bottom: 0;
+  }
+
+  50% {
+    margin-bottom: 8px;
+  }
+}
+
+@keyframes catBow {
+
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      rotate(10deg)
+      scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   CAT MESSAGE
+===================================================== */
+
+.cat-message {
+  position: fixed;
+
+  bottom: 78px;
+  left: 20px;
+
+  padding:
+    9px
+    14px;
+
+  background: white;
+
+  border:
+    2px solid
+    #f5bfd2;
+
+  border-radius: 18px;
+
+  color: #d95780;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  z-index: 21;
+
+  animation:
+    messageFloat
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes messageFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+  body {
+    padding: 12px;
+  }
+
+  .card {
+    padding:
+      28px
+      18px;
+  }
+
+  /*
+    Keep bouquet centered on mobile.
+    No transform scaling is applied to
+    the entire bouquet container.
+  */
+
+  .bouquet {
+    width: 100%;
+    min-height: 270px;
+
+    margin:
+      0
+      auto
+      5px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .big-bouquet {
+    font-size: 145px;
+
+    line-height: 1;
+
+    transform:
+      translateX(0);
+  }
+
+  .intro-title {
+    font-size: 25px;
+  }
+
+  .envelope {
+    width: 270px;
+    height: 175px;
+  }
+
+  .character {
+    font-size: 63px;
+  }
+
+  .question-title {
+    font-size: 27px;
+  }
+
+  .success h1 {
+    font-size: 31px;
+  }
+
+  .moving-cat {
+    font-size: 45px;
+  }
+
+  .cat-message {
+    left: 8px;
+    bottom: 65px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .big-bouquet {
+    font-size: 120px;
+  }
+
+  .bouquet {
+    min-height: 235px;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =====================================================
-       FLOATING BACKGROUND
-  ===================================================== -->
+<!-- =====================================================
+     FLOATING BACKGROUND
+===================================================== -->
 
-  <div
-    class="hearts"
-    id="hearts">
+<div
+  class="hearts"
+  id="hearts">
+</div>
+
+
+<span
+  class="sparkle"
+  style="top:8%;left:8%;">
+  ✦
+</span>
+
+<span
+  class="sparkle"
+  style="top:20%;right:8%;animation-delay:.7s;">
+  ✧
+</span>
+
+<span
+  class="sparkle"
+  style="bottom:18%;left:9%;animation-delay:1s;">
+  ♡
+</span>
+
+<span
+  class="sparkle"
+  style="bottom:25%;right:10%;animation-delay:.4s;">
+  ✦
+</span>
+
+
+<!-- =====================================================
+     MOVING CAT
+===================================================== -->
+
+<div class="moving-cat">
+
+  🐱
+
+  <span class="cat-bow">
+    🎀
+  </span>
+
+</div>
+
+<div class="cat-message">
+  Meowww~ 💗
+</div>
+
+
+<!-- =====================================================
+     MAIN CARD
+===================================================== -->
+
+<main class="card">
+
+
+<!-- =====================================================
+     CORNER BOWS
+===================================================== -->
+
+<div class="corner-bow bow-left">
+  🎀
+</div>
+
+<div class="corner-bow bow-right">
+  🎀
+</div>
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section
+  id="introPage"
+  class="page">
+
+
+  <div class="intro">
+
+
+    <div class="intro-small">
+      ✨ A little surprise for you ✨
+    </div>
+
+
+    <!-- =================================================
+         ONE BIG BOUQUET
+    ================================================= -->
+
+    <div class="bouquet">
+
+      <span class="big-bouquet">
+        💐
+      </span>
+
+    </div>
+
+
+    <h1 class="intro-title">
+      For Nicolaiii 💗
+    </h1>
+
+
+    <p class="intro-text">
+
+      I prepared a little something
+      for you hehe... 🌷🫶🏻🌷
+
+      <br>
+
+      It's nothing too serious,
+      just something cute from me. 🎀
+
+    </p>
+
+
+    <button
+      class="open-button"
+      id="seeBouquetBtn"
+      type="button">
+
+      Open my little surprise 💌
+
+    </button>
+
   </div>
 
-
-  <span
-    class="sparkle"
-    style="top:8%;left:8%;">
-    ✦
-  </span>
-
-  <span
-    class="sparkle"
-    style="top:20%;right:8%;animation-delay:.7s;">
-    ✧
-  </span>
-
-  <span
-    class="sparkle"
-    style="bottom:18%;left:9%;animation-delay:1s;">
-    ♡
-  </span>
-
-  <span
-    class="sparkle"
-    style="bottom:25%;right:10%;animation-delay:.4s;">
-    ✦
-  </span>
+</section>
 
 
-  <!-- =====================================================
-       MOVING CAT
-  ===================================================== -->
+<!-- =====================================================
+     ENVELOPE
+===================================================== -->
 
-  <div class="moving-cat">
+<section
+  id="envelopePage"
+  class="page hidden">
 
-    🐱
 
-    <span class="cat-bow">
+  <div class="envelope-area">
+
+
+    <div class="decorations">
+      🌷 🎀 💗 🎀 🌷
+    </div>
+
+
+    <h1 class="envelope-title">
+      There's a little letter for you 💌
+    </h1>
+
+
+    <p class="envelope-subtitle">
+      Tap the envelope to open it
+    </p>
+
+
+    <div
+      class="envelope"
+      id="envelope"
+      role="button"
+      tabindex="0"
+      aria-label="Open the letter">
+
+      <div class="envelope-body">
+      </div>
+
+      <div class="seal">
+        💗
+      </div>
+
+    </div>
+
+
+    <p class="click-envelope">
+      💌 click meee 🎀
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+
+<section
+  id="letterPage"
+  class="page hidden">
+
+
+  <div class="letter">
+
+
+    <div class="letter-top">
+      💌
+    </div>
+
+
+    <h1>
+      Hiii Nicolaiii 💗
+    </h1>
+
+
+    <p>
+
+      Before you continue...
+
+      I just wanted to give you
+      this little virtual bouquet. 💐
+
+      <br><br>
+
+      I hope it makes you smile
+      even just a little bit. 🥹💗
+
+      <br><br>
+
+      And there's one tiny question
+      I wanted to ask you...
+
+    </p>
+
+
+    <div class="letter-name">
+      — From someone who wants
+      to take you out for coffee 🎀
+    </div>
+
+
+    <button
+      class="open-button"
+      id="questionBtn"
+      type="button">
+
+      There's one more thing... 💗
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATE QUESTION
+===================================================== -->
+
+<section
+  id="questionPage"
+  class="page hidden">
+
+
+  <div class="character">
+
+    🧸
+
+    <span class="character-bow">
       🎀
     </span>
 
   </div>
 
-  <div class="cat-message">
-    Meowww~ 💗
+
+  <div class="decorations">
+    🌷 💗 ✨ 🎀 ✨ 💗 🌷
   </div>
 
 
-  <!-- =====================================================
-       MAIN CARD
-  ===================================================== -->
-
-  <main class="card">
+  <h1 class="question-title">
+    Coffee Date?
+  </h1>
 
 
-    <!-- CORNER BOWS -->
+  <p class="question">
 
-    <div class="corner-bow bow-left">
-      🎀
+    Hi Nicolaiii heheee 💗
+
+    <br>
+
+    Would you like to go on a
+
+    <br>
+
+    <strong>
+      Coffee date
+    </strong>
+
+    with me? 🌷✨
+
+  </p>
+
+
+  <div class="buttons">
+
+
+    <button
+      id="yesBtn"
+      class="date-button"
+      type="button">
+
+      YES 💗
+
+    </button>
+
+
+    <button
+      id="noBtn"
+      class="date-button"
+      type="button">
+
+      NO 😭
+
+    </button>
+
+
+  </div>
+
+
+  <div
+    id="message"
+    aria-live="polite">
+  </div>
+
+
+  <p class="tiny">
+    Choose wisely... 👀🎀
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<section
+  id="successPage"
+  class="page hidden">
+
+
+  <div class="success">
+
+
+    <div class="character">
+
+      🧸
+
+      <span class="character-bow">
+        🎀
+      </span>
+
     </div>
 
-    <div class="corner-bow bow-right">
-      🎀
+
+    <div class="decorations">
+      💗 🎀 🌷 ✨ 🎀 🌷 💗
     </div>
 
 
-    <!-- ===================================================
-         INTRODUCTION
-    =================================================== -->
+    <h1>
+      YEEHEYYY!! 🥳💗
+    </h1>
 
-    <section
-      id="introPage"
-      class="page">
 
-      <div class="intro">
+    <p class="question">
+      Thank youuu for saying yes hehehe🎀
+    </p>
 
-        <div class="intro-small">
-          ✨ A little surprise for you ✨
-        </div>
 
+    <div class="thank-you">
 
-        <!-- BIG FLOWER BOUQUET -->
+      <p>
+        I’m really happyyy
+        you said yes! 💐💐
+      </p>
 
-        <div class="bouquet">
+      <br>
 
-          <span class="flower-piece f1">
-            🌹
-          </span>
+      <p>
 
-          <span class="flower-piece f2">
-            🌷
-          </span>
+        No pressure on the date haaa.
 
-          <span class="flower-piece f3">
-            🌸
-          </span>
-
-          <span class="flower-piece f4">
-            🌺
-          </span>
-
-          <span class="flower-piece f5">
-            🌼
-          </span>
-
-          <span class="flower-piece f6">
-            🌷
-          </span>
-
-          <span class="flower-piece f7">
-            🌹
-          </span>
-
-          <span class="flower-piece f8">
-            🌸
-          </span>
-
-          <div class="bouquet-paper">
-          </div>
-
-          <div class="ribbon">
-            🎀
-          </div>
-
-        </div>
-
-
-        <h1 class="intro-title">
-          For Nicolaiii 💗
-        </h1>
-
-
-        <p class="intro-text">
-
-          I prepared a little something
-          for you hehe... 🌷🫶🏻🌷
-
-          <br>
-
-          It's nothing too serious,
-          just something cute from me. 🎀
-
-        </p>
-
-
-        <button
-          class="open-button"
-          id="seeBouquetBtn"
-          type="button">
-
-          Open my little surprise 💌
-
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         ENVELOPE
-    =================================================== -->
-
-    <section
-      id="envelopePage"
-      class="page hidden">
-
-      <div class="envelope-area">
-
-        <div class="decorations">
-          🌷 🎀 💗 🎀 🌷
-        </div>
-
-        <h1 class="envelope-title">
-          There's a little letter for you 💌
-        </h1>
-
-        <p class="envelope-subtitle">
-          Tap the envelope to open it
-        </p>
-
-
-        <div
-          class="envelope"
-          id="envelope"
-          role="button"
-          tabindex="0"
-          aria-label="Open the letter">
-
-          <div class="envelope-body">
-          </div>
-
-          <div class="seal">
-            💗
-          </div>
-
-        </div>
-
-
-        <p class="click-envelope">
-          💌 click meee 🎀
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         LETTER
-    =================================================== -->
-
-    <section
-      id="letterPage"
-      class="page hidden">
-
-      <div class="letter">
-
-
-        <!-- BIG SINGLE BOUQUET -->
-
-        <div class="bouquet-big">
-          💐
-        </div>
-
-
-        <h1>
-          Hiii Nicolaiii 💗
-        </h1>
-
-
-        <p>
-
-          Before you continue...
-
-          I just wanted to give you
-          this little virtual bouquet. 💐💐💐
-
-          <br><br>
-
-          I hope it makes you smile
-          even just a little bit. 🥹💗
-
-          <br><br>
-
-          And there's one tiny question
-          I wanted to ask you...
-
-        </p>
-
-
-        <div class="letter-name">
-          — From someone who wants
-          to take you out for coffee 🎀
-        </div>
-
-
-        <button
-          class="open-button"
-          id="questionBtn"
-          type="button">
-
-          There's one more thing... 💗
-
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         DATE QUESTION
-    =================================================== -->
-
-    <section
-      id="questionPage"
-      class="page hidden">
-
-
-      <div class="character">
-
-        🧸
-
-        <span class="character-bow">
-          🎀
+        <span class="important">
+          Chat me whenever you're freeee
         </span>
 
-      </div>
-
-
-      <div class="decorations">
-        🌷 💗 ✨ 🎀 ✨ 💗 🌷
-      </div>
-
-
-      <h1 class="question-title">
-        Coffee Date?
-      </h1>
-
-
-      <p class="question">
-
-        Hi Nicolaiii heheee 💗
-
-        <br>
-
-        Would you like to go on a
-
-        <br>
-
-        <strong>
-          Coffee date
-        </strong>
-
-        with me? 🌷✨
+        because I respect your time
+        and I want us to enjoy it when
+        we're both available. 🌷
 
       </p>
 
+    </div>
 
-      <div class="buttons">
 
-        <button
-          id="yesBtn"
-          class="date-button"
-          type="button">
+    <div class="chat-bubble">
 
-          YES 💗
+      💌 Just chat me when you're free,
+      okayyy?
 
-        </button>
+      I'll be waiting hehe 🎀
 
+    </div>
 
-        <button
-          id="noBtn"
-          class="date-button"
-          type="button">
 
-          NO 😭
+    <div class="final-note">
 
-        </button>
+      Take your timeee 🤍
 
-      </div>
+      <br>
 
+      No rush, no pressure —
+      just a cute little coffee date
+      when the time is right.!!!
 
-      <div
-        id="message"
-        aria-live="polite">
-      </div>
+    </div>
 
 
-      <p class="tiny">
-        Choose wisely... 👀🎀
-      </p>
+    <div
+      class="decorations"
+      style="margin-top:22px;">
 
-    </section>
+      🎀 💕 🌷 💕 🎀
 
+    </div>
 
-    <!-- ===================================================
-         SUCCESS
-    =================================================== -->
+  </div>
 
-    <section
-      id="successPage"
-      class="page hidden">
+</section>
 
 
-      <div class="success">
+</main>
 
 
-        <div class="character">
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-          🧸
+<script>
 
-          <span class="character-bow">
-            🎀
-          </span>
 
-        </div>
+/* =====================================================
+   PAGE ELEMENTS
+===================================================== */
 
+const introPage =
+  document.getElementById("introPage");
 
-        <div class="decorations">
-          💗 🎀 🌷 ✨ 🎀 🌷 💗
-        </div>
+const envelopePage =
+  document.getElementById("envelopePage");
 
+const letterPage =
+  document.getElementById("letterPage");
 
-        <h1>
-          YEEHEYYY!! 🥳💗
-        </h1>
+const questionPage =
+  document.getElementById("questionPage");
 
+const successPage =
+  document.getElementById("successPage");
 
-        <p class="question">
-          Thank youuu for saying yes hehehe🎀
-        </p>
 
+const seeBouquetBtn =
+  document.getElementById("seeBouquetBtn");
 
-        <div class="thank-you">
+const envelope =
+  document.getElementById("envelope");
 
-          <p>
-            I’m really happyyy
-            you said yes! 💐💐
-          </p>
+const questionBtn =
+  document.getElementById("questionBtn");
 
-          <br>
+const yesBtn =
+  document.getElementById("yesBtn");
 
-          <p>
+const noBtn =
+  document.getElementById("noBtn");
 
-            No pressure on the date haaa.
+const message =
+  document.getElementById("message");
 
-            <span class="important">
-              Chat me whenever you're freeee
-            </span>
+const heartsContainer =
+  document.getElementById("hearts");
 
-            because I respect your time
-            and I want us to enjoy it when
-            we're both available. 🌷
 
-          </p>
+/* =====================================================
+   CHANGE PAGE
+===================================================== */
 
-        </div>
+function showPage(page) {
 
+  const pages = [
+    introPage,
+    envelopePage,
+    letterPage,
+    questionPage,
+    successPage
+  ];
 
-        <div class="chat-bubble">
+  pages.forEach(currentPage => {
+    currentPage.classList.add("hidden");
+  });
 
-          💌 Just chat me when you're free,
-          okayyy?
+  page.classList.remove("hidden");
 
-          I'll be waiting hehe 🎀
+  /*
+    Restart page animation.
+  */
 
-        </div>
+  page.classList.remove("page");
 
+  void page.offsetWidth;
 
-        <div class="final-note">
+  page.classList.add("page");
 
-          Take your timeee 🤍
+  /*
+    Always reset the card's scroll position.
+  */
 
-          <br>
+  const card =
+    document.querySelector(".card");
 
-          No rush, no pressure —
-          just a cute little coffee date
-          when the time is right.!!!
+  card.scrollTop = 0;
 
-        </div>
+}
 
 
-        <div
-          class="decorations"
-          style="margin-top:22px;">
+/* =====================================================
+   INTRO → ENVELOPE
+===================================================== */
 
-          🎀 💕 🌷 💕 🎀
+seeBouquetBtn.addEventListener(
+  "click",
+  () => {
 
-        </div>
+    createHearts(15);
 
-      </div>
+    createFlowers(12);
 
-    </section>
+    showPage(envelopePage);
 
+  }
+);
 
-  </main>
 
+/* =====================================================
+   ENVELOPE → LETTER
+===================================================== */
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ===================================================== -->
+envelope.addEventListener(
+  "click",
+  openEnvelope
+);
 
-  <script>
+envelope.addEventListener(
+  "keydown",
+  event => {
 
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
 
-    /* =====================================================
-       PAGE ELEMENTS
-    ===================================================== */
+      event.preventDefault();
 
-    const introPage =
-      document.getElementById(
-        "introPage"
-      );
-
-    const envelopePage =
-      document.getElementById(
-        "envelopePage"
-      );
-
-    const letterPage =
-      document.getElementById(
-        "letterPage"
-      );
-
-    const questionPage =
-      document.getElementById(
-        "questionPage"
-      );
-
-    const successPage =
-      document.getElementById(
-        "successPage"
-      );
-
-
-    const seeBouquetBtn =
-      document.getElementById(
-        "seeBouquetBtn"
-      );
-
-    const envelope =
-      document.getElementById(
-        "envelope"
-      );
-
-    const questionBtn =
-      document.getElementById(
-        "questionBtn"
-      );
-
-
-    const yesBtn =
-      document.getElementById(
-        "yesBtn"
-      );
-
-    const noBtn =
-      document.getElementById(
-        "noBtn"
-      );
-
-    const message =
-      document.getElementById(
-        "message"
-      );
-
-
-    const heartsContainer =
-      document.getElementById(
-        "hearts"
-      );
-
-
-    /* =====================================================
-       CHANGE PAGE
-    ===================================================== */
-
-    function showPage(page) {
-
-      const pages = [
-        introPage,
-        envelopePage,
-        letterPage,
-        questionPage,
-        successPage
-      ];
-
-
-      pages.forEach(
-        currentPage => {
-
-          currentPage.classList.add(
-            "hidden"
-          );
-
-        }
-      );
-
-
-      page.classList.remove(
-        "hidden"
-      );
-
-
-      page.classList.remove(
-        "page"
-      );
-
-      void page.offsetWidth;
-
-      page.classList.add(
-        "page"
-      );
-
-
-      document
-        .querySelector(".card")
-        .scrollTop = 0;
+      openEnvelope();
 
     }
 
-
-    /* =====================================================
-       INTRO → ENVELOPE
-    ===================================================== */
-
-    seeBouquetBtn.addEventListener(
-      "click",
-      () => {
-
-        createHearts(15);
-
-        createFlowers(12);
-
-        showPage(
-          envelopePage
-        );
-
-      }
-    );
+  }
+);
 
 
-    /* =====================================================
-       ENVELOPE → LETTER
-    ===================================================== */
+function openEnvelope() {
 
-    envelope.addEventListener(
-      "click",
-      openEnvelope
-    );
+  createHearts(12);
 
+  createFlowers(8);
 
-    envelope.addEventListener(
-      "keydown",
-      event => {
+  showPage(letterPage);
 
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          openEnvelope();
-
-        }
-
-      }
-    );
+}
 
 
-    function openEnvelope() {
+/* =====================================================
+   LETTER → DATE QUESTION
+===================================================== */
 
-      createHearts(12);
+questionBtn.addEventListener(
+  "click",
+  () => {
 
-      createFlowers(8);
+    createHearts(10);
 
-      showPage(
-        letterPage
-      );
+    showPage(questionPage);
 
-    }
-
-
-    /* =====================================================
-       LETTER → DATE QUESTION
-    ===================================================== */
-
-    questionBtn.addEventListener(
-      "click",
-      () => {
-
-        createHearts(10);
-
-        showPage(
-          questionPage
-        );
-
-      }
-    );
+  }
+);
 
 
-    /* =====================================================
-       NO BUTTON
-    ===================================================== */
+/* =====================================================
+   NO BUTTON
+===================================================== */
 
-    const noMessages = [
+const noMessages = [
 
-      "Try again 😭💗",
+  "Try again 😭💗",
 
-      "Are you sure? 🥺🎀",
+  "Are you sure? 🥺🎀",
 
-      "Think again hehe 👀",
+  "Think again hehe 👀",
 
-      "Wrong button 😭",
+  "Wrong button 😭",
 
-      "The YES button is waiting... 💗",
+  "The YES button is waiting... 💗",
 
-      "Pleaseeee 🥹🌷",
+  "Pleaseeee 🥹🌷",
 
-      "You can't escape the coffee date 😌💗",
+  "You can't escape the coffee date 😌💗",
 
-      "One more chance? 🥺💕"
+  "One more chance? 🥺💕"
 
+];
+
+
+let noCount = 0;
+
+
+noBtn.addEventListener(
+  "click",
+  sayNo
+);
+
+
+function sayNo() {
+
+  const currentMessage =
+    noMessages[
+      Math.min(
+        noCount,
+        noMessages.length - 1
+      )
     ];
 
+  message.textContent =
+    currentMessage;
 
-    let noCount = 0;
+  noCount++;
 
 
-    noBtn.addEventListener(
-      "click",
-      sayNo
+  /*
+    YES gets bigger.
+  */
+
+  const yesSize =
+    Math.min(
+      3,
+      1 + noCount * .25
     );
 
+  yesBtn.style.transform =
+    `scale(${yesSize})`;
 
-    function sayNo() {
 
-      const currentMessage =
-        noMessages[
-          Math.min(
-            noCount,
-            noMessages.length - 1
+  /*
+    NO gets smaller.
+  */
+
+  const noSize =
+    Math.max(
+      .55,
+      1 - noCount * .08
+    );
+
+  noBtn.style.transform =
+    `scale(${noSize})`;
+
+
+  if (noCount >= 7) {
+
+    yesBtn.style.transform =
+      "scale(3)";
+
+    message.textContent =
+      "Okayyyy... YES na lang 😭💗🎀";
+
+  }
+
+
+  createHearts(5);
+
+}
+
+
+/* =====================================================
+   YES BUTTON
+===================================================== */
+
+yesBtn.addEventListener(
+  "click",
+  sayYes
+);
+
+
+function sayYes() {
+
+  yesBtn.style.transform = "";
+
+  noBtn.style.transform = "";
+
+  createHearts(40);
+
+  createFlowers(25);
+
+  showPage(successPage);
+
+
+  setTimeout(() => {
+
+    createHearts(25);
+
+    createFlowers(15);
+
+  }, 800);
+
+}
+
+
+/* =====================================================
+   CREATE HEARTS
+===================================================== */
+
+function createHearts(count = 15) {
+
+  const emojis = [
+
+    "💗",
+    "💕",
+    "💖",
+    "💘",
+    "🤍",
+    "♡",
+    "🎀",
+    "✨"
+
+  ];
+
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    setTimeout(() => {
+
+      const heart =
+        document.createElement("div");
+
+      heart.classList.add("heart");
+
+      heart.textContent =
+        emojis[
+          Math.floor(
+            Math.random() *
+            emojis.length
           )
         ];
 
+      heart.style.left =
+        Math.random() * 100 +
+        "vw";
 
-      message.textContent =
-        currentMessage;
+      heart.style.fontSize =
+        (
+          16 +
+          Math.random() * 20
+        ) +
+        "px";
 
+      heart.style.animationDuration =
+        (
+          4 +
+          Math.random() * 4
+        ) +
+        "s";
 
-      noCount++;
-
-
-      const yesSize =
-        Math.min(
-          3,
-          1 + noCount * .25
-        );
-
-
-      yesBtn.style.transform =
-        `scale(${yesSize})`;
-
-
-      const noSize =
-        Math.max(
-          .55,
-          1 - noCount * .08
-        );
-
-
-      noBtn.style.transform =
-        `scale(${noSize})`;
-
-
-      if (noCount >= 7) {
-
-        yesBtn.style.transform =
-          "scale(3)";
-
-
-        message.textContent =
-          "Okayyyy... YES na lang 😭💗🎀";
-
-      }
-
-
-      createHearts(5);
-
-    }
-
-
-    /* =====================================================
-       YES BUTTON
-    ===================================================== */
-
-    yesBtn.addEventListener(
-      "click",
-      sayYes
-    );
-
-
-    function sayYes() {
-
-      yesBtn.style.transform =
-        "";
-
-      noBtn.style.transform =
-        "";
-
-
-      createHearts(40);
-
-      createFlowers(25);
-
-
-      showPage(
-        successPage
+      heartsContainer.appendChild(
+        heart
       );
 
 
       setTimeout(() => {
 
-        createHearts(25);
+        heart.remove();
 
-        createFlowers(15);
+      }, 8500);
 
-      }, 800);
+    }, i * 80);
 
-    }
+  }
 
-
-    /* =====================================================
-       CREATE HEARTS
-    ===================================================== */
-
-    function createHearts(
-      count = 15
-    ) {
-
-      const emojis = [
-
-        "💗",
-        "💕",
-        "💖",
-        "💘",
-        "🤍",
-        "♡",
-        "🎀",
-        "✨"
-
-      ];
+}
 
 
-      for (
-        let i = 0;
-        i < count;
-        i++
-      ) {
+/* =====================================================
+   CREATE FLOWERS
+===================================================== */
 
-        setTimeout(() => {
+function createFlowers(count = 8) {
 
-          const heart =
-            document.createElement(
-              "div"
-            );
+  const flowers = [
 
+    "🌸",
+    "🌷",
+    "🌺",
+    "🌼",
+    "🪻",
+    "🌹",
+    "💐"
 
-          heart.classList.add(
-            "heart"
-          );
-
-
-          heart.textContent =
-            emojis[
-              Math.floor(
-                Math.random() *
-                emojis.length
-              )
-            ];
+  ];
 
 
-          heart.style.left =
-            Math.random() * 100 +
-            "vw";
-
-
-          heart.style.fontSize =
-            (
-              16 +
-              Math.random() * 20
-            ) +
-            "px";
-
-
-          heart.style.animationDuration =
-            (
-              4 +
-              Math.random() * 4
-            ) +
-            "s";
-
-
-          heartsContainer.appendChild(
-            heart
-          );
-
-
-          setTimeout(() => {
-
-            heart.remove();
-
-          }, 8500);
-
-        }, i * 80);
-
-      }
-
-    }
-
-
-    /* =====================================================
-       CREATE FLOWERS
-    ===================================================== */
-
-    function createFlowers(
-      count = 8
-    ) {
-
-      const flowers = [
-
-        "🌸",
-        "🌷",
-        "🌺",
-        "🌼",
-        "🪻",
-        "🌹",
-        "💐"
-
-      ];
-
-
-      for (
-        let i = 0;
-        i < count;
-        i++
-      ) {
-
-        setTimeout(() => {
-
-          const flower =
-            document.createElement(
-              "div"
-            );
-
-
-          flower.classList.add(
-            "flower"
-          );
-
-
-          flower.textContent =
-            flowers[
-              Math.floor(
-                Math.random() *
-                flowers.length
-              )
-            ];
-
-
-          flower.style.left =
-            Math.random() * 100 +
-            "vw";
-
-
-          flower.style.fontSize =
-            (
-              18 +
-              Math.random() * 25
-            ) +
-            "px";
-
-
-          flower.style.animationDuration =
-            (
-              5 +
-              Math.random() * 5
-            ) +
-            "s";
-
-
-          document.body.appendChild(
-            flower
-          );
-
-
-          setTimeout(() => {
-
-            flower.remove();
-
-          }, 11000);
-
-        }, i * 180);
-
-      }
-
-    }
-
-
-    /* =====================================================
-       INITIAL AMBIANCE
-    ===================================================== */
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
 
     setTimeout(() => {
 
-      createHearts(8);
+      const flower =
+        document.createElement("div");
 
-      createFlowers(6);
+      flower.classList.add("flower");
 
-    }, 800);
+      flower.textContent =
+        flowers[
+          Math.floor(
+            Math.random() *
+            flowers.length
+          )
+        ];
+
+      flower.style.left =
+        Math.random() * 100 +
+        "vw";
+
+      flower.style.fontSize =
+        (
+          18 +
+          Math.random() * 25
+        ) +
+        "px";
+
+      flower.style.animationDuration =
+        (
+          5 +
+          Math.random() * 5
+        ) +
+        "s";
+
+      document.body.appendChild(
+        flower
+      );
 
 
-    /* =====================================================
-       CONTINUOUS SMALL FLOWERS
-    ===================================================== */
+      setTimeout(() => {
 
-    setInterval(() => {
+        flower.remove();
 
-      createFlowers(2);
+      }, 11000);
 
-    }, 6000);
+    }, i * 180);
+
+  }
+
+}
 
 
-  </script>
+/* =====================================================
+   INITIAL AMBIANCE
+===================================================== */
+
+setTimeout(() => {
+
+  createHearts(8);
+
+  createFlowers(6);
+
+}, 800);
+
+
+/* =====================================================
+   CONTINUOUS SMALL FLOWERS
+===================================================== */
+
+setInterval(() => {
+
+  createFlowers(2);
+
+}, 6000);
+
+</script>
 
 </body>
 </html>
-
