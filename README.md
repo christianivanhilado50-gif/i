@@ -1,5 +1,6 @@
 # i
- <html lang="en">
+ 
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,200 +8,53 @@
 <title>A Little Surprise For You 💐💗</title>
 
 <style>
-
-/* =========================
-   BASIC RESET
-========================= */
-
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-html,
-body {
+html {
     width: 100%;
     min-height: 100%;
-    max-width: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
+    width: 100%;
+    min-width: 0;
     min-height: 100vh;
     min-height: 100dvh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    margin: 0;
     padding: 20px;
 
-    font-family:
-        "Trebuchet MS",
-        Arial,
-        sans-serif;
-
-    color: #8a4560;
-
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            #ffffff 0%,
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            #ffb6d0 0%,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 0%,
-            #ffd1e2 0%,
-            transparent 40%
-        ),
-        linear-gradient(
-            135deg,
-            #ffc9dd,
-            #fff0f6,
-            #ffc4da
-        );
+    display: grid;
+    place-items: center;
 
     overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #ffd9e7, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc4d9, transparent 35%),
+        linear-gradient(135deg, #fff0f5, #ffe0eb);
+
+    color: #6b2945;
 }
-
-
-/* =========================
-   BACKGROUND HEARTS
-========================= */
-
-.hearts {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.heart {
-    position: absolute;
-    bottom: -50px;
-    opacity: 0;
-
-    animation:
-        floatUp
-        6s
-        linear
-        forwards;
-}
-
-@keyframes floatUp {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: 1;
-    }
-
-    100% {
-        transform:
-            translate3d(0, -115vh, 0)
-            rotate(360deg);
-        opacity: 0;
-    }
-}
-
-
-/* =========================
-   FLOATING FLOWERS
-========================= */
-
-.flower {
-    position: fixed;
-    bottom: -60px;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0;
-    max-width: 100vw;
-
-    animation:
-        flowerUp
-        8s
-        linear
-        forwards;
-}
-
-@keyframes flowerUp {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: .9;
-    }
-
-    100% {
-        transform:
-            translate3d(0, -115vh, 0)
-            rotate(300deg);
-        opacity: 0;
-    }
-}
-
-
-/* =========================
-   SPARKLES
-========================= */
-
-.sparkle {
-    position: fixed;
-    color: #f08aaa;
-    font-size: 24px;
-    pointer-events: none;
-    z-index: 3;
-
-    animation:
-        sparkle
-        2.5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes sparkle {
-
-    0%,
-    100% {
-        opacity: .3;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
-}
-
 
 /* =========================
    MAIN CARD
 ========================= */
 
 .card {
-    width: min(450px, 100%);
-    max-width: 100%;
+    width: 100%;
+    max-width: 450px;
+    min-width: 0;
 
     max-height: 94vh;
     max-height: 94dvh;
 
+    margin: 0 auto;
     padding: 30px 24px;
 
     position: relative;
@@ -213,620 +67,317 @@ body {
 
     scrollbar-width: none;
 
-    background:
-        rgba(255, 255, 255, .94);
+    background: rgba(255, 255, 255, 0.94);
 
-    border:
-        2px solid
-        rgba(255, 182, 208, .75);
-
+    border: 2px solid rgba(255, 182, 208, 0.75);
     border-radius: 32px;
 
     box-shadow:
-        0 20px 50px
-        rgba(214, 83, 122, .25),
+        0 20px 50px rgba(214, 83, 122, 0.25),
+        0 5px 15px rgba(214, 83, 122, 0.1);
 
-        0 5px 15px
-        rgba(214, 83, 122, .1);
-
-    backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
 }
 
 .card::-webkit-scrollbar {
     display: none;
 }
 
-
 /* =========================
-   BOWS
-========================= */
-
-.corner-bow {
-    position: absolute;
-    font-size: 30px;
-
-    animation:
-        bowWiggle
-        2s
-        ease-in-out
-        infinite;
-}
-
-.bow-left {
-    top: 12px;
-    left: 15px;
-}
-
-.bow-right {
-    top: 12px;
-    right: 15px;
-    animation-delay: .5s;
-}
-
-@keyframes bowWiggle {
-
-    0%,
-    100% {
-        transform: rotate(-8deg);
-    }
-
-    50% {
-        transform:
-            rotate(8deg)
-            scale(1.1);
-    }
-}
-
-
-/* =========================
-   PAGE TRANSITIONS
+   PAGES
 ========================= */
 
 .page {
     width: 100%;
-    max-width: 100%;
+    min-width: 0;
 
-    animation:
-        pageIn
-        .7s
-        ease;
+    display: none;
+
+    animation: pageIn 0.6s ease forwards;
+}
+
+.page.active {
+    display: block;
 }
 
 @keyframes pageIn {
-
-    0% {
+    from {
         opacity: 0;
-        transform:
-            translate3d(0, 15px, 0);
+        transform: translateY(20px);
     }
 
-    100% {
+    to {
         opacity: 1;
-        transform:
-            translate3d(0, 0, 0);
+        transform: translateY(0);
     }
 }
-
-.hidden {
-    display: none !important;
-}
-
 
 /* =========================
-   INTRODUCTION
+   TEXT
 ========================= */
 
-.intro {
-    padding:
-        20px
-        5px
-        10px;
-
-    max-width: 100%;
+h1 {
+    margin: 10px 0;
+    color: #d94d7a;
+    font-size: clamp(28px, 8vw, 42px);
 }
 
-.intro-small {
-    margin-top: 5px;
-    font-size: 15px;
-    color: #c27a94;
+h2 {
+    margin: 10px 0;
+    color: #d94d7a;
+    font-size: clamp(24px, 7vw, 34px);
 }
 
-.intro-title {
-    margin-top: 15px;
-    font-size: 28px;
-    color: #df507d;
-}
-
-.intro-text {
-    margin-top: 12px;
+p {
+    line-height: 1.7;
     font-size: 16px;
-    line-height: 1.6;
-    color: #98506a;
 }
 
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.main-btn {
+    margin-top: 20px;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff72a5,
+        #e94d7d
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 8px 20px rgba(221, 74, 119, 0.3);
+}
+
+.main-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 12px 25px rgba(221, 74, 119, 0.4);
+}
+
+.main-btn:active {
+    transform: scale(0.97);
+}
 
 /* =========================
    BOUQUET
 ========================= */
 
-.bouquet {
-    width: 100%;
-    min-height: 300px;
-
-    margin:
-        5px
-        auto
-        5px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-
-    overflow: visible;
-
-    animation:
-        bouquetFloat
-        3s
-        ease-in-out
-        infinite;
-}
-
-@keyframes bouquetFloat {
-
-    0%,
-    100% {
-        transform:
-            translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform:
-            translate3d(0, -8px, 0);
-    }
-}
-
 .big-bouquet {
-    display: block;
+    font-size: clamp(70px, 22vw, 110px);
 
-    font-size: 190px;
+    margin: 10px auto 5px;
 
     line-height: 1;
 
-    white-space: nowrap;
-
-    filter:
-        drop-shadow(
-            0 12px 10px
-            rgba(214, 83, 122, .20)
-        );
-
-    transform-origin: center center;
-
-    user-select: none;
+    animation: bouquetFloat 3s ease-in-out infinite;
 }
 
+@keyframes bouquetFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-/* =========================
-   OPEN BUTTON
-========================= */
-
-.open-button {
-    margin-top: 15px;
-
-    padding:
-        14px
-        27px;
-
-    border: none;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f06f9a,
-            #df4f7d
-        );
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(214, 83, 122, .25);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.open-button:hover {
-    transform:
-        translate3d(0, -3px, 0)
-        scale(1.03);
-
-    box-shadow:
-        0 10px 25px
-        rgba(214, 83, 122, .35);
+.subtitle {
+    font-size: 15px;
+    color: #a4516d;
 }
-
-.open-button:active {
-    transform: scale(.96);
-}
-
 
 /* =========================
    ENVELOPE
 ========================= */
 
 .envelope-area {
-    padding:
-        15px
-        5px
-        10px;
-
-    max-width: 100%;
-}
-
-.envelope-title {
-    margin-top: 10px;
-    font-size: 25px;
-    color: #df507d;
-}
-
-.envelope-subtitle {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #b86e88;
+    padding: 25px 0;
 }
 
 .envelope {
-    width: 290px;
-    height: 190px;
-
-    max-width: 100%;
-
-    margin:
-        35px
-        auto
-        25px;
-
     position: relative;
 
-    cursor: pointer;
+    width: min(260px, 75vw);
+    height: 170px;
 
-    perspective: 700px;
-}
+    margin: 30px auto;
 
-.envelope-body {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff4f8,
-            #ffd5e3
-        );
-
-    border:
-        2px solid
-        #f2b5ca;
+    background: #ffc3d7;
 
     border-radius: 10px;
 
+    cursor: pointer;
+
     box-shadow:
-        0 12px 25px
-        rgba(214, 83, 122, .18);
+        0 15px 30px rgba(210, 76, 120, 0.2);
 
-    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.envelope-body::before {
+.envelope:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 35px rgba(210, 76, 120, 0.3);
+}
+
+.envelope::before {
     content: "";
 
     position: absolute;
 
-    bottom: 0;
     left: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left:
-        143px solid transparent;
-
-    border-right:
-        143px solid transparent;
-
-    border-bottom:
-        105px solid
-        #ffc5d8;
-}
-
-.envelope-body::after {
-    content: "";
-
-    position: absolute;
-
     top: 0;
-    left: 0;
 
     width: 0;
     height: 0;
 
-    border-left:
-        143px solid transparent;
-
-    border-right:
-        143px solid transparent;
-
-    border-top:
-        100px solid
-        #ffe6ef;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 95px solid #ff9fbd;
 }
 
-.seal {
+.envelope::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 90px solid #ffabc6;
+}
+
+.heart-seal {
     position: absolute;
 
     left: 50%;
-    top: 47%;
+    top: 50%;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-    z-index: 10;
+    z-index: 3;
 
     font-size: 40px;
-
-    filter:
-        drop-shadow(
-            0 4px 4px
-            rgba(214, 83, 122, .15)
-        );
-
-    animation:
-        sealBeat
-        1.5s
-        ease-in-out
-        infinite;
 }
-
-@keyframes sealBeat {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            scale(1.12);
-    }
-}
-
-.click-envelope {
-    font-size: 14px;
-    color: #c06f8a;
-
-    animation:
-        blink
-        2s
-        ease-in-out
-        infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: .6;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
 
 /* =========================
    LETTER
 ========================= */
 
 .letter {
-    margin:
-        15px
-        5px
-        5px;
+    margin-top: 15px;
 
-    padding:
-        25px
-        20px;
+    padding: 22px;
 
-    max-width: 100%;
+    border-radius: 20px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fffafa,
-            #fff0f6
-        );
+    background: #fff7fa;
 
-    border:
-        2px solid
-        #f4bfd1;
+    border: 1px solid #ffd0df;
 
-    border-radius: 22px;
+    text-align: left;
 
     box-shadow:
-        0 10px 25px
-        rgba(214, 83, 122, .12);
+        inset 0 0 20px rgba(255, 175, 200, 0.1);
 }
 
-.letter-top {
-    font-size: 35px;
-}
-
-.letter h1 {
-    margin:
-        12px
-        0;
-
-    font-size: 27px;
-    color: #df507d;
+.letter h2 {
+    text-align: center;
 }
 
 .letter p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #98506a;
+    margin: 10px 0;
 }
 
-.letter-name {
-    margin-top: 15px;
-    color: #df507d;
-    font-weight: bold;
+.signature {
+    margin-top: 20px;
+
+    text-align: right;
+
+    font-style: italic;
+
+    color: #d94d7a;
 }
 
+/* =========================
+   TEDDY
+========================= */
+
+.teddy {
+    font-size: clamp(75px, 22vw, 110px);
+
+    margin: 10px 0;
+
+    animation:
+        teddyBounce 2s ease-in-out infinite;
+}
+
+@keyframes teddyBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
 
 /* =========================
    DATE QUESTION
 ========================= */
 
-.character {
-    position: relative;
-
-    display: inline-block;
-
-    margin-top: 5px;
-
-    font-size: 72px;
-
-    line-height: 1;
-
-    animation:
-        characterBounce
-        2s
-        ease-in-out
-        infinite;
-
-    filter:
-        drop-shadow(
-            0 7px 8px
-            rgba(214, 83, 122, .15)
-        );
+.date-question {
+    margin-top: 10px;
 }
 
-.character-bow {
-    position: absolute;
-
-    top: -18px;
-    right: -15px;
-
-    font-size: 34px;
-
-    animation:
-        bowFloat
-        1.8s
-        ease-in-out
-        infinite;
+.date-question h1 {
+    margin-bottom: 5px;
 }
 
-@keyframes characterBounce {
-
-    0%,
-    100% {
-        transform:
-            translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform:
-            translate3d(0, -9px, 0);
-    }
+.date-question p {
+    color: #92506a;
 }
-
-@keyframes bowFloat {
-
-    0%,
-    100% {
-        transform: rotate(-10deg);
-    }
-
-    50% {
-        transform:
-            rotate(10deg)
-            scale(1.1);
-    }
-}
-
-.decorations {
-    margin:
-        8px
-        0
-        15px;
-
-    font-size: 21px;
-
-    letter-spacing: 5px;
-
-    animation:
-        sparkleText
-        2s
-        ease-in-out
-        infinite;
-}
-
-@keyframes sparkleText {
-
-    0%,
-    100% {
-        opacity: .7;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-.question-title {
-    margin:
-        15px
-        0
-        10px;
-
-    font-size: 30px;
-    color: #e05280;
-}
-
-.question {
-    margin-bottom: 25px;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
 
 /* =========================
-   BUTTONS
+   YES / NO BUTTONS
 ========================= */
 
 .buttons {
-    min-height: 120px;
-
     width: 100%;
 
     display: flex;
@@ -836,218 +387,115 @@ body {
 
     gap: 15px;
 
-    position: relative;
+    margin-top: 25px;
 
-    overflow: visible;
+    min-height: 80px;
+
+    position: relative;
 }
 
-.date-button {
-    border: none;
+.yes-btn,
+.no-btn {
+    padding: 13px 25px;
 
-    border-radius: 50px;
+    border-radius: 30px;
 
-    padding:
-        14px
-        28px;
-
-    font-family: inherit;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        transform .35s ease,
-        background .25s ease,
-        box-shadow .25s ease;
+    font-size: 16px;
 }
 
-#yesBtn {
-    position: relative;
-
-    z-index: 3;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f06f9a,
-            #df4f7d
-        );
-
+.yes-btn {
+    background: #ff6f9f;
     color: white;
 
     box-shadow:
-        0 7px 18px
-        rgba(214, 83, 122, .3);
+        0 7px 18px rgba(220, 70, 115, 0.25);
 }
 
-#yesBtn:hover {
-    box-shadow:
-        0 9px 23px
-        rgba(214, 83, 122, .38);
+.no-btn {
+    background: #f5d9e2;
+    color: #8c5268;
 }
 
-#noBtn {
-    position: relative;
-
-    z-index: 2;
-
-    background: #ffe3ed;
-
-    color: #9a7180;
-
-    border:
-        1px solid
-        #f8bfd2;
+.yes-btn:hover,
+.no-btn:hover {
+    transform: scale(1.05);
 }
-
-#noBtn:hover {
-    background: #ffd5e4;
-}
-
-#message {
-    min-height: 28px;
-    margin-top: 10px;
-
-    font-weight: bold;
-    color: #dc507d;
-}
-
-.tiny {
-    margin-top: 18px;
-    font-size: 13px;
-    color: #c27a94;
-}
-
 
 /* =========================
-   SUCCESS PAGE
+   SUCCESS
 ========================= */
 
-.success h1 {
-    margin:
-        15px
-        0
-        10px;
+.success-heart {
+    font-size: clamp(70px, 20vw, 100px);
 
-    font-size: 35px;
-    color: #e05280;
+    animation:
+        heartBeat 1s infinite;
 }
 
-.thank-you {
-    margin-top: 20px;
+@keyframes heartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-    padding:
-        23px
-        18px;
+    25% {
+        transform: scale(1.12);
+    }
 
-    background:
-        linear-gradient(
-            135deg,
-            #fff0f6,
-            #ffdce9
-        );
+    50% {
+        transform: scale(1);
+    }
 
-    border:
-        2px solid
-        #f6bfd2;
-
-    border-radius: 25px;
-
-    box-shadow:
-        inset 0 0 20px
-        rgba(255,255,255,.7),
-
-        0 8px 20px
-        rgba(214,83,122,.12);
+    75% {
+        transform: scale(1.12);
+    }
 }
 
-.thank-you p {
-    font-size: 17px;
-    line-height: 1.7;
-}
+.success-message {
+    font-size: 18px;
 
-.important {
-    color: #df4f7d;
+    color: #d94d7a;
+
     font-weight: bold;
 }
 
-.chat-bubble {
-    position: relative;
+/* =========================
+   FLOATING HEARTS / FLOWERS
+========================= */
 
-    margin:
-        22px
-        auto
-        5px;
+.floating {
+    position: fixed;
 
-    max-width: 330px;
+    pointer-events: none;
 
-    padding:
-        15px
-        18px;
+    z-index: 1;
 
-    background: white;
-
-    border:
-        2px solid
-        #f5bfd2;
-
-    border-radius: 20px;
-
-    color: #98506a;
-
-    font-size: 15px;
-    line-height: 1.5;
-
-    box-shadow:
-        0 5px 15px
-        rgba(214,83,122,.1);
+    animation:
+        floatUp linear forwards;
 }
 
-.chat-bubble::after {
-    content: "";
+@keyframes floatUp {
+    from {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
 
-    position: absolute;
+    10% {
+        opacity: 1;
+    }
 
-    bottom: -10px;
-    left: 50%;
+    90% {
+        opacity: 1;
+    }
 
-    width: 18px;
-    height: 18px;
-
-    background: white;
-
-    border-right:
-        2px solid
-        #f5bfd2;
-
-    border-bottom:
-        2px solid
-        #f5bfd2;
-
-    transform:
-        translateX(-50%)
-        rotate(45deg);
+    to {
+        transform: translateY(-120px) rotate(360deg);
+        opacity: 0;
+    }
 }
-
-.final-note {
-    margin-top: 25px;
-
-    color: #bd718b;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
 
 /* =========================
    MOVING CAT
-   IMPORTANT FIX:
-   Uses transform instead of left:100vw
-   so it cannot create horizontal scrolling.
 ========================= */
 
 .moving-cat {
@@ -1063,62 +511,33 @@ body {
     pointer-events: none;
 
     animation:
-        catWalk
-        14s
-        linear
-        infinite,
-
-        catBounce
-        .6s
-        ease-in-out
-        infinite;
-}
-
-.cat-bow {
-    position: absolute;
-
-    top: -8px;
-    right: -5px;
-
-    font-size: 23px;
-
-    animation:
-        catBow
-        .8s
-        ease-in-out
-        infinite;
+        catWalk 14s linear infinite,
+        catBounce 0.6s ease-in-out infinite;
 }
 
 @keyframes catWalk {
-
     0% {
-        transform:
-            translate3d(-120px, 0, 0);
+        transform: translate3d(-120px, 0, 0);
     }
 
     48% {
-        transform:
-            translate3d(calc(100vw - 10px), 0, 0);
+        transform: translate3d(calc(100vw - 80px), 0, 0);
     }
 
     50% {
-        transform:
-            translate3d(calc(100vw - 10px), 0, 0);
+        transform: translate3d(calc(100vw - 80px), 0, 0);
     }
 
     98% {
-        transform:
-            translate3d(-120px, 0, 0);
+        transform: translate3d(-120px, 0, 0);
     }
 
     100% {
-        transform:
-            translate3d(-120px, 0, 0);
+        transform: translate3d(-120px, 0, 0);
     }
 }
 
 @keyframes catBounce {
-
     0%,
     100% {
         margin-bottom: 0;
@@ -1129,160 +548,84 @@ body {
     }
 }
 
-@keyframes catBow {
-
-    0%,
-    100% {
-        transform: rotate(-10deg);
-    }
-
-    50% {
-        transform:
-            rotate(10deg)
-            scale(1.1);
-    }
-}
-
-
 /* =========================
-   CAT MESSAGE
+   CAT TEXT
 ========================= */
 
-.cat-message {
+.cat-text {
     position: fixed;
 
-    bottom: 78px;
-    left: 20px;
+    bottom: 70px;
+    left: 50%;
 
-    padding:
-        9px
-        14px;
+    transform: translateX(-50%);
 
-    background: white;
-
-    border:
-        2px solid
-        #f5bfd2;
-
-    border-radius: 18px;
-
-    color: #d95780;
+    z-index: 19;
 
     font-size: 13px;
-    font-weight: bold;
 
-    z-index: 21;
+    color: #c84d76;
 
-    animation:
-        messageFloat
-        2s
-        ease-in-out
-        infinite;
+    pointer-events: none;
+
+    white-space: nowrap;
+
+    animation: catTextFade 2s ease-in-out infinite;
 }
 
-@keyframes messageFloat {
-
+@keyframes catTextFade {
     0%,
     100% {
-        transform:
-            translate3d(0, 0, 0);
+        opacity: 0.5;
     }
 
     50% {
-        transform:
-            translate3d(0, -5px, 0);
+        opacity: 1;
     }
 }
-
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
     body {
         padding: 12px;
-        overflow-x: hidden;
+
+        box-sizing: border-box;
     }
 
     .card {
-        width: 100%;
         max-width: 450px;
 
-        padding:
-            28px
-            18px;
+        max-height: 96vh;
+        max-height: 96dvh;
+
+        padding: 25px 18px;
+
+        border-radius: 26px;
     }
 
-    .bouquet {
-        width: 100%;
-        min-height: 270px;
-
-        margin:
-            0
-            auto
-            5px;
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
+    .letter {
+        padding: 18px;
     }
 
-    .big-bouquet {
-        font-size: 145px;
-        line-height: 1;
-
-        transform:
-            translate3d(0, 0, 0);
+    .buttons {
+        gap: 10px;
     }
 
-    .intro-title {
-        font-size: 25px;
-    }
+    .yes-btn,
+    .no-btn {
+        padding: 12px 20px;
 
-    .envelope {
-        width: 270px;
-        height: 175px;
-        max-width: 100%;
-    }
-
-    .character {
-        font-size: 63px;
-    }
-
-    .question-title {
-        font-size: 27px;
-    }
-
-    .success h1 {
-        font-size: 31px;
+        font-size: 15px;
     }
 
     .moving-cat {
         font-size: 45px;
     }
-
-    .cat-message {
-        left: 8px;
-        bottom: 65px;
-    }
-
-    .buttons {
-        width: 100%;
-        gap: 10px;
-    }
-
-    .date-button {
-        padding:
-            13px
-            22px;
-
-        font-size: 16px;
-    }
 }
-
 
 /* =========================
    VERY SMALL PHONES
@@ -1290,758 +633,347 @@ body {
 
 @media (max-width: 360px) {
 
-    .big-bouquet {
-        font-size: 120px;
+    body {
+        padding: 8px;
     }
 
-    .bouquet {
-        min-height: 235px;
+    .card {
+        padding: 20px 14px;
     }
 
-    .date-button {
-        padding:
-            12px
-            18px;
+    .buttons {
+        gap: 7px;
+    }
 
-        font-size: 15px;
+    .yes-btn,
+    .no-btn {
+        padding: 11px 17px;
+
+        font-size: 14px;
+    }
+
+    .letter {
+        padding: 15px;
     }
 }
-
-
-/* =========================
-   EXTRA HORIZONTAL SAFETY
-========================= */
-
-html {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
-}
-
-.card,
-.page,
-.intro,
-.envelope-area,
-.letter,
-.success {
-    max-width: 100%;
-}
-
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-
 <!-- =========================
-     FLOATING BACKGROUND
-========================= -->
-
-<div
-    class="hearts"
-    id="hearts">
-</div>
-
-
-<span
-    class="sparkle"
-    style="top:8%;left:8%;">
-    ✦
-</span>
-
-<span
-    class="sparkle"
-    style="top:20%;right:8%;animation-delay:.7s;">
-    ✧
-</span>
-
-<span
-    class="sparkle"
-    style="bottom:18%;left:9%;animation-delay:1s;">
-    ♡
-</span>
-
-<span
-    class="sparkle"
-    style="bottom:25%;right:10%;animation-delay:.4s;">
-    ✦
-</span>
-
-
-<!-- =========================
-     MOVING CAT
+     FLOATING DECORATIONS
 ========================= -->
 
 <div class="moving-cat">
-
-    🐱
-
-    <span class="cat-bow">
-        🎀
-    </span>
-
+    🐈🎀
 </div>
 
-<div class="cat-message">
+<div class="cat-text">
     Meowww~ 💗
 </div>
-
 
 <!-- =========================
      MAIN CARD
 ========================= -->
 
-<main class="card">
+<div class="card">
 
+    <!-- INTRO PAGE -->
+    <section class="page active" id="introPage">
 
-<!-- =========================
-     CORNER BOWS
-========================= -->
-
-<div class="corner-bow bow-left">
-    🎀
-</div>
-
-<div class="corner-bow bow-right">
-    🎀
-</div>
-
-
-<!-- =========================
-     INTRODUCTION
-========================= -->
-
-<section
-    id="introPage"
-    class="page">
-
-    <div class="intro">
-
-        <div class="intro-small">
-            ✨ A little surprise for you ✨
+        <div class="big-bouquet">
+            💐
         </div>
 
-
-        <div class="bouquet">
-
-            <span class="big-bouquet">
-                💐
-            </span>
-
-        </div>
-
-
-        <h1 class="intro-title">
+        <h1>
             For Nicolaiii 💗
         </h1>
 
-
-        <p class="intro-text">
-
-            I prepared a little something
-            for you hehe... 🌷🫶🏻🌷
-
-            <br><br>
-
-            It's nothing too serious,
-            just something cute from me. 🎀
-
+        <p class="subtitle">
+            I made a little something for you...
         </p>
-
 
         <button
-            class="open-button"
-            id="seeBouquetBtn"
-            type="button">
-
+            class="main-btn"
+            onclick="showPage('envelopePage')"
+        >
             Open my little surprise 💌
-
         </button>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     ENVELOPE
-========================= -->
+    <!-- ENVELOPE PAGE -->
+    <section class="page" id="envelopePage">
 
-<section
-    id="envelopePage"
-    class="page hidden">
-
-    <div class="envelope-area">
-
-        <div class="decorations">
-            🌷 🎀 💗 🎀 🌷
-        </div>
-
-
-        <h1 class="envelope-title">
-            There's a little letter for you 💌
-        </h1>
-
-
-        <p class="envelope-subtitle">
-            Tap the envelope to open it
-        </p>
-
-
-        <div
-            class="envelope"
-            id="envelope"
-            role="button"
-            tabindex="0"
-            aria-label="Open the letter">
-
-            <div class="envelope-body">
-            </div>
-
-            <div class="seal">
-                💗
-            </div>
-
-        </div>
-
-
-        <p class="click-envelope">
-            💌 click meee 🎀
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     LETTER
-========================= -->
-
-<section
-    id="letterPage"
-    class="page hidden">
-
-    <div class="letter">
-
-        <div class="letter-top">
-            💌
-        </div>
-
-
-        <h1>
-            Hiii Nicolaiii 💗
-        </h1>
-
+        <h2>
+            A little letter for you 💗
+        </h2>
 
         <p>
-
-            Before you continue...
-
-            <br><br>
-
-            I just wanted to give you
-            this little virtual bouquet. 💐
-
-            <br><br>
-
-            I hope it makes you smile
-            even just a little bit. 🥹💗
-
-            <br><br>
-
-            And there's one tiny question
-            I wanted to ask you...
-
+            Click the envelope to open it.
         </p>
 
+        <div
+            class="envelope-area"
+            onclick="showPage('letterPage')"
+        >
 
-        <div class="letter-name">
+            <div class="envelope">
 
-            — From someone who wants
-            to take you out for coffee 🎀
+                <div class="heart-seal">
+                    💗
+                </div>
+
+            </div>
 
         </div>
 
+    </section>
+
+
+    <!-- LETTER PAGE -->
+    <section class="page" id="letterPage">
+
+        <div class="letter">
+
+            <h2>
+                Hiii Nicolaiii 💗
+            </h2>
+
+            <p>
+                I just wanted to make something a little special for you.
+            </p>
+
+            <p>
+                Sometimes, the simplest moments can become
+                the sweetest memories.
+            </p>
+
+            <p>
+                So I thought...
+                why not ask you properly? 🥺
+            </p>
+
+            <p>
+                I would really love to spend some time with you,
+                have coffee, talk about random things,
+                laugh together, and simply enjoy the moment.
+            </p>
+
+            <p>
+                So here's my little question for you...
+            </p>
+
+            <div class="signature">
+                — From Christian 💗
+            </div>
+
+        </div>
 
         <button
-            class="open-button"
-            id="questionBtn"
-            type="button">
-
-            There's one more thing... 💗
-
+            class="main-btn"
+            onclick="showPage('questionPage')"
+        >
+            Continue 💌
         </button>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     DATE QUESTION
-========================= -->
+    <!-- QUESTION PAGE -->
+    <section class="page" id="questionPage">
 
-<section
-    id="questionPage"
-    class="page hidden">
-
-
-    <div class="character">
-
-        🧸
-
-        <span class="character-bow">
-            🎀
-        </span>
-
-    </div>
-
-
-    <div class="decorations">
-        🌷 💗 ✨ 🎀 ✨ 💗 🌷
-    </div>
-
-
-    <h1 class="question-title">
-        Coffee Date?
-    </h1>
-
-
-    <p class="question">
-
-        Hi Nicolaiii heheee 💗
-
-        <br>
-
-        Would you like to go on a
-
-        <br>
-
-        <strong>
-            Coffee date
-        </strong>
-
-        with me? 🌷✨
-
-    </p>
-
-
-    <div class="buttons">
-
-        <button
-            id="yesBtn"
-            class="date-button"
-            type="button">
-
-            YES 💗
-
-        </button>
-
-
-        <button
-            id="noBtn"
-            class="date-button"
-            type="button">
-
-            NO 😭
-
-        </button>
-
-    </div>
-
-
-    <div
-        id="message"
-        aria-live="polite">
-    </div>
-
-
-    <p class="tiny">
-        Choose wisely... 👀🎀
-    </p>
-
-</section>
-
-
-<!-- =========================
-     SUCCESS
-========================= -->
-
-<section
-    id="successPage"
-    class="page hidden">
-
-    <div class="success">
-
-        <div class="character">
-
+        <div class="teddy">
             🧸
+        </div>
 
-            <span class="character-bow">
-                🎀
-            </span>
+        <div class="date-question">
+
+            <h1>
+                Coffee Date? ☕💗
+            </h1>
+
+            <p>
+                Would you like to go on a coffee date with me?
+            </p>
 
         </div>
 
+        <div class="buttons">
 
-        <div class="decorations">
-            💗 🎀 🌷 ✨ 🎀 🌷 💗
+            <button
+                class="yes-btn"
+                id="yesBtn"
+                onclick="sayYes()"
+            >
+                YES 💗
+            </button>
+
+            <button
+                class="no-btn"
+                id="noBtn"
+                onclick="sayNo()"
+            >
+                NO 😭
+            </button>
+
         </div>
 
+    </section>
+
+
+    <!-- SUCCESS PAGE -->
+    <section class="page" id="successPage">
+
+        <div class="success-heart">
+            💗
+        </div>
 
         <h1>
             YEEHEYYY!! 🥳💗
         </h1>
 
-
-        <p class="question">
-            Thank youuu for saying yes hehehe🎀
+        <p class="success-message">
+            It's a date! ☕🌸
         </p>
 
+        <p>
+            I can't wait to spend some time with you.
+        </p>
 
-        <div class="thank-you">
+        <p>
+            Thank you for saying yes! 🥺💗
+        </p>
 
-            <p>
-                I’m really happyyy
-                you said yes! 💐💐
-            </p>
-
-            <br>
-
-            <p>
-
-                No pressure on the date haaa.
-
-                <span class="important">
-                    Chat me whenever you're freeee
-                </span>
-
-                because I respect your time
-                and I want us to enjoy it when
-                we're both available. 🌷
-
-            </p>
-
+        <div style="
+            font-size: 45px;
+            margin-top: 15px;
+        ">
+            ☕🌷💐🧸
         </div>
 
+    </section>
 
-        <div class="chat-bubble">
+</div>
 
-            💌 Just chat me when you're free,
-            okayyy?
-
-            <br>
-
-            I'll be waiting hehe 🎀
-
-        </div>
-
-
-        <div class="final-note">
-
-            Take your timeee 🤍
-
-            <br>
-
-            No rush, no pressure —
-            just a cute little coffee date
-            when the time is right.!!!
-
-        </div>
-
-
-        <div
-            class="decorations"
-            style="margin-top:22px;">
-
-            🎀 💕 🌷 💕 🎀
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
-
 /* =========================
-   PAGE ELEMENTS
+   PAGE NAVIGATION
 ========================= */
 
-const introPage =
-    document.getElementById("introPage");
+function showPage(pageId) {
 
-const envelopePage =
-    document.getElementById("envelopePage");
+    const pages = document.querySelectorAll(".page");
 
-const letterPage =
-    document.getElementById("letterPage");
+    pages.forEach(function(page) {
 
-const questionPage =
-    document.getElementById("questionPage");
+        page.classList.remove("active");
 
-const successPage =
-    document.getElementById("successPage");
-
-
-const seeBouquetBtn =
-    document.getElementById("seeBouquetBtn");
-
-const envelope =
-    document.getElementById("envelope");
-
-const questionBtn =
-    document.getElementById("questionBtn");
-
-const yesBtn =
-    document.getElementById("yesBtn");
-
-const noBtn =
-    document.getElementById("noBtn");
-
-const message =
-    document.getElementById("message");
-
-const heartsContainer =
-    document.getElementById("hearts");
-
-
-/* =========================
-   CHANGE PAGE
-========================= */
-
-function showPage(page) {
-
-    const pages = [
-        introPage,
-        envelopePage,
-        letterPage,
-        questionPage,
-        successPage
-    ];
-
-    pages.forEach(currentPage => {
-        currentPage.classList.add("hidden");
     });
 
-    page.classList.remove("hidden");
+    const target = document.getElementById(pageId);
 
+    if (target) {
 
-    /* Restart animation */
+        target.classList.add("active");
 
-    page.classList.remove("page");
+    }
 
-    void page.offsetWidth;
+    /*
+     * Always return the card to the top.
+     * This prevents the content from appearing
+     * shifted after clicking another page.
+     */
 
-    page.classList.add("page");
+    const card = document.querySelector(".card");
 
+    if (card) {
+        card.scrollTop = 0;
+    }
 
-    /* Always reset card scroll */
+    /*
+     * Prevent horizontal movement caused by
+     * transformed/scaled elements.
+     */
 
-    const card =
-        document.querySelector(".card");
-
-    card.scrollTop = 0;
-
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
 }
-
-
-/* =========================
-   INTRO → ENVELOPE
-========================= */
-
-seeBouquetBtn.addEventListener(
-    "click",
-    () => {
-
-        createHearts(15);
-
-        createFlowers(12);
-
-        showPage(envelopePage);
-
-    }
-);
-
-
-/* =========================
-   ENVELOPE → LETTER
-========================= */
-
-envelope.addEventListener(
-    "click",
-    openEnvelope
-);
-
-
-envelope.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
-
-            event.preventDefault();
-
-            openEnvelope();
-
-        }
-
-    }
-);
-
-
-function openEnvelope() {
-
-    createHearts(12);
-
-    createFlowers(8);
-
-    showPage(letterPage);
-
-}
-
-
-/* =========================
-   LETTER → QUESTION
-========================= */
-
-questionBtn.addEventListener(
-    "click",
-    () => {
-
-        createHearts(10);
-
-        showPage(questionPage);
-
-    }
-);
 
 
 /* =========================
    NO BUTTON
 ========================= */
 
-const noMessages = [
-
-    "Try again 😭💗",
-
-    "Are you sure? 🥺🎀",
-
-    "Think again hehe 👀",
-
-    "Wrong button 😭",
-
-    "The YES button is waiting... 💗",
-
-    "Pleaseeee 🥹🌷",
-
-    "You can't escape the coffee date 😌💗",
-
-    "One more chance? 🥺💕"
-
-];
-
-
 let noCount = 0;
-
-
-noBtn.addEventListener(
-    "click",
-    sayNo
-);
-
 
 function sayNo() {
 
-    const currentMessage =
-        noMessages[
-            Math.min(
-                noCount,
-                noMessages.length - 1
-            )
-        ];
-
-    message.textContent =
-        currentMessage;
-
     noCount++;
 
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
 
-    /* =====================
-       YES GETS BIGGER
-    ===================== */
+    /*
+     * Make YES gradually bigger.
+     * Maximum size is limited so it cannot
+     * create a huge horizontal overflow.
+     */
 
-    const yesSize =
-        Math.min(
-            3,
-            1 + noCount * .25
-        );
+    const yesScale = Math.min(
+        1 + noCount * 0.2,
+        2.2
+    );
 
     yesBtn.style.transform =
-        `scale(${yesSize})`;
+        "scale(" + yesScale + ")";
 
+    /*
+     * Make NO smaller.
+     */
 
-    /* =====================
-       NO GETS SMALLER
-    ===================== */
-
-    const noSize =
-        Math.max(
-            .55,
-            1 - noCount * .08
-        );
+    const noScale = Math.max(
+        1 - noCount * 0.12,
+        0.35
+    );
 
     noBtn.style.transform =
-        `scale(${noSize})`;
+        "scale(" + noScale + ")";
 
+    /*
+     * Change the text as they keep clicking NO.
+     */
+
+    const messages = [
+        "NO 😭",
+        "Are you sure? 🥺",
+        "Really? 😭",
+        "Pleaseee 🥺",
+        "Think again 💗",
+        "One coffee? ☕🥺",
+        "Pleaaaseee 😭💗"
+    ];
+
+    noBtn.innerText =
+        messages[Math.min(noCount, messages.length - 1)];
+
+    /*
+     * Eventually hide the NO button.
+     */
 
     if (noCount >= 7) {
 
-        yesBtn.style.transform =
-            "scale(3)";
-
-        message.textContent =
-            "Okayyyy... YES na lang 😭💗🎀";
+        noBtn.style.opacity = "0";
+        noBtn.style.pointerEvents = "none";
 
     }
-
-
-    createHearts(5);
-
 }
 
 
@@ -2049,220 +981,129 @@ function sayNo() {
    YES BUTTON
 ========================= */
 
-yesBtn.addEventListener(
-    "click",
-    sayYes
-);
-
-
 function sayYes() {
 
-    yesBtn.style.transform = "";
+    showPage("successPage");
 
-    noBtn.style.transform = "";
+    /*
+     * Create celebration hearts.
+     */
 
-    createHearts(40);
+    for (let i = 0; i < 18; i++) {
 
-    createFlowers(25);
+        setTimeout(function() {
 
-    showPage(successPage);
-
-
-    setTimeout(() => {
-
-        createHearts(25);
-
-        createFlowers(15);
-
-    }, 800);
-
-}
-
-
-/* =========================
-   CREATE HEARTS
-========================= */
-
-function createHearts(count = 15) {
-
-    const emojis = [
-
-        "💗",
-        "💕",
-        "💖",
-        "💘",
-        "🤍",
-        "♡",
-        "🎀",
-        "✨"
-
-    ];
-
-
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
-
-        setTimeout(() => {
-
-            const heart =
-                document.createElement("div");
-
-            heart.classList.add("heart");
-
-            heart.textContent =
-                emojis[
+            createFloating(
+                ["💗", "💖", "💕", "🌸", "✨", "🌷"][
                     Math.floor(
-                        Math.random() *
-                        emojis.length
+                        Math.random() * 6
                     )
-                ];
-
-
-            heart.style.left =
-                Math.random() * 100 +
-                "vw";
-
-
-            heart.style.fontSize =
-                (
-                    16 +
-                    Math.random() * 20
-                ) +
-                "px";
-
-
-            heart.style.animationDuration =
-                (
-                    4 +
-                    Math.random() * 4
-                ) +
-                "s";
-
-
-            heartsContainer.appendChild(
-                heart
+                ]
             );
 
-
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 8500);
-
-        }, i * 80);
+        }, i * 120);
 
     }
-
 }
 
 
 /* =========================
-   CREATE FLOWERS
+   FLOATING ELEMENTS
 ========================= */
 
-function createFlowers(count = 8) {
+function createFloating(symbol) {
 
-    const flowers = [
+    const element = document.createElement("div");
 
+    element.className = "floating";
+
+    element.innerText = symbol;
+
+    /*
+     * Keep elements away from the extreme
+     * right edge to prevent horizontal overflow.
+     */
+
+    const randomLeft =
+        Math.min(
+            Math.random() * 96,
+            96
+        );
+
+    element.style.left =
+        randomLeft + "vw";
+
+    element.style.fontSize =
+        (16 + Math.random() * 20) + "px";
+
+    element.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(element);
+
+    setTimeout(function() {
+
+        element.remove();
+
+    }, 8500);
+}
+
+
+/* =========================
+   AUTOMATIC FLOATING HEARTS
+========================= */
+
+setInterval(function() {
+
+    const symbols = [
+        "💗",
+        "💖",
+        "💕",
         "🌸",
         "🌷",
-        "🌺",
-        "🌼",
-        "🪻",
-        "🌹",
-        "💐"
-
+        "✨"
     ];
 
+    const symbol =
+        symbols[
+            Math.floor(
+                Math.random() * symbols.length
+            )
+        ];
 
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
+    createFloating(symbol);
 
-        setTimeout(() => {
-
-            const flower =
-                document.createElement("div");
-
-            flower.classList.add("flower");
-
-            flower.textContent =
-                flowers[
-                    Math.floor(
-                        Math.random() *
-                        flowers.length
-                    )
-                ];
+}, 1000);
 
 
-            flower.style.left =
-                Math.random() * 100 +
-                "vw";
+/* =========================
+   EXTRA SAFETY
+   Prevent accidental horizontal
+   scrolling on resize.
+========================= */
+
+window.addEventListener("resize", function() {
+
+    document.documentElement.style.overflowX = "hidden";
+
+    document.body.style.overflowX = "hidden";
+
+});
 
 
-            flower.style.fontSize =
-                (
-                    18 +
-                    Math.random() * 25
-                ) +
-                "px";
+/* =========================
+   INITIAL SETUP
+========================= */
 
+document.addEventListener("DOMContentLoaded", function() {
 
-            flower.style.animationDuration =
-                (
-                    5 +
-                    Math.random() * 5
-                ) +
-                "s";
+    const card = document.querySelector(".card");
 
-
-            document.body.appendChild(
-                flower
-            );
-
-
-            setTimeout(() => {
-
-                flower.remove();
-
-            }, 11000);
-
-        }, i * 180);
-
+    if (card) {
+        card.scrollTop = 0;
     }
 
-}
-
-
-/* =========================
-   INITIAL AMBIANCE
-========================= */
-
-setTimeout(() => {
-
-    createHearts(8);
-
-    createFlowers(6);
-
-}, 800);
-
-
-/* =========================
-   CONTINUOUS FLOWERS
-========================= */
-
-setInterval(() => {
-
-    createFlowers(2);
-
-}, 6000);
-
+});
 
 </script>
 
