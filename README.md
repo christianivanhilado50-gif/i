@@ -1,15 +1,17 @@
 # i
- <html lang="en">
+
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Coffee Date? 🎀💗</title>
+  <title>A Little Surprise For You 💐</title>
 
   <style>
-    /* =========================
+
+    /* =====================================================
        RESET
-    ========================== */
+    ===================================================== */
 
     * {
       box-sizing: border-box;
@@ -17,87 +19,234 @@
       padding: 0;
     }
 
-    /* =========================
-       PAGE
-    ========================== */
-
-    html {
+    html,
+    body {
       width: 100%;
       min-height: 100%;
-      overflow: hidden;
     }
 
     body {
-      width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
-      padding: 20px;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      font-family: "Trebuchet MS", Arial, sans-serif;
+      padding: 20px;
+
+      font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
 
       color: #8a4560;
 
       background:
-        radial-gradient(circle at 10% 10%, #ffffff 0%, transparent 25%),
-        radial-gradient(circle at 90% 90%, #ffb6d0 0%, transparent 30%),
-        radial-gradient(circle at 50% 0%, #ffd1e2 0%, transparent 40%),
-        linear-gradient(135deg, #ffc9dd, #fff0f6, #ffc4da);
+        radial-gradient(
+          circle at 10% 10%,
+          #ffffff 0%,
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          #ffb6d0 0%,
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 50% 0%,
+          #ffd1e2 0%,
+          transparent 40%
+        ),
+        linear-gradient(
+          135deg,
+          #ffc9dd,
+          #fff0f6,
+          #ffc4da
+        );
 
       overflow: hidden;
     }
 
-    /* =========================
+
+    /* =====================================================
+       BACKGROUND FLOATING HEARTS
+    ===================================================== */
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      opacity: 0;
+
+      animation:
+        floatUp
+        6s
+        linear
+        forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      100% {
+        transform:
+          translateY(-115vh)
+          rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+
+    /* =====================================================
+       FLOATING FLOWERS
+    ===================================================== */
+
+    .flower {
+      position: fixed;
+      bottom: -60px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+
+      animation:
+        flowerUp
+        8s
+        linear
+        forwards;
+    }
+
+    @keyframes flowerUp {
+      0% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: .9;
+      }
+
+      100% {
+        transform:
+          translateY(-115vh)
+          rotate(300deg);
+        opacity: 0;
+      }
+    }
+
+
+    /* =====================================================
+       SPARKLES
+    ===================================================== */
+
+    .sparkle {
+      position: fixed;
+
+      color: #f08aaa;
+      font-size: 24px;
+
+      pointer-events: none;
+      z-index: 3;
+
+      animation:
+        sparkle
+        2.5s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes sparkle {
+      0%,
+      100% {
+        opacity: .3;
+        transform: scale(.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
+
+    /* =====================================================
        MAIN CARD
-    ========================== */
+    ===================================================== */
 
     .card {
-      width: min(100%, 430px);
-      max-height: 95vh;
-      max-height: 95dvh;
+      width: min(100%, 450px);
 
-      margin: 0 auto;
+      max-height: 94vh;
+      max-height: 94dvh;
 
-      padding: 35px 25px;
-
-      text-align: center;
-
-      background: rgba(255, 255, 255, 0.93);
-
-      border: 2px solid rgba(255, 182, 208, 0.7);
-      border-radius: 32px;
-
-      box-shadow:
-        0 18px 45px rgba(214, 83, 122, 0.25),
-        0 5px 15px rgba(214, 83, 122, 0.1);
-
-      backdrop-filter: blur(12px);
+      padding: 30px 24px;
 
       position: relative;
       z-index: 10;
+
+      text-align: center;
 
       overflow-y: auto;
       overflow-x: hidden;
 
       scrollbar-width: none;
+
+      background:
+        rgba(255, 255, 255, .94);
+
+      border:
+        2px solid
+        rgba(255, 182, 208, .75);
+
+      border-radius: 32px;
+
+      box-shadow:
+        0 20px 50px
+        rgba(214, 83, 122, .25),
+
+        0 5px 15px
+        rgba(214, 83, 122, .1);
+
+      backdrop-filter:
+        blur(12px);
     }
 
     .card::-webkit-scrollbar {
       display: none;
     }
 
-    /* =========================
-       CORNER BOWS
-    ========================== */
+
+    /* =====================================================
+       BOWS
+    ===================================================== */
 
     .corner-bow {
       position: absolute;
       font-size: 30px;
 
-      animation: wiggle 2s ease-in-out infinite;
+      animation:
+        bowWiggle
+        2s
+        ease-in-out
+        infinite;
     }
 
     .bow-left {
@@ -111,22 +260,575 @@
       animation-delay: .5s;
     }
 
-    @keyframes wiggle {
-      0%, 100% {
+    @keyframes bowWiggle {
+      0%,
+      100% {
         transform: rotate(-8deg);
       }
 
       50% {
-        transform: rotate(8deg) scale(1.08);
+        transform:
+          rotate(8deg)
+          scale(1.1);
       }
     }
 
-    /* =========================
-       CUTE CHARACTER
-    ========================== */
+
+    /* =====================================================
+       PAGE TRANSITIONS
+    ===================================================== */
+
+    .page {
+      animation:
+        pageIn
+        .7s
+        ease;
+    }
+
+    @keyframes pageIn {
+      0% {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+
+    /* =====================================================
+       INTRODUCTION
+    ===================================================== */
+
+    .intro {
+      padding:
+        20px
+        5px
+        10px;
+    }
+
+    .intro-small {
+      margin-top: 5px;
+      font-size: 15px;
+      color: #c27a94;
+    }
+
+    .intro-title {
+      margin-top: 15px;
+      font-size: 28px;
+      color: #df507d;
+    }
+
+    .intro-text {
+      margin-top: 12px;
+
+      font-size: 16px;
+      line-height: 1.6;
+
+      color: #98506a;
+    }
+
+
+    /* =====================================================
+       BIG FLOWER BOUQUET
+    ===================================================== */
+
+    .bouquet {
+      position: relative;
+
+      width: 250px;
+      height: 230px;
+
+      margin:
+        5px
+        auto
+        10px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      animation:
+        bouquetFloat
+        3s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes bouquetFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .flower-piece {
+      position: absolute;
+
+      font-size: 53px;
+
+      filter:
+        drop-shadow(
+          0 6px 5px
+          rgba(214, 83, 122, .15)
+        );
+    }
+
+    .f1 {
+      top: 20px;
+      left: 85px;
+    }
+
+    .f2 {
+      top: 5px;
+      left: 35px;
+    }
+
+    .f3 {
+      top: 5px;
+      right: 35px;
+    }
+
+    .f4 {
+      top: 65px;
+      left: 5px;
+    }
+
+    .f5 {
+      top: 65px;
+      right: 5px;
+    }
+
+    .f6 {
+      top: 65px;
+      left: 95px;
+    }
+
+    .f7 {
+      top: 80px;
+      left: 55px;
+    }
+
+    .f8 {
+      top: 80px;
+      right: 55px;
+    }
+
+    .bouquet-paper {
+      position: absolute;
+
+      bottom: 5px;
+
+      width: 165px;
+      height: 105px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff1f6,
+          #ffd0df
+        );
+
+      clip-path:
+        polygon(
+          15% 0,
+          85% 0,
+          100% 100%,
+          0 100%
+        );
+
+      border:
+        2px solid
+        #f2b5cb;
+
+      filter:
+        drop-shadow(
+          0 8px 8px
+          rgba(214, 83, 122, .15)
+        );
+    }
+
+    .ribbon {
+      position: absolute;
+
+      bottom: 25px;
+
+      font-size: 52px;
+
+      z-index: 5;
+
+      animation:
+        ribbonMove
+        1.8s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes ribbonMove {
+      0%,
+      100% {
+        transform: rotate(-5deg);
+      }
+
+      50% {
+        transform:
+          rotate(5deg)
+          scale(1.05);
+      }
+    }
+
+
+    /* =====================================================
+       OPEN BUTTON
+    ===================================================== */
+
+    .open-button {
+      margin-top: 15px;
+
+      padding:
+        14px
+        27px;
+
+      border: none;
+      border-radius: 50px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f06f9a,
+          #df4f7d
+        );
+
+      color: white;
+
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px
+        rgba(214, 83, 122, .25);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .open-button:hover {
+      transform:
+        translateY(-3px)
+        scale(1.03);
+
+      box-shadow:
+        0 10px 25px
+        rgba(214, 83, 122, .35);
+    }
+
+    .open-button:active {
+      transform: scale(.96);
+    }
+
+
+    /* =====================================================
+       ENVELOPE PAGE
+    ===================================================== */
+
+    .envelope-area {
+      padding:
+        15px
+        5px
+        10px;
+    }
+
+    .envelope-title {
+      margin-top: 10px;
+
+      font-size: 25px;
+      color: #df507d;
+    }
+
+    .envelope-subtitle {
+      margin-top: 8px;
+
+      font-size: 14px;
+      color: #b86e88;
+    }
+
+    .envelope {
+      width: 290px;
+      height: 190px;
+
+      margin:
+        35px
+        auto
+        25px;
+
+      position: relative;
+
+      cursor: pointer;
+      perspective: 700px;
+    }
+
+    .envelope-body {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff4f8,
+          #ffd5e3
+        );
+
+      border:
+        2px solid
+        #f2b5ca;
+
+      border-radius: 10px;
+
+      box-shadow:
+        0 12px 25px
+        rgba(214, 83, 122, .18);
+
+      overflow: hidden;
+    }
+
+    .envelope-body::before {
+      content: "";
+
+      position: absolute;
+
+      bottom: 0;
+      left: 0;
+
+      width: 0;
+      height: 0;
+
+      border-left:
+        143px solid transparent;
+
+      border-right:
+        143px solid transparent;
+
+      border-bottom:
+        105px solid
+        #ffc5d8;
+    }
+
+    .envelope-body::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 0;
+
+      border-left:
+        143px solid transparent;
+
+      border-right:
+        143px solid transparent;
+
+      border-top:
+        100px solid
+        #ffe6ef;
+    }
+
+    .seal {
+      position: absolute;
+
+      left: 50%;
+      top: 47%;
+
+      transform:
+        translate(-50%, -50%);
+
+      z-index: 10;
+
+      font-size: 40px;
+
+      filter:
+        drop-shadow(
+          0 4px 4px
+          rgba(214, 83, 122, .15)
+        );
+
+      animation:
+        sealBeat
+        1.5s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes sealBeat {
+      0%,
+      100% {
+        transform:
+          translate(-50%, -50%)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translate(-50%, -50%)
+          scale(1.12);
+      }
+    }
+
+    .click-envelope {
+      font-size: 14px;
+      color: #c06f8a;
+
+      animation:
+        blink
+        2s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: .6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+
+    /* =====================================================
+       LETTER
+    ===================================================== */
+
+    .letter {
+      margin:
+        15px
+        5px
+        5px;
+
+      padding:
+        25px
+        20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffafa,
+          #fff0f6
+        );
+
+      border:
+        2px solid
+        #f4bfd1;
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 10px 25px
+        rgba(214, 83, 122, .12);
+    }
+
+
+    /* =====================================================
+       BIG SINGLE VIRTUAL BOUQUET
+    ===================================================== */
+
+    .bouquet-big {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+
+      margin:
+        5px
+        auto
+        20px;
+
+      font-size: 170px;
+
+      line-height: 1;
+
+      filter:
+        drop-shadow(
+          0 12px 12px
+          rgba(214, 83, 122, .20)
+        );
+
+      animation:
+        bigBouquetFloat
+        2.5s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes bigBouquetFloat {
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translateY(-10px)
+          scale(1.06);
+      }
+    }
+
+    .letter h1 {
+      margin:
+        12px
+        0;
+
+      font-size: 27px;
+      color: #df507d;
+    }
+
+    .letter p {
+      font-size: 16px;
+
+      line-height: 1.7;
+
+      color: #98506a;
+    }
+
+    .letter-name {
+      margin-top: 15px;
+
+      color: #df507d;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       DATE QUESTION
+    ===================================================== */
 
     .character {
       position: relative;
+
       display: inline-block;
 
       margin-top: 5px;
@@ -134,11 +836,16 @@
       font-size: 72px;
       line-height: 1;
 
-      animation: characterBounce 2s ease-in-out infinite;
+      animation:
+        characterBounce
+        2s
+        ease-in-out
+        infinite;
 
       filter:
         drop-shadow(
-          0 7px 8px rgba(214, 83, 122, 0.15)
+          0 7px 8px
+          rgba(214, 83, 122, .15)
         );
     }
 
@@ -150,11 +857,16 @@
 
       font-size: 34px;
 
-      animation: bowFloat 1.8s ease-in-out infinite;
+      animation:
+        bowFloat
+        1.8s
+        ease-in-out
+        infinite;
     }
 
     @keyframes characterBounce {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0);
       }
 
@@ -164,65 +876,38 @@
     }
 
     @keyframes bowFloat {
-      0%, 100% {
+      0%,
+      100% {
         transform: rotate(-10deg);
       }
 
       50% {
-        transform: rotate(10deg) scale(1.1);
+        transform:
+          rotate(10deg)
+          scale(1.1);
       }
     }
 
-    /* =========================
-       HEADINGS
-    ========================== */
-
-    h1 {
-      margin: 15px 0 10px;
-
-      font-size: 30px;
-      line-height: 1.2;
-
-      color: #e05280;
-    }
-
-    .success h1 {
-      font-size: 35px;
-    }
-
-    /* =========================
-       TEXT
-    ========================== */
-
-    .question {
-      margin-bottom: 25px;
-
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .tiny {
-      margin-top: 18px;
-
-      font-size: 13px;
-      color: #c27a94;
-    }
-
-    /* =========================
-       DECORATIONS
-    ========================== */
-
     .decorations {
-      margin: 8px 0 15px;
+      margin:
+        8px
+        0
+        15px;
 
       font-size: 21px;
+
       letter-spacing: 5px;
 
-      animation: sparkle 2s ease-in-out infinite;
+      animation:
+        sparkleText
+        2s
+        ease-in-out
+        infinite;
     }
 
-    @keyframes sparkle {
-      0%, 100% {
+    @keyframes sparkleText {
+      0%,
+      100% {
         opacity: .7;
       }
 
@@ -231,15 +916,33 @@
       }
     }
 
-    /* =========================
-       BUTTON AREA
-    ========================== */
+    .question-title {
+      margin:
+        15px
+        0
+        10px;
+
+      font-size: 30px;
+      color: #e05280;
+    }
+
+    .question {
+      margin-bottom: 25px;
+
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
 
     .buttons {
-      width: 100%;
       min-height: 120px;
 
       display: flex;
+
       justify-content: center;
       align-items: center;
 
@@ -250,87 +953,70 @@
       overflow: visible;
     }
 
-    /* =========================
-       BUTTONS
-    ========================== */
-
-    button {
+    .date-button {
       border: none;
+
       border-radius: 50px;
 
-      padding: 14px 28px;
+      padding:
+        14px
+        28px;
 
       font-family: inherit;
+
       font-size: 17px;
       font-weight: bold;
 
       cursor: pointer;
 
       transition:
-        transform 0.35s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
+        transform .35s ease,
+        background .25s ease,
+        box-shadow .25s ease;
     }
-
-    button:active {
-      transform: scale(0.96);
-    }
-
-    /* =========================
-       YES BUTTON
-    ========================== */
 
     #yesBtn {
       position: relative;
+
       z-index: 3;
 
-      background: linear-gradient(
-        135deg,
-        #f06f9a,
-        #df4f7d
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #f06f9a,
+          #df4f7d
+        );
 
       color: white;
 
       box-shadow:
-        0 7px 18px rgba(214, 83, 122, 0.3);
+        0 7px 18px
+        rgba(214, 83, 122, .3);
     }
 
     #yesBtn:hover {
-      background: linear-gradient(
-        135deg,
-        #e85c89,
-        #d94776
-      );
-
       box-shadow:
-        0 9px 23px rgba(214, 83, 122, 0.38);
+        0 9px 23px
+        rgba(214, 83, 122, .38);
     }
-
-    /* =========================
-       NO BUTTON
-    ========================== */
 
     #noBtn {
       position: relative;
+
       z-index: 2;
 
       background: #ffe3ed;
+
       color: #9a7180;
 
-      border: 1px solid #f8bfd2;
+      border:
+        1px solid
+        #f8bfd2;
     }
 
     #noBtn:hover {
       background: #ffd5e4;
     }
-
-    /* =========================
-       MESSAGE
-    ========================== */
 
     #message {
       min-height: 28px;
@@ -340,48 +1026,38 @@
       font-weight: bold;
 
       color: #dc507d;
-
-      transition: opacity 0.2s ease;
     }
 
-    /* =========================
-       HIDDEN
-    ========================== */
+    .tiny {
+      margin-top: 18px;
 
-    .hidden {
-      display: none !important;
+      font-size: 13px;
+
+      color: #c27a94;
     }
 
-    /* =========================
-       SUCCESS
-       IMPORTANT:
-       No transform animation here.
-       This prevents the card from
-       visually shifting sideways.
-    ========================== */
 
-    .success {
-      animation: fadeIn 0.6s ease;
+    /* =====================================================
+       SUCCESS PAGE
+    ===================================================== */
+
+    .success h1 {
+      margin:
+        15px
+        0
+        10px;
+
+      font-size: 35px;
+
+      color: #e05280;
     }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    /* =========================
-       THANK YOU BOX
-    ========================== */
 
     .thank-you {
       margin-top: 20px;
 
-      padding: 23px 18px;
+      padding:
+        23px
+        18px;
 
       background:
         linear-gradient(
@@ -390,17 +1066,23 @@
           #ffdce9
         );
 
-      border: 2px solid #f6bfd2;
+      border:
+        2px solid
+        #f6bfd2;
 
       border-radius: 25px;
 
       box-shadow:
-        inset 0 0 20px rgba(255, 255, 255, .7),
-        0 8px 20px rgba(214, 83, 122, .12);
+        inset 0 0 20px
+        rgba(255,255,255,.7),
+
+        0 8px 20px
+        rgba(214,83,122,.12);
     }
 
     .thank-you p {
       font-size: 17px;
+
       line-height: 1.7;
     }
 
@@ -409,32 +1091,37 @@
       font-weight: bold;
     }
 
-    /* =========================
-       CHAT BUBBLE
-    ========================== */
-
     .chat-bubble {
       position: relative;
 
-      margin: 22px auto 5px;
+      margin:
+        22px
+        auto
+        5px;
 
       max-width: 330px;
 
-      padding: 15px 18px;
+      padding:
+        15px
+        18px;
 
       background: white;
 
-      border: 2px solid #f5bfd2;
+      border:
+        2px solid
+        #f5bfd2;
 
       border-radius: 20px;
 
       color: #98506a;
 
       font-size: 15px;
+
       line-height: 1.5;
 
       box-shadow:
-        0 5px 15px rgba(214, 83, 122, .1);
+        0 5px 15px
+        rgba(214,83,122,.1);
     }
 
     .chat-bubble::after {
@@ -450,17 +1137,18 @@
 
       background: white;
 
-      border-right: 2px solid #f5bfd2;
-      border-bottom: 2px solid #f5bfd2;
+      border-right:
+        2px solid
+        #f5bfd2;
+
+      border-bottom:
+        2px solid
+        #f5bfd2;
 
       transform:
         translateX(-50%)
         rotate(45deg);
     }
-
-    /* =========================
-       FINAL MESSAGE
-    ========================== */
 
     .final-note {
       margin-top: 25px;
@@ -468,97 +1156,14 @@
       color: #bd718b;
 
       font-size: 14px;
+
       line-height: 1.6;
     }
 
-    /* =========================
-       FLOATING HEARTS
-    ========================== */
 
-    .hearts {
-      position: fixed;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      overflow: hidden;
-
-      pointer-events: none;
-
-      z-index: 1;
-    }
-
-    .heart {
-      position: absolute;
-
-      bottom: -40px;
-
-      opacity: 0;
-
-      animation:
-        floatUp 5s linear forwards;
-
-      user-select: none;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform:
-          translateY(0)
-          rotate(0deg);
-
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translateY(-110vh)
-          rotate(360deg);
-
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       SPARKLES
-    ========================== */
-
-    .sparkle {
-      position: fixed;
-
-      color: #f38aaa;
-
-      pointer-events: none;
-
-      z-index: 2;
-
-      animation:
-        sparkleFloat
-        3s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes sparkleFloat {
-      0%, 100% {
-        opacity: .3;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.2);
-      }
-    }
-
-    /* =========================
+    /* =====================================================
        MOVING CAT
-    ========================== */
+    ===================================================== */
 
     .moving-cat {
       position: fixed;
@@ -573,8 +1178,30 @@
       pointer-events: none;
 
       animation:
-        catWalk 12s linear infinite,
-        catBounce .6s ease-in-out infinite;
+        catWalk
+        14s
+        linear
+        infinite,
+
+        catBounce
+        .6s
+        ease-in-out
+        infinite;
+    }
+
+    .cat-bow {
+      position: absolute;
+
+      top: -8px;
+      right: -5px;
+
+      font-size: 23px;
+
+      animation:
+        catBow
+        .8s
+        ease-in-out
+        infinite;
     }
 
     @keyframes catWalk {
@@ -600,7 +1227,8 @@
     }
 
     @keyframes catBounce {
-      0%, 100% {
+      0%,
+      100% {
         margin-bottom: 0;
       }
 
@@ -609,50 +1237,39 @@
       }
     }
 
-    /* =========================
-       CAT BOW
-    ========================== */
-
-    .cat-bow {
-      position: absolute;
-
-      top: -8px;
-      right: -5px;
-
-      font-size: 23px;
-
-      animation:
-        catBow
-        .8s
-        ease-in-out
-        infinite;
-    }
-
     @keyframes catBow {
-      0%, 100% {
+      0%,
+      100% {
         transform: rotate(-10deg);
       }
 
       50% {
-        transform: rotate(10deg) scale(1.1);
+        transform:
+          rotate(10deg)
+          scale(1.1);
       }
     }
 
-    /* =========================
-       CAT SPEECH
-    ========================== */
+
+    /* =====================================================
+       CAT MESSAGE
+    ===================================================== */
 
     .cat-message {
       position: fixed;
 
-      bottom: 80px;
+      bottom: 78px;
       left: 20px;
 
-      padding: 10px 15px;
+      padding:
+        9px
+        14px;
 
       background: white;
 
-      border: 2px solid #f5bfd2;
+      border:
+        2px solid
+        #f5bfd2;
 
       border-radius: 18px;
 
@@ -660,9 +1277,6 @@
 
       font-size: 13px;
       font-weight: bold;
-
-      box-shadow:
-        0 5px 15px rgba(214, 83, 122, .15);
 
       z-index: 21;
 
@@ -674,7 +1288,8 @@
     }
 
     @keyframes messageFloat {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0);
       }
 
@@ -683,108 +1298,52 @@
       }
     }
 
-    /* =========================
-       FLOATING FLOWERS
-    ========================== */
 
-    .flower {
-      position: fixed;
-
-      bottom: -50px;
-
-      font-size: 25px;
-
-      pointer-events: none;
-
-      z-index: 2;
-
-      animation:
-        flowerFloat
-        7s
-        linear
-        forwards;
-    }
-
-    @keyframes flowerFloat {
-      0% {
-        transform:
-          translateY(0)
-          rotate(0deg);
-
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translateY(-110vh)
-          rotate(360deg);
-
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       EXTRA FLOATING BOWS
-    ========================== */
-
-    .floating-bow {
-      position: fixed;
-
-      font-size: 30px;
-
-      pointer-events: none;
-
-      z-index: 3;
-
-      animation:
-        bowDrift
-        5s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes bowDrift {
-      0%, 100% {
-        transform:
-          translateY(0)
-          rotate(-10deg);
-      }
-
-      50% {
-        transform:
-          translateY(-20px)
-          rotate(10deg);
-      }
-    }
-
-    /* =========================
+    /* =====================================================
        MOBILE
-    ========================== */
+    ===================================================== */
 
-    @media (max-width: 420px) {
+    @media (max-width: 500px) {
 
       body {
-        padding: 15px;
+        padding: 12px;
       }
 
       .card {
-        width: 100%;
-        max-width: 430px;
+        padding:
+          28px
+          18px;
+      }
 
-        padding: 30px 20px;
+      .bouquet {
+        transform: scale(.9);
 
-        border-radius: 28px;
+        margin-top: -5px;
+        margin-bottom: -5px;
+      }
+
+      .intro-title {
+        font-size: 25px;
+      }
+
+      .envelope {
+        width: 270px;
+        height: 175px;
+      }
+
+      /* Big bouquet on mobile */
+      .bouquet-big {
+        font-size: 125px;
+
+        margin-top: 0;
+        margin-bottom: 18px;
       }
 
       .character {
         font-size: 63px;
       }
 
-      h1 {
+      .question-title {
         font-size: 27px;
       }
 
@@ -792,105 +1351,77 @@
         font-size: 31px;
       }
 
-      .question {
-        font-size: 17px;
-      }
-
-      .buttons {
-        gap: 10px;
-      }
-
-      button {
-        padding: 13px 22px;
-        font-size: 16px;
-      }
-
       .moving-cat {
         font-size: 45px;
       }
 
       .cat-message {
-        left: 10px;
+        left: 8px;
         bottom: 65px;
       }
     }
 
-    /* =========================
+
+    /* =====================================================
        REDUCED MOTION
-    ========================== */
+    ===================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================
-       FLOATING DECORATIONS
-  ========================== -->
+
+  <!-- =====================================================
+       FLOATING BACKGROUND
+  ===================================================== -->
 
   <div
     class="hearts"
-    id="hearts"
-    aria-hidden="true">
+    id="hearts">
   </div>
+
 
   <span
     class="sparkle"
-    style="top:10%;left:8%;">
+    style="top:8%;left:8%;">
     ✦
   </span>
 
   <span
     class="sparkle"
-    style="top:25%;right:8%;animation-delay:.7s;">
+    style="top:20%;right:8%;animation-delay:.7s;">
     ✧
   </span>
 
   <span
     class="sparkle"
-    style="bottom:15%;left:10%;animation-delay:1.2s;">
+    style="bottom:18%;left:9%;animation-delay:1s;">
     ♡
   </span>
 
   <span
     class="sparkle"
-    style="bottom:20%;right:12%;animation-delay:.4s;">
+    style="bottom:25%;right:10%;animation-delay:.4s;">
     ✦
   </span>
 
-  <!-- EXTRA BOWS -->
 
-  <div
-    class="floating-bow"
-    style="top:12%;left:20%;">
-    🎀
-  </div>
-
-  <div
-    class="floating-bow"
-    style="top:45%;right:15%;animation-delay:1s;">
-    🎀
-  </div>
-
-  <div
-    class="floating-bow"
-    style="bottom:30%;left:7%;animation-delay:2s;">
-    🎀
-  </div>
-
-  <!-- =========================
+  <!-- =====================================================
        MOVING CAT
-  ========================== -->
+  ===================================================== -->
 
   <div class="moving-cat">
 
@@ -906,11 +1437,13 @@
     Meowww~ 💗
   </div>
 
-  <!-- =========================
+
+  <!-- =====================================================
        MAIN CARD
-  ========================== -->
+  ===================================================== -->
 
   <main class="card">
+
 
     <!-- CORNER BOWS -->
 
@@ -922,11 +1455,220 @@
       🎀
     </div>
 
-    <!-- =========================
-         QUESTION PAGE
-    ========================== -->
 
-    <section id="questionPage">
+    <!-- ===================================================
+         INTRODUCTION
+    =================================================== -->
+
+    <section
+      id="introPage"
+      class="page">
+
+      <div class="intro">
+
+        <div class="intro-small">
+          ✨ A little surprise for you ✨
+        </div>
+
+
+        <!-- BIG FLOWER BOUQUET -->
+
+        <div class="bouquet">
+
+          <span class="flower-piece f1">
+            🌹
+          </span>
+
+          <span class="flower-piece f2">
+            🌷
+          </span>
+
+          <span class="flower-piece f3">
+            🌸
+          </span>
+
+          <span class="flower-piece f4">
+            🌺
+          </span>
+
+          <span class="flower-piece f5">
+            🌼
+          </span>
+
+          <span class="flower-piece f6">
+            🌷
+          </span>
+
+          <span class="flower-piece f7">
+            🌹
+          </span>
+
+          <span class="flower-piece f8">
+            🌸
+          </span>
+
+          <div class="bouquet-paper">
+          </div>
+
+          <div class="ribbon">
+            🎀
+          </div>
+
+        </div>
+
+
+        <h1 class="intro-title">
+          For Nicolaiii 💗
+        </h1>
+
+
+        <p class="intro-text">
+
+          I prepared a little something
+          for you hehe... 🌷🫶🏻🌷
+
+          <br>
+
+          It's nothing too serious,
+          just something cute from me. 🎀
+
+        </p>
+
+
+        <button
+          class="open-button"
+          id="seeBouquetBtn"
+          type="button">
+
+          Open my little surprise 💌
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ENVELOPE
+    =================================================== -->
+
+    <section
+      id="envelopePage"
+      class="page hidden">
+
+      <div class="envelope-area">
+
+        <div class="decorations">
+          🌷 🎀 💗 🎀 🌷
+        </div>
+
+        <h1 class="envelope-title">
+          There's a little letter for you 💌
+        </h1>
+
+        <p class="envelope-subtitle">
+          Tap the envelope to open it
+        </p>
+
+
+        <div
+          class="envelope"
+          id="envelope"
+          role="button"
+          tabindex="0"
+          aria-label="Open the letter">
+
+          <div class="envelope-body">
+          </div>
+
+          <div class="seal">
+            💗
+          </div>
+
+        </div>
+
+
+        <p class="click-envelope">
+          💌 click meee 🎀
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         LETTER
+    =================================================== -->
+
+    <section
+      id="letterPage"
+      class="page hidden">
+
+      <div class="letter">
+
+
+        <!-- BIG SINGLE BOUQUET -->
+
+        <div class="bouquet-big">
+          💐
+        </div>
+
+
+        <h1>
+          Hiii Nicolaiii 💗
+        </h1>
+
+
+        <p>
+
+          Before you continue...
+
+          I just wanted to give you
+          this little virtual bouquet. 💐💐💐
+
+          <br><br>
+
+          I hope it makes you smile
+          even just a little bit. 🥹💗
+
+          <br><br>
+
+          And there's one tiny question
+          I wanted to ask you...
+
+        </p>
+
+
+        <div class="letter-name">
+          — From someone who wants
+          to take you out for coffee 🎀
+        </div>
+
+
+        <button
+          class="open-button"
+          id="questionBtn"
+          type="button">
+
+          There's one more thing... 💗
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DATE QUESTION
+    =================================================== -->
+
+    <section
+      id="questionPage"
+      class="page hidden">
+
 
       <div class="character">
 
@@ -938,19 +1680,26 @@
 
       </div>
 
+
       <div class="decorations">
         🌷 💗 ✨ 🎀 ✨ 💗 🌷
       </div>
 
-      <h1>
+
+      <h1 class="question-title">
         Coffee Date?
       </h1>
 
+
       <p class="question">
 
-        Hi Nicolaiii heheee 💗<br>
+        Hi Nicolaiii heheee 💗
 
-        Would you like to go on a<br>
+        <br>
+
+        Would you like to go on a
+
+        <br>
 
         <strong>
           Coffee date
@@ -960,20 +1709,22 @@
 
       </p>
 
-      <!-- BUTTONS -->
 
       <div class="buttons">
 
         <button
           id="yesBtn"
+          class="date-button"
           type="button">
 
           YES 💗
 
         </button>
 
+
         <button
           id="noBtn"
+          class="date-button"
           type="button">
 
           NO 😭
@@ -982,10 +1733,12 @@
 
       </div>
 
+
       <div
         id="message"
         aria-live="polite">
       </div>
+
 
       <p class="tiny">
         Choose wisely... 👀🎀
@@ -993,17 +1746,18 @@
 
     </section>
 
-    <!-- =========================
-         SUCCESS PAGE
-    ========================== -->
+
+    <!-- ===================================================
+         SUCCESS
+    =================================================== -->
 
     <section
       id="successPage"
-      class="hidden">
+      class="page hidden">
+
 
       <div class="success">
 
-        <!-- Cute teddy -->
 
         <div class="character">
 
@@ -1015,24 +1769,27 @@
 
         </div>
 
+
         <div class="decorations">
           💗 🎀 🌷 ✨ 🎀 🌷 💗
         </div>
+
 
         <h1>
           YEEHEYYY!! 🥳💗
         </h1>
 
+
         <p class="question">
-          Thank youuu for saying yes hehe 🥹🎀
+          Thank youuu for saying yes hehehe🎀
         </p>
 
-        <!-- Sweet message -->
 
         <div class="thank-you">
 
           <p>
-            I’m really happyyy you said yes! 🥹💗
+            I’m really happyyy
+            you said yes! 💐💐
           </p>
 
           <br>
@@ -1045,36 +1802,43 @@
               Chat me whenever you're freeee
             </span>
 
-            because I respect your time and I want
-            us to enjoy it when we're both available. 🌷
+            because I respect your time
+            and I want us to enjoy it when
+            we're both available. 🌷
 
           </p>
 
         </div>
 
-        <!-- Chat bubble -->
 
         <div class="chat-bubble">
 
           💌 Just chat me when you're free,
-          okayyy? I'll be waiting hehe 🎀
+          okayyy?
+
+          I'll be waiting hehe 🎀
 
         </div>
+
 
         <div class="final-note">
 
-          Take your timeee 🤍<br>
+          Take your timeee 🤍
 
-          No rush, no pressure — just a cute
-          little coffee date when the time is right. 🍵💗
+          <br>
+
+          No rush, no pressure —
+          just a cute little coffee date
+          when the time is right.!!!
 
         </div>
+
 
         <div
           class="decorations"
           style="margin-top:22px;">
 
-          🎀 💕 🎀 💕 🎀
+          🎀 💕 🌷 💕 🎀
 
         </div>
 
@@ -1082,43 +1846,217 @@
 
     </section>
 
+
   </main>
 
-  <!-- =========================
+
+  <!-- =====================================================
        JAVASCRIPT
-  ========================== -->
+  ===================================================== -->
 
   <script>
 
-    /* =========================
-       ELEMENTS
-    ========================== */
+
+    /* =====================================================
+       PAGE ELEMENTS
+    ===================================================== */
+
+    const introPage =
+      document.getElementById(
+        "introPage"
+      );
+
+    const envelopePage =
+      document.getElementById(
+        "envelopePage"
+      );
+
+    const letterPage =
+      document.getElementById(
+        "letterPage"
+      );
 
     const questionPage =
-      document.getElementById("questionPage");
+      document.getElementById(
+        "questionPage"
+      );
 
     const successPage =
-      document.getElementById("successPage");
+      document.getElementById(
+        "successPage"
+      );
+
+
+    const seeBouquetBtn =
+      document.getElementById(
+        "seeBouquetBtn"
+      );
+
+    const envelope =
+      document.getElementById(
+        "envelope"
+      );
+
+    const questionBtn =
+      document.getElementById(
+        "questionBtn"
+      );
+
 
     const yesBtn =
-      document.getElementById("yesBtn");
+      document.getElementById(
+        "yesBtn"
+      );
 
     const noBtn =
-      document.getElementById("noBtn");
+      document.getElementById(
+        "noBtn"
+      );
 
     const message =
-      document.getElementById("message");
+      document.getElementById(
+        "message"
+      );
+
 
     const heartsContainer =
-      document.getElementById("hearts");
+      document.getElementById(
+        "hearts"
+      );
 
-    const card =
-      document.querySelector(".card");
+
+    /* =====================================================
+       CHANGE PAGE
+    ===================================================== */
+
+    function showPage(page) {
+
+      const pages = [
+        introPage,
+        envelopePage,
+        letterPage,
+        questionPage,
+        successPage
+      ];
 
 
-    /* =========================
-       NO BUTTON MESSAGES
-    ========================== */
+      pages.forEach(
+        currentPage => {
+
+          currentPage.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+      page.classList.remove(
+        "hidden"
+      );
+
+
+      page.classList.remove(
+        "page"
+      );
+
+      void page.offsetWidth;
+
+      page.classList.add(
+        "page"
+      );
+
+
+      document
+        .querySelector(".card")
+        .scrollTop = 0;
+
+    }
+
+
+    /* =====================================================
+       INTRO → ENVELOPE
+    ===================================================== */
+
+    seeBouquetBtn.addEventListener(
+      "click",
+      () => {
+
+        createHearts(15);
+
+        createFlowers(12);
+
+        showPage(
+          envelopePage
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       ENVELOPE → LETTER
+    ===================================================== */
+
+    envelope.addEventListener(
+      "click",
+      openEnvelope
+    );
+
+
+    envelope.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          openEnvelope();
+
+        }
+
+      }
+    );
+
+
+    function openEnvelope() {
+
+      createHearts(12);
+
+      createFlowers(8);
+
+      showPage(
+        letterPage
+      );
+
+    }
+
+
+    /* =====================================================
+       LETTER → DATE QUESTION
+    ===================================================== */
+
+    questionBtn.addEventListener(
+      "click",
+      () => {
+
+        createHearts(10);
+
+        showPage(
+          questionPage
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       NO BUTTON
+    ===================================================== */
 
     const noMessages = [
 
@@ -1144,10 +2082,6 @@
     let noCount = 0;
 
 
-    /* =========================
-       NO BUTTON
-    ========================== */
-
     noBtn.addEventListener(
       "click",
       sayNo
@@ -1164,45 +2098,45 @@
           )
         ];
 
+
       message.textContent =
         currentMessage;
+
 
       noCount++;
 
 
-      /* YES gets bigger */
-
       const yesSize =
         Math.min(
           3,
-          1 + noCount * 0.25
+          1 + noCount * .25
         );
+
 
       yesBtn.style.transform =
         `scale(${yesSize})`;
 
 
-      /* NO gets smaller */
-
       const noSize =
         Math.max(
-          0.55,
-          1 - noCount * 0.08
+          .55,
+          1 - noCount * .08
         );
+
 
       noBtn.style.transform =
         `scale(${noSize})`;
 
-
-      /* Final message */
 
       if (noCount >= 7) {
 
         yesBtn.style.transform =
           "scale(3)";
 
+
         message.textContent =
           "Okayyyy... YES na lang 😭💗🎀";
+
       }
 
 
@@ -1211,9 +2145,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        YES BUTTON
-    ========================== */
+    ===================================================== */
 
     yesBtn.addEventListener(
       "click",
@@ -1223,66 +2157,41 @@
 
     function sayYes() {
 
-      /*
-        IMPORTANT FIX:
-        Clear the transforms created
-        by the NO button before changing
-        to the success screen.
-      */
+      yesBtn.style.transform =
+        "";
 
-      yesBtn.style.transform = "";
-      noBtn.style.transform = "";
+      noBtn.style.transform =
+        "";
 
-      /*
-        Hide question page.
-      */
 
-      questionPage.classList.add(
-        "hidden"
+      createHearts(40);
+
+      createFlowers(25);
+
+
+      showPage(
+        successPage
       );
 
-      /*
-        Show success page.
-      */
-
-      successPage.classList.remove(
-        "hidden"
-      );
-
-      /*
-        Always return the card's
-        scroll position to the top.
-      */
-
-      card.scrollTop = 0;
-
-      /*
-        Heart celebration.
-      */
-
-      createHearts(35);
-      createFlowers(20);
-
-
-      /*
-        Second celebration.
-      */
 
       setTimeout(() => {
 
-        createHearts(20);
-        createFlowers(10);
+        createHearts(25);
 
-      }, 900);
+        createFlowers(15);
+
+      }, 800);
 
     }
 
 
-    /* =========================
-       FLOATING HEARTS
-    ========================== */
+    /* =====================================================
+       CREATE HEARTS
+    ===================================================== */
 
-    function createHearts(count = 18) {
+    function createHearts(
+      count = 15
+    ) {
 
       const emojis = [
 
@@ -1290,12 +2199,10 @@
         "💕",
         "💖",
         "💘",
-        "🌸",
-        "✨",
-        "🎀",
         "🤍",
-        "🌷",
-        "♡"
+        "♡",
+        "🎀",
+        "✨"
 
       ];
 
@@ -1309,7 +2216,10 @@
         setTimeout(() => {
 
           const heart =
-            document.createElement("div");
+            document.createElement(
+              "div"
+            );
+
 
           heart.classList.add(
             "heart"
@@ -1326,21 +2236,24 @@
 
 
           heart.style.left =
-            Math.random() * 100 + "vw";
-
-
-          heart.style.animationDuration =
-            (3 + Math.random() * 3) + "s";
+            Math.random() * 100 +
+            "vw";
 
 
           heart.style.fontSize =
-            (16 + Math.random() * 18) + "px";
+            (
+              16 +
+              Math.random() * 20
+            ) +
+            "px";
 
 
-          heart.style.transform =
-            `rotate(
-              ${Math.random() * 40 - 20}deg
-            )`;
+          heart.style.animationDuration =
+            (
+              4 +
+              Math.random() * 4
+            ) +
+            "s";
 
 
           heartsContainer.appendChild(
@@ -1352,7 +2265,7 @@
 
             heart.remove();
 
-          }, 6500);
+          }, 8500);
 
         }, i * 80);
 
@@ -1361,11 +2274,13 @@
     }
 
 
-    /* =========================
-       FLOATING FLOWERS
-    ========================== */
+    /* =====================================================
+       CREATE FLOWERS
+    ===================================================== */
 
-    function createFlowers(count = 8) {
+    function createFlowers(
+      count = 8
+    ) {
 
       const flowers = [
 
@@ -1374,6 +2289,7 @@
         "🌺",
         "🌼",
         "🪻",
+        "🌹",
         "💐"
 
       ];
@@ -1388,7 +2304,10 @@
         setTimeout(() => {
 
           const flower =
-            document.createElement("div");
+            document.createElement(
+              "div"
+            );
+
 
           flower.classList.add(
             "flower"
@@ -1405,15 +2324,24 @@
 
 
           flower.style.left =
-            Math.random() * 100 + "vw";
+            Math.random() * 100 +
+            "vw";
 
 
           flower.style.fontSize =
-            (18 + Math.random() * 20) + "px";
+            (
+              18 +
+              Math.random() * 25
+            ) +
+            "px";
 
 
           flower.style.animationDuration =
-            (5 + Math.random() * 4) + "s";
+            (
+              5 +
+              Math.random() * 5
+            ) +
+            "s";
 
 
           document.body.appendChild(
@@ -1425,39 +2353,41 @@
 
             flower.remove();
 
-          }, 9000);
+          }, 11000);
 
-        }, i * 300);
+        }, i * 180);
 
       }
 
     }
 
 
-    /* =========================
-       INITIAL DECORATIONS
-    ========================== */
+    /* =====================================================
+       INITIAL AMBIANCE
+    ===================================================== */
 
     setTimeout(() => {
 
-      createHearts(10);
+      createHearts(8);
 
-      createFlowers(8);
+      createFlowers(6);
 
-    }, 700);
+    }, 800);
 
 
-    /* =========================
-       CONTINUOUS FLOWERS
-    ========================== */
+    /* =====================================================
+       CONTINUOUS SMALL FLOWERS
+    ===================================================== */
 
     setInterval(() => {
 
-      createFlowers(3);
+      createFlowers(2);
 
-    }, 5000);
+    }, 6000);
+
 
   </script>
 
 </body>
 </html>
+
