@@ -1,5 +1,4 @@
 # i
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +7,7 @@
 <title>A Little Surprise For You 💐💗</title>
 
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,7 +31,11 @@ body {
 
   padding: 20px;
 
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
   color: #8a4560;
 
   background:
@@ -60,10 +64,9 @@ body {
   overflow: hidden;
 }
 
-
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* =====================================================
+   BACKGROUND HEARTS
+===================================================== */
 
 .hearts {
   position: fixed;
@@ -86,6 +89,7 @@ body {
 }
 
 @keyframes floatUp {
+
   0% {
     transform:
       translateY(0)
@@ -105,10 +109,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    FLOATING FLOWERS
-========================= */
+===================================================== */
 
 .flower {
   position: fixed;
@@ -125,6 +128,7 @@ body {
 }
 
 @keyframes flowerUp {
+
   0% {
     transform:
       translateY(0)
@@ -144,10 +148,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    SPARKLES
-========================= */
+===================================================== */
 
 .sparkle {
   position: fixed;
@@ -164,6 +167,7 @@ body {
 }
 
 @keyframes sparkle {
+
   0%,
   100% {
     opacity: .3;
@@ -176,10 +180,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    MAIN CARD
-========================= */
+===================================================== */
 
 .card {
   width: min(100%, 450px);
@@ -194,6 +197,9 @@ body {
   position: relative;
   z-index: 10;
 
+  margin-left: auto;
+  margin-right: auto;
+
   text-align: center;
 
   overflow-y: auto;
@@ -201,7 +207,8 @@ body {
 
   scrollbar-width: none;
 
-  background: rgba(255, 255, 255, .94);
+  background:
+    rgba(255, 255, 255, .94);
 
   border:
     2px solid
@@ -216,17 +223,19 @@ body {
     0 5px 15px
     rgba(214, 83, 122, .1);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter:
+    blur(12px);
+
+  transform: none !important;
 }
 
 .card::-webkit-scrollbar {
   display: none;
 }
 
-
-/* =========================
-   CORNER BOWS
-========================= */
+/* =====================================================
+   BOWS
+===================================================== */
 
 .corner-bow {
   position: absolute;
@@ -251,6 +260,7 @@ body {
 }
 
 @keyframes bowWiggle {
+
   0%,
   100% {
     transform: rotate(-8deg);
@@ -263,14 +273,17 @@ body {
   }
 }
 
-
-/* =========================
-   PAGES
-========================= */
+/* =====================================================
+   PAGE TRANSITIONS
+===================================================== */
 
 .page {
   width: 100%;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
 
   animation:
     pageIn
@@ -278,11 +291,8 @@ body {
     ease;
 }
 
-.hidden {
-  display: none !important;
-}
-
 @keyframes pageIn {
+
   0% {
     opacity: 0;
     transform: translateY(15px);
@@ -294,14 +304,43 @@ body {
   }
 }
 
+.hidden {
+  display: none !important;
+}
 
-/* =========================
-   INTRO
-========================= */
+/* =====================================================
+   CENTER EVERY PAGE
+===================================================== */
+
+.card > section {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#introPage,
+#envelopePage,
+#letterPage,
+#questionPage,
+#successPage {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* =====================================================
+   INTRODUCTION
+===================================================== */
 
 .intro {
-  width: 100%;
-  padding: 20px 5px 10px;
+  padding:
+    20px
+    5px
+    10px;
 }
 
 .intro-small {
@@ -323,16 +362,18 @@ body {
   color: #98506a;
 }
 
-
-/* =========================
-   BOUQUET
-========================= */
+/* =====================================================
+   BIG BOUQUET
+===================================================== */
 
 .bouquet {
   width: 100%;
   min-height: 300px;
 
-  margin: 5px auto;
+  margin:
+    5px
+    auto
+    5px;
 
   display: flex;
   justify-content: center;
@@ -349,6 +390,7 @@ body {
 }
 
 @keyframes bouquetFloat {
+
   0%,
   100% {
     transform: translateY(0);
@@ -378,15 +420,16 @@ body {
   user-select: none;
 }
 
-
-/* =========================
-   BUTTON
-========================= */
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
 
 .open-button {
   margin-top: 15px;
 
-  padding: 14px 27px;
+  padding:
+    14px
+    27px;
 
   border: none;
   border-radius: 50px;
@@ -429,13 +472,15 @@ body {
   transform: scale(.96);
 }
 
-
-/* =========================
-   ENVELOPE
-========================= */
+/* =====================================================
+   ENVELOPE PAGE
+===================================================== */
 
 .envelope-area {
-  padding: 15px 5px 10px;
+  padding:
+    15px
+    5px
+    10px;
 }
 
 .envelope-title {
@@ -455,11 +500,19 @@ body {
   max-width: 100%;
   height: 190px;
 
-  margin: 35px auto 25px;
+  margin:
+    35px
+    auto
+    25px;
 
   position: relative;
+
   cursor: pointer;
   perspective: 700px;
+
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
 }
 
 .envelope-body {
@@ -490,6 +543,7 @@ body {
   content: "";
 
   position: absolute;
+
   bottom: 0;
   left: 0;
 
@@ -511,6 +565,7 @@ body {
   content: "";
 
   position: absolute;
+
   top: 0;
   left: 0;
 
@@ -541,6 +596,12 @@ body {
 
   font-size: 40px;
 
+  filter:
+    drop-shadow(
+      0 4px 4px
+      rgba(214, 83, 122, .15)
+    );
+
   animation:
     sealBeat
     1.5s
@@ -549,6 +610,7 @@ body {
 }
 
 @keyframes sealBeat {
+
   0%,
   100% {
     transform:
@@ -575,6 +637,7 @@ body {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: .6;
@@ -585,15 +648,22 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    LETTER
-========================= */
+===================================================== */
 
 .letter {
-  margin: 15px 5px 5px;
+  width: 100%;
+  max-width: 100%;
 
-  padding: 25px 20px;
+  margin:
+    15px
+    auto
+    5px;
+
+  padding:
+    25px
+    20px;
 
   background:
     linear-gradient(
@@ -618,7 +688,9 @@ body {
 }
 
 .letter h1 {
-  margin: 12px 0;
+  margin:
+    12px
+    0;
 
   font-size: 27px;
   color: #df507d;
@@ -636,10 +708,9 @@ body {
   font-weight: bold;
 }
 
-
-/* =========================
-   CHARACTER
-========================= */
+/* =====================================================
+   DATE QUESTION
+===================================================== */
 
 .character {
   position: relative;
@@ -680,6 +751,7 @@ body {
 }
 
 @keyframes characterBounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -691,6 +763,7 @@ body {
 }
 
 @keyframes bowFloat {
+
   0%,
   100% {
     transform: rotate(-10deg);
@@ -703,13 +776,11 @@ body {
   }
 }
 
-
-/* =========================
-   DECORATIONS
-========================= */
-
 .decorations {
-  margin: 8px 0 15px;
+  margin:
+    8px
+    0
+    15px;
 
   font-size: 21px;
   letter-spacing: 5px;
@@ -722,6 +793,7 @@ body {
 }
 
 @keyframes sparkleText {
+
   0%,
   100% {
     opacity: .7;
@@ -732,13 +804,11 @@ body {
   }
 }
 
-
-/* =========================
-   QUESTION
-========================= */
-
 .question-title {
-  margin: 15px 0 10px;
+  margin:
+    15px
+    0
+    10px;
 
   font-size: 30px;
   color: #e05280;
@@ -751,10 +821,9 @@ body {
   line-height: 1.6;
 }
 
-
-/* =========================
-   YES / NO
-========================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .buttons {
   min-height: 120px;
@@ -774,9 +843,12 @@ body {
   border: none;
   border-radius: 50px;
 
-  padding: 14px 28px;
+  padding:
+    14px
+    28px;
 
   font-family: inherit;
+
   font-size: 17px;
   font-weight: bold;
 
@@ -817,7 +889,6 @@ body {
   z-index: 2;
 
   background: #ffe3ed;
-
   color: #9a7180;
 
   border:
@@ -831,6 +902,7 @@ body {
 
 #message {
   min-height: 28px;
+
   margin-top: 10px;
 
   font-weight: bold;
@@ -844,22 +916,26 @@ body {
   color: #c27a94;
 }
 
-
-/* =========================
+/* =====================================================
    SUCCESS PAGE
-========================= */
+===================================================== */
 
 .success {
   width: 100%;
-  max-width: 100%;
+  max-width: 400px;
 
-  margin: 0 auto;
+  margin:
+    0
+    auto;
 
   text-align: center;
 }
 
 .success h1 {
-  margin: 15px 0 10px;
+  margin:
+    15px
+    0
+    10px;
 
   font-size: 35px;
   color: #e05280;
@@ -867,11 +943,14 @@ body {
 
 .thank-you {
   width: 100%;
-  max-width: 400px;
+  margin:
+    20px
+    auto
+    0;
 
-  margin: 20px auto 0;
-
-  padding: 23px 18px;
+  padding:
+    23px
+    18px;
 
   background:
     linear-gradient(
@@ -904,20 +983,20 @@ body {
   font-weight: bold;
 }
 
-
-/* =========================
-   CHAT BUBBLE
-========================= */
-
 .chat-bubble {
   position: relative;
 
   width: 100%;
   max-width: 330px;
 
-  margin: 22px auto 5px;
+  margin:
+    22px
+    auto
+    5px;
 
-  padding: 15px 18px;
+  padding:
+    15px
+    18px;
 
   background: white;
 
@@ -935,6 +1014,8 @@ body {
   box-shadow:
     0 5px 15px
     rgba(214,83,122,.1);
+
+  text-align: center;
 }
 
 .chat-bubble::after {
@@ -963,29 +1044,26 @@ body {
     rotate(45deg);
 }
 
-
-/* =========================
-   FINAL NOTE — CENTERED
-========================= */
-
 .final-note {
   width: 100%;
   max-width: 330px;
 
-  margin: 25px auto 0;
-
-  text-align: center;
+  margin:
+    25px
+    auto
+    0;
 
   color: #bd718b;
 
   font-size: 14px;
   line-height: 1.6;
+
+  text-align: center;
 }
 
-
-/* =========================
+/* =====================================================
    MOVING CAT
-========================= */
+===================================================== */
 
 .moving-cat {
   position: fixed;
@@ -1088,10 +1166,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    CAT MESSAGE
-========================= */
+===================================================== */
 
 .cat-message {
   position: fixed;
@@ -1099,7 +1176,9 @@ body {
   bottom: 78px;
   left: 20px;
 
-  padding: 9px 14px;
+  padding:
+    9px
+    14px;
 
   background: white;
 
@@ -1135,10 +1214,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 500px) {
 
@@ -1147,22 +1225,29 @@ body {
   }
 
   .card {
-    padding: 28px 18px;
+    padding:
+      28px
+      18px;
   }
 
   .bouquet {
     width: 100%;
     min-height: 270px;
 
-    margin: 0 auto 5px;
+    margin:
+      0
+      auto
+      5px;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
   }
 
   .big-bouquet {
     font-size: 145px;
+    line-height: 1;
 
     transform:
       translateX(0);
@@ -1175,6 +1260,9 @@ body {
   .envelope {
     width: 270px;
     height: 175px;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .character {
@@ -1199,10 +1287,9 @@ body {
   }
 }
 
-
-/* =========================
+/* =====================================================
    VERY SMALL PHONES
-========================= */
+===================================================== */
 
 @media (max-width: 360px) {
 
@@ -1213,22 +1300,11 @@ body {
   .bouquet {
     min-height: 235px;
   }
-
-  .card {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .date-button {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 
-
-/* =========================
+/* =====================================================
    REDUCED MOTION
-========================= */
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1240,19 +1316,20 @@ body {
     transition-duration: .01ms !important;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING HEARTS -->
+<!-- =====================================================
+     FLOATING BACKGROUND
+===================================================== -->
+
 <div
   class="hearts"
   id="hearts">
 </div>
-
-
-<!-- SPARKLES -->
 
 <span
   class="sparkle"
@@ -1279,7 +1356,9 @@ body {
 </span>
 
 
-<!-- MOVING CAT -->
+<!-- =====================================================
+     MOVING CAT
+===================================================== -->
 
 <div class="moving-cat">
 
@@ -1296,12 +1375,15 @@ body {
 </div>
 
 
-<!-- MAIN CARD -->
+<!-- =====================================================
+     MAIN CARD
+===================================================== -->
 
 <main class="card">
 
-
-<!-- CORNER BOWS -->
+<!-- =====================================================
+     CORNER BOWS
+===================================================== -->
 
 <div class="corner-bow bow-left">
   🎀
@@ -1312,9 +1394,9 @@ body {
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      INTRODUCTION
-========================= -->
+===================================================== -->
 
 <section
   id="introPage"
@@ -1364,9 +1446,9 @@ body {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ENVELOPE
-========================= -->
+===================================================== -->
 
 <section
   id="envelopePage"
@@ -1411,9 +1493,9 @@ body {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      LETTER
-========================= -->
+===================================================== -->
 
 <section
   id="letterPage"
@@ -1449,8 +1531,10 @@ body {
     </p>
 
     <div class="letter-name">
+
       — From someone who wants
       to take you out for coffee 🎀
+
     </div>
 
     <button
@@ -1467,9 +1551,9 @@ body {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DATE QUESTION
-========================= -->
+===================================================== -->
 
 <section
   id="questionPage"
@@ -1545,9 +1629,9 @@ body {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SUCCESS
-========================= -->
+===================================================== -->
 
 <section
   id="successPage"
@@ -1638,11 +1722,15 @@ body {
 </main>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =========================
+/* =====================================================
    PAGE ELEMENTS
-========================= */
+===================================================== */
 
 const introPage =
   document.getElementById("introPage");
@@ -1682,9 +1770,10 @@ const heartsContainer =
   document.getElementById("hearts");
 
 
-/* =========================
+/* =====================================================
    CHANGE PAGE
-========================= */
+   CENTERING FIX
+===================================================== */
 
 function showPage(page) {
 
@@ -1702,28 +1791,52 @@ function showPage(page) {
 
   page.classList.remove("hidden");
 
+  /* Restart page animation */
+
   page.classList.remove("page");
 
   void page.offsetWidth;
 
   page.classList.add("page");
 
+
+  /* Reset card scroll */
+
   const card =
     document.querySelector(".card");
 
   card.scrollTop = 0;
+  card.scrollLeft = 0;
+
+
+  /* FORCE CARD TO STAY CENTERED */
+
+  card.style.marginLeft = "auto";
+  card.style.marginRight = "auto";
+  card.style.transform = "none";
+
+
+  /* FORCE CURRENT PAGE TO STAY CENTERED */
+
+  page.style.width = "100%";
+  page.style.maxWidth = "100%";
+  page.style.marginLeft = "auto";
+  page.style.marginRight = "auto";
+  page.style.textAlign = "center";
+
 }
 
 
-/* =========================
+/* =====================================================
    INTRO → ENVELOPE
-========================= */
+===================================================== */
 
 seeBouquetBtn.addEventListener(
   "click",
   () => {
 
     createHearts(15);
+
     createFlowers(12);
 
     showPage(envelopePage);
@@ -1732,9 +1845,9 @@ seeBouquetBtn.addEventListener(
 );
 
 
-/* =========================
+/* =====================================================
    ENVELOPE → LETTER
-========================= */
+===================================================== */
 
 envelope.addEventListener(
   "click",
@@ -1759,19 +1872,40 @@ envelope.addEventListener(
   }
 );
 
+
+/* =====================================================
+   OPEN ENVELOPE
+   EXTRA CENTER FIX
+===================================================== */
+
 function openEnvelope() {
 
   createHearts(12);
+
   createFlowers(8);
+
+
+  /* Reset horizontal position */
+
+  const card =
+    document.querySelector(".card");
+
+  card.scrollLeft = 0;
+  card.scrollTop = 0;
+
+  card.style.marginLeft = "auto";
+  card.style.marginRight = "auto";
+  card.style.transform = "none";
+
 
   showPage(letterPage);
 
 }
 
 
-/* =========================
-   LETTER → QUESTION
-========================= */
+/* =====================================================
+   LETTER → DATE QUESTION
+===================================================== */
 
 questionBtn.addEventListener(
   "click",
@@ -1785,9 +1919,9 @@ questionBtn.addEventListener(
 );
 
 
-/* =========================
+/* =====================================================
    NO BUTTON
-========================= */
+===================================================== */
 
 const noMessages = [
 
@@ -1809,12 +1943,15 @@ const noMessages = [
 
 ];
 
+
 let noCount = 0;
+
 
 noBtn.addEventListener(
   "click",
   sayNo
 );
+
 
 function sayNo() {
 
@@ -1832,7 +1969,7 @@ function sayNo() {
   noCount++;
 
 
-  /* YES BUTTON */
+  /* YES gets bigger */
 
   const yesSize =
     Math.min(
@@ -1844,7 +1981,7 @@ function sayNo() {
     `scale(${yesSize})`;
 
 
-  /* NO BUTTON */
+  /* NO gets smaller */
 
   const noSize =
     Math.max(
@@ -1866,47 +2003,54 @@ function sayNo() {
 
   }
 
+
   createHearts(5);
+
 }
 
 
-/* =========================
+/* =====================================================
    YES BUTTON
-========================= */
+===================================================== */
 
 yesBtn.addEventListener(
   "click",
   sayYes
 );
 
+
 function sayYes() {
 
-  /* Reset button transforms */
-
   yesBtn.style.transform = "";
+
   noBtn.style.transform = "";
 
   createHearts(40);
+
   createFlowers(25);
 
   showPage(successPage);
 
+
   setTimeout(() => {
 
     createHearts(25);
+
     createFlowers(15);
 
   }, 800);
+
 }
 
 
-/* =========================
+/* =====================================================
    CREATE HEARTS
-========================= */
+===================================================== */
 
 function createHearts(count = 15) {
 
   const emojis = [
+
     "💗",
     "💕",
     "💖",
@@ -1915,7 +2059,9 @@ function createHearts(count = 15) {
     "♡",
     "🎀",
     "✨"
+
   ];
+
 
   for (
     let i = 0;
@@ -1938,11 +2084,8 @@ function createHearts(count = 15) {
           )
         ];
 
-      /*
-        IMPORTANT:
-        Keep the heart inside the viewport.
-        This prevents horizontal page movement.
-      */
+
+      /* BOUNDED HORIZONTAL POSITION */
 
       heart.style.left =
         Math.min(
@@ -1950,39 +2093,49 @@ function createHearts(count = 15) {
           96
         ) + "vw";
 
+
       heart.style.fontSize =
         (
           16 +
           Math.random() * 20
-        ) + "px";
+        ) +
+        "px";
+
 
       heart.style.animationDuration =
         (
           4 +
           Math.random() * 4
-        ) + "s";
+        ) +
+        "s";
+
 
       heartsContainer.appendChild(
         heart
       );
 
+
       setTimeout(() => {
+
         heart.remove();
+
       }, 8500);
 
     }, i * 80);
 
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    CREATE FLOWERS
-========================= */
+===================================================== */
 
 function createFlowers(count = 8) {
 
   const flowers = [
+
     "🌸",
     "🌷",
     "🌺",
@@ -1990,7 +2143,9 @@ function createFlowers(count = 8) {
     "🪻",
     "🌹",
     "💐"
+
   ];
+
 
   for (
     let i = 0;
@@ -2013,11 +2168,8 @@ function createFlowers(count = 8) {
           )
         ];
 
-      /*
-        IMPORTANT:
-        Prevent flowers from creating
-        horizontal overflow.
-      */
+
+      /* BOUNDED HORIZONTAL POSITION */
 
       flower.style.left =
         Math.min(
@@ -2025,47 +2177,57 @@ function createFlowers(count = 8) {
           96
         ) + "vw";
 
+
       flower.style.fontSize =
         (
           18 +
           Math.random() * 25
-        ) + "px";
+        ) +
+        "px";
+
 
       flower.style.animationDuration =
         (
           5 +
           Math.random() * 5
-        ) + "s";
+        ) +
+        "s";
+
 
       document.body.appendChild(
         flower
       );
 
+
       setTimeout(() => {
+
         flower.remove();
+
       }, 11000);
 
     }, i * 180);
 
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    INITIAL AMBIANCE
-========================= */
+===================================================== */
 
 setTimeout(() => {
 
   createHearts(8);
+
   createFlowers(6);
 
 }, 800);
 
 
-/* =========================
-   CONTINUOUS FLOWERS
-========================= */
+/* =====================================================
+   CONTINUOUS SMALL FLOWERS
+===================================================== */
 
 setInterval(() => {
 
